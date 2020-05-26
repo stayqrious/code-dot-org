@@ -32,7 +32,7 @@ class FirehoseClient
   # Initializes the @firehose to an AWS Firehose client.
   def initialize
     if [:development, :test].include? rack_env
-      return
+      # return
     end
     @firehose = Aws::Firehose::Client.new(region: REGION)
   end
@@ -51,7 +51,7 @@ class FirehoseClient
     end
 
     # don't update our Firehose tables on dev or test environments.
-    if [:development, :test].include? rack_env
+    if [:development, :test].include?(rack_env) && stream_name != I18N_STRING_TRACKING_EVENTS_STREAM_NAME
       CDO.log.info "Skipped sending record to #{stream_name}: "
       CDO.log.info datas
       return
@@ -74,6 +74,7 @@ class FirehoseClient
       batch_response.request_responses.each do |response|
         if response.error_code
           Honeybadger.notify(error_code: response.error_code, error_message: response.error_message)
+          CDO.log.info("DAYNE firehose error_code=#{response.error_code}")
         end
       end
       i += FIREHOSE_PUT_MAX_RECORDS
@@ -84,6 +85,7 @@ class FirehoseClient
     # backing off and retrying.
     # See http://docs.aws.amazon.com/sdkforruby/api/Aws/Firehose/Client.html#put_record-instance_method.
     Honeybadger.notify(error)
+    CDO.log.info("DAYNE firehose error=#{error}")
   end
 
   # Posts a record to the given AWS Kinesis Firehose stream.
