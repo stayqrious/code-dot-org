@@ -28,6 +28,40 @@ import {queryParams} from '@cdo/apps/code-studio/utils';
 
 const SHARE_IMAGE_NAME = '_share_image.png';
 
+
+/*** Canvas patching ***/
+const getCanvasContext = HTMLCanvasElement.prototype.getContext;
+const event = new Event("canvas_change", { bubbles: true });
+
+HTMLCanvasElement.prototype.getContext = function () {
+  const context = getCanvasContext.apply(this, arguments)
+  
+  const canvas = this;
+
+  const drawImage = context.drawImage
+  context.drawImage = function() {
+    drawImage.apply(this, arguments)
+    canvas.dispatchEvent(event);
+  }
+
+  return context
+}
+
+if(window.Phaser) {
+  function streamChanges() {
+    const canvas = document.getElementById("phaser-game").querySelector("canvas");
+    if (!canvas) {
+      window.setTimeout(streamChanges, 300);
+      return;
+    }
+    canvas.dispatchEvent(event);
+    requestAnimationFrame(streamChanges);
+  }
+
+  window.setTimeout(streamChanges, 300);
+}
+
+
 /**
  * Legacy Blockly initialization that was moved here from _blockly.html.haml.
  * Modifies `appOptions` with some default values in `baseOptions`.
@@ -116,7 +150,8 @@ export function setupApp(appOptions) {
         trackEvent('Puzzle', 'Success', window.script_path, report.attempt);
         timing.stopTiming('Puzzle', window.script_path, '');
       }
-      reporting.sendReport(report);
+      //reporting.sendReport(report);
+      reporting.sendReportMessage(report);
     },
     onResetPressed: function() {
       reporting.cancelReport();
@@ -147,7 +182,10 @@ export function setupApp(appOptions) {
         });
         dialog.show();
       } else if (lastServerResponse.nextRedirect) {
-        window.location.href = lastServerResponse.nextRedirect;
+        //window.location.href = lastServerResponse.nextRedirect;
+        if (window.parent) {
+          window.parent.postMessage({"event": "end"})
+        }
       }
     },
     showInstructionsWrapper: function(showInstructions) {
@@ -260,6 +298,31 @@ function loadProjectAndCheckAbuse(appOptions) {
       resolve(appOptions);
     });
   });
+}
+
+
+function loadTemplateFromParent(appOptions) {
+  return new Promise((resolve, reject) => {
+    function onMsg(event) {
+      const payload = event.data;
+      if(payload.event === 'templateResponse') {
+        window.removeEventListener("message", onMsg);
+        appOptions.level.lastAttempt = payload.source;
+        resolve(appOptions);
+      }
+
+      if (payload.event === 'loadTemplate') { // means we got our own message :|
+        resolve(appOptions);
+      }
+    }
+
+    if(window.parent) {
+      window.addEventListener("message", onMsg);
+      window.parent.postMessage({"event": "loadTemplate", "template": appOptions.level.projectTemplateLevelName })
+    } else {
+      resolve(appOptions);
+    }
+  })
 }
 
 /**

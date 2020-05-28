@@ -11,6 +11,7 @@ import styleConstants from '../../styleConstants';
 
 const RESIZER_HEIGHT = styleConstants['resize-bar-width'];
 
+
 class HeightResizer extends React.Component {
   static propTypes = {
     /**
@@ -158,7 +159,7 @@ const styles = {
   },
   ellipsis: {
     width: '100%',
-    color: color.lighter_gray,
+    color: color.dark_charcoal,
     fontSize: 24,
     textAlign: 'center',
     cursor: 'ns-resize',

@@ -210,11 +210,12 @@ class TopInstructions extends Component {
     }
 
     if (serverLevelId) {
-      promises.push(
-        topInstructionsDataApi.getRubric(serverLevelId).done(data => {
-          this.setState({rubric: data});
-        })
-      );
+      // ARUN DISABLE XHR
+      // promises.push(
+      //   topInstructionsDataApi.getRubric(serverLevelId).done(data => {
+      //     this.setState({rubric: data});
+      //   })
+      // );
     }
 
     if (
