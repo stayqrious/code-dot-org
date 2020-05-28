@@ -246,15 +246,16 @@ class TopInstructions extends Component {
       );
     }
     if (serverLevelId) {
-      promises.push(
-        $.ajax({
-          url: `/levels/${serverLevelId}/get_rubric`,
-          method: 'GET',
-          contentType: 'application/json;charset=UTF-8'
-        }).done(data => {
-          this.setState({rubric: data});
-        })
-      );
+      // ARUN DISABLE XHR
+      // promises.push(
+      //   $.ajax({
+      //     url: `/levels/${serverLevelId}/get_rubric`,
+      //     method: 'GET',
+      //     contentType: 'application/json;charset=UTF-8'
+      //   }).done(data => {
+      //     this.setState({rubric: data});
+      //   })
+      // );
     }
 
     if (

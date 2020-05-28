@@ -16,6 +16,12 @@ const GAME_HEIGHT = gameLabConstants.GAME_HEIGHT;
 const styles = {
   selectStyle: {
     width: '100%'
+  },
+  poweredBy: {
+    fontSize: '10px',
+    display: 'inline-block',
+    textAlign: 'right',
+    width: '300px'
   }
 };
 
@@ -38,7 +44,8 @@ const SongSelector = Radium(
       return (
         <div id="song-selector-wrapper">
           <label>
-            <b>{i18n.selectSong()}</b>
+            <b>&#160;{i18n.selectSong()}</b>
+            <span style={ styles.poweredBy }>Powered by SoundCloud</span>
           </label>
           <select
             id="song_selector"
@@ -129,11 +136,14 @@ class DanceVisualizationColumn extends React.Component {
     const enableSongSelection =
       !this.props.levelIsRunning && !this.props.levelRunIsStarting;
 
+    const track_id = this.props.songData[this.props.selectedSong]?.track_id;
+    const track_start = this.props.songData[this.props.selectedSong]?.track_start;
+
     return (
       <div>
-        {!this.props.isShareView && (
+        {/*!this.props.isShareView && (
           <AgeDialog turnOffFilter={this.turnFilterOff} />
-        )}
+        )*/}
         <span>
           {!this.props.isShareView && (
             <SongSelector
@@ -161,6 +171,17 @@ class DanceVisualizationColumn extends React.Component {
             <ArrowButtons />
           </GameButtons>
           <BelowVisualization />
+          { track_id && <iframe 
+            width="100%" 
+            height="100" 
+            style={{ opacity: 0, pointerEvents: "none" }}
+            scrolling="no" 
+            id="soundcloud-frame"
+            data-trackstart={ track_start }
+            frameBorder="0" 
+            allow="autoplay" 
+            src={"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/" + track_id + "&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=true&visual=true"}>
+            </iframe> }
         </span>
       </div>
     );

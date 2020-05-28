@@ -98,3 +98,9 @@ exports.incrementPlayerScore = function(id) {
   Flappy.playerScore++;
   Flappy.displayScore();
 };
+
+exports.decrementPlayerScore = function(id) {
+  studioApp().highlight(id);
+  Flappy.playerScore--;
+  Flappy.displayScore();
+};

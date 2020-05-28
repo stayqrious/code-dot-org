@@ -9,7 +9,7 @@ export const ABSOLUTE_REGEXP = new RegExp('^https?://', 'i');
 
 // absolute URL to curriculum.code.org (which doesn't require media proxy)
 const ABSOLUTE_CDO_CURRICULUM_REGEXP = new RegExp(
-  '^https://curriculum.code.org/',
+  '^https://dmaa7docgq9sl.cloudfront.net/',
   'i'
 );
 

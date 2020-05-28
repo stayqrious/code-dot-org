@@ -336,6 +336,28 @@ reporting.sendReport = function(report) {
   }
 };
 
+reporting.sendReportMessage = function(report) {
+  function onMessage(event) {
+    if (event.data.event === 'reportResponse') {
+      if (appOptions.hasContainedLevels) {
+        report.pass = true; 
+      }
+
+      reportComplete(report, {
+        ...getFallbackResponse(report),
+        ...event.data.response
+      });
+      window.removeEventListener('message', onMessage);
+    }
+  }
+  if (window.parent) {
+    window.addEventListener('message', onMessage);
+    const { onComplete, fallbackResponse, callback, ...msg } = report;
+    window.parent.postMessage({event: 'report', report: msg});
+  }
+  //reportComplete(report, getFallbackResponse(report));
+};
+
 reporting.cancelReport = function() {
   if (lastAjaxRequest) {
     lastAjaxRequest.abort();

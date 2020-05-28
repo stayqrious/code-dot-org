@@ -67,7 +67,18 @@ export function dataURIToFramedBlob(dataURI, callback) {
   frame.src = artistShareFrame;
 }
 
+export function imageFromURI(uri) {
+  return new Promise((resolve, reject) => {
+    let image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = err => reject(err);
+    image.crossOrigin = "anonymous";
+    image.src = uri;
+  });
+}
+
 export function svgToDataURI(svg, imageType = 'image/png', options = {}) {
+  imageType = imageType || 'image/png';
   return new Promise(resolve => {
     // Use lazy-loading to keep canvg (60KB) out of the initial download.
     import('./util/svgelement-polyfill').then(() => {

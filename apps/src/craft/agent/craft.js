@@ -125,7 +125,7 @@ export default class Craft {
     // Always add a hook for after the video but before the level proper begins.
     // Use this to start music, and sometimes to show an extra dialog.
     config.level.afterVideoBeforeInstructionsFn = showInstructions => {
-      Craft.beginBackgroundMusic();
+      //Craft.beginBackgroundMusic();
       if (config.level.showPopupOnLoad) {
         if (config.level.showPopupOnLoad === 'playerSelection') {
           Craft.showPlayerSelectionPopup(function(selectedPlayer) {

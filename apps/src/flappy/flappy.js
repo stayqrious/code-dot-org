@@ -601,6 +601,8 @@ Flappy.init = function(config) {
   config.makeString = commonMsg.makeYourOwnFlappy();
   config.makeUrl = 'http://code.org/flappy';
   config.makeImage = studioApp().assetUrl('media/flappy_promo.png');
+  /// button name
+  config.runButtonText = flappyMsg.runButtonText();
 
   config.enableShowCode = false;
   config.enableShowBlockCount = false;
@@ -620,6 +622,7 @@ Flappy.init = function(config) {
   config.blockArrangement = {
     flappy_whenClick: {x: col1, y: row1},
     when_run: {x: col1, y: row1},
+    flappy_whenRunButtonClick: {x: col1, y: row1},
     flappy_whenCollideGround: {x: col2, y: row1},
     flappy_whenCollideObstacle: {x: col2, y: row2},
     flappy_whenEnterObstacle: {x: col2, y: row3}
@@ -631,7 +634,7 @@ Flappy.init = function(config) {
   }
 
   // when we have when_run and when_click, put when_run in top row
-  if (level.startBlocks.indexOf('when_run') !== -1) {
+  if (level.startBlocks.indexOf('flappy_whenRunButtonClick') !== -1 || level.startBlocks.indexOf('when_run') !== -1) {
     config.blockArrangement.flappy_whenClick.y = row2;
   }
 
@@ -783,7 +786,9 @@ var displayFeedback = function() {
         },
         saveToProjectGallery: true,
         feedbackImage: feedbackImageUri,
-        disableSaveToGallery: !isSignedIn
+        disableSaveToGallery: !isSignedIn,
+        hideXButton: true,
+        continueText: level.freePlay ? "Submit" : undefined
       });
     });
   }
@@ -819,7 +824,7 @@ Flappy.execute = function() {
     whenCollideGround: {code: generator('flappy_whenCollideGround')},
     whenEnterObstacle: {code: generator('flappy_whenEnterObstacle')},
     whenCollideObstacle: {code: generator('flappy_whenCollideObstacle')},
-    whenRunButton: {code: generator('when_run')}
+    whenRunButton: {code: level.startBlocks.indexOf('flappy_whenRunButtonClick') !== -1 ? generator('flappy_whenRunButtonClick'): generator('when_run') }
   };
 
   CustomMarshalingInterpreter.evalWithEvents(
