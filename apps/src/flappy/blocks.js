@@ -151,6 +151,29 @@ exports.install = function(blockly, blockInstallOptions) {
   // blockly.Blocks.flappy_whenRunButtonClick = blockly.Blocks.when_run;
   // generator.flappy_whenRunButtonClick = generator.when_run;
 
+  blockly.Blocks.flappy_whenRunButtonClick = {
+    // Block to handle event where mouse is clicked
+    helpUrl: '',
+    init: function() {
+      this.setHSV(39, 1.0, 0.99);
+      if (isK1) {
+        this.appendDummyInput()
+          .appendTitle(msg.whenRunButtonClick())
+          .appendTitle(new blockly.FieldImage(skin.runArrow, 22, 26));
+      } else {
+        this.appendDummyInput().appendTitle(msg.whenRunButtonClick());
+      }
+      this.setPreviousStatement(false);
+      this.setNextStatement(true);
+      this.setTooltip(msg.whenRunButtonClickTooltip());
+    },
+    shouldBeGrayedOut: function() {
+      return false;
+    }
+  };
+
+  generator.flappy_whenRunButtonClick = generator.when_run;
+
   generator.flappy_flap = function(velocity) {
     // Generate JavaScript for moving left.
     return "Flappy.flap('block_id_" + this.id + "');\n";
@@ -279,6 +302,30 @@ exports.install = function(blockly, blockInstallOptions) {
   generator.flappy_incrementPlayerScore = function() {
     // Generate JavaScript for incrementing the player's score.
     return "Flappy.incrementPlayerScore('block_id_" + this.id + "');\n";
+  };
+
+  blockly.Blocks.flappy_decrementPlayerScore = {
+    // Block for decrementing the player's score.
+    helpUrl: '',
+    init: function() {
+      this.setHSV(184, 1.0, 0.74);
+      if (isK1) {
+        this.appendDummyInput()
+          .appendTitle(commonMsg.score())
+          .appendTitle(new blockly.FieldImage(skin.scoreCard));
+      } else {
+        this.appendDummyInput().appendTitle(msg.decrementPlayerScore());
+      }
+
+      this.setPreviousStatement(true);
+      this.setNextStatement(true);
+      this.setTooltip(msg.decrementPlayerScoreTooltip());
+    }
+  };
+
+  generator.flappy_decrementPlayerScore = function() {
+    // Generate JavaScript for decrementing the player's score.
+    return "Flappy.decrementPlayerScore('block_id_" + this.id + "');\n";
   };
 
   blockly.Blocks.flappy_endGame = {

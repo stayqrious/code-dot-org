@@ -1,5 +1,7 @@
 import $ from 'jquery';
 import debounce from 'lodash/debounce';
+import 'bootstrap';
+
 
 function createOpenInNewTabButton(parentElement, link) {
   if (link) {
@@ -10,6 +12,7 @@ function createOpenInNewTabButton(parentElement, link) {
     );
   }
 }
+
 
 /**
  * Adjust the maximum size of the popup's inner scroll area so that the whole popup

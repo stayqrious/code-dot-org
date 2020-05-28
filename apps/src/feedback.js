@@ -406,16 +406,16 @@ FeedbackUtils.prototype.displayFeedback = function(
 
         // Report hint request to server.
         if (options.response.hint_view_request_url) {
-          $.ajax({
-            url: options.response.hint_view_request_url,
-            type: 'POST',
-            data: {
-              script_id: options.response.script_id,
-              level_id: options.response.level_id,
-              feedback_type: options.feedbackType,
-              feedback_xml: feedbackBlocks ? feedbackBlocks.xml : undefined
-            }
-          });
+          // $.ajax({
+          //   url: options.response.hint_view_request_url,
+          //   type: 'POST',
+          //   data: {
+          //     script_id: options.response.script_id,
+          //     level_id: options.response.level_id,
+          //     feedback_type: options.feedbackType,
+          //     feedback_xml: feedbackBlocks ? feedbackBlocks.xml : undefined
+          //   }
+          // });
         }
       });
     }

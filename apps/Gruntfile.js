@@ -68,8 +68,8 @@ describe('entry tests', () => {
 
   /** @const {string[]} */
   var ALL_APPS = [
-    'ailab',
-    'applab',
+    //'ailab',
+    //'applab',
     'bounce',
     'calc',
     'craft',
@@ -77,15 +77,16 @@ describe('entry tests', () => {
     'eval',
     'fish',
     'flappy',
-    'javalab',
-    'gamelab',
+    //'javalab',
+    //'gamelab',
     'spritelab',
     'jigsaw',
     'maze',
     'netsim',
     'studio',
     'turtle',
-    'weblab'
+    //'weblab'
+    //'scratch',
   ];
 
   if (SINGLE_APP && ALL_APPS.indexOf(SINGLE_APP) === -1) {
@@ -140,7 +141,8 @@ describe('entry tests', () => {
   }
 
   config.clean = {
-    all: ['build']
+    all: ['build'],
+    after_build: ['build/package/js', 'build/package/css', 'build/package/fontawesome', 'build/package/images']
   };
 
   config.copy = {
@@ -160,26 +162,32 @@ describe('entry tests', () => {
           expand: true,
           cwd: 'static/',
           src: ['**'],
-          dest: 'build/package/media'
+          dest: 'build/package/blockly/media'
         },
         {
           expand: true,
           cwd: 'lib/blockly/media',
           src: ['**'],
           //TODO: Would be preferrable to separate Blockly media.
-          dest: 'build/package/media'
+          dest: 'build/package/blockly/media'
         },
         {
           expand: true,
           cwd: 'node_modules/@code-dot-org/craft/dist/assets',
           src: ['**'],
-          dest: 'build/package/media/skins/craft'
+          dest: 'build/package/blockly/media/skins/craft'
         },
         {
           expand: true,
           cwd: 'node_modules/@code-dot-org/ml-activities/dist/assets',
           src: ['**'],
-          dest: 'build/package/media/skins/fish'
+          dest: 'build/package/blockly/media/skins/fish'
+        },
+        {
+          expand: true,
+          cwd: 'node_modules/scratch-blocks/media',
+          src: ['**'],
+          dest: 'build/package/blockly/media/scratch-blocks'
         },
         {
           expand: true,
@@ -202,6 +210,18 @@ describe('entry tests', () => {
           cwd: './node_modules/video.js/dist',
           src: ['**'],
           dest: 'build/package/video-js'
+        },
+        {
+          expand: true,
+          cwd: './dashboard_assets',
+          src: ['**'],
+          dest: 'build/package/assets/'
+        },
+        {
+          expand: true,
+          cwd: './dashboard_libraries',
+          src: ['**'],
+          dest: 'build/package/libraries/'
         }
       ]
     },
@@ -316,6 +336,21 @@ describe('entry tests', () => {
           }
         }
       ]
+    },
+    move_to_assets: {
+      files: [
+        {
+          expand: true,
+          cwd: 'build/package',
+          src: [
+            'css/**',
+            'js/**',
+            'fontawesome/**',
+            'images/**'
+          ],
+          dest: 'build/package/assets/'
+        }
+      ]
     }
   };
 
@@ -356,6 +391,10 @@ describe('entry tests', () => {
           [
             'build/package/css/foorm_editor.css',
             'style/code-studio/foorm_editor.scss'
+          ],
+          [
+            'build/package/css/application.css',
+            'dashboard_assets/application.css'
           ]
         ].concat(
           appsToBuild.map(function(app) {
@@ -558,9 +597,9 @@ describe('entry tests', () => {
     'levels/_text_match': './src/sites/studio/pages/levels/_text_match.js',
     'levels/_widget': './src/sites/studio/pages/levels/_widget.js',
     'levels/show': './src/sites/studio/pages/levels/show.js',
-    'maker/discountcode': './src/sites/studio/pages/maker/discountcode.js',
-    'maker/home': './src/sites/studio/pages/maker/home.js',
-    'maker/setup': './src/sites/studio/pages/maker/setup.js',
+    // 'maker/discountcode': './src/sites/studio/pages/maker/discountcode.js',
+    // 'maker/home': './src/sites/studio/pages/maker/home.js',
+    // 'maker/setup': './src/sites/studio/pages/maker/setup.js',
     'projects/featured': './src/sites/studio/pages/projects/featured.js',
     'projects/index': './src/sites/studio/pages/projects/index.js',
     'report_abuse/report_abuse_form':
@@ -637,6 +676,9 @@ describe('entry tests', () => {
       './src/sites/studio/pages/sprite_management/sprite_upload.js'
   };
 
+  //SQ
+  internalEntries = {};
+
   var pegasusEntries = {
     // code.org
     'code.org/public/dance': './src/sites/code.org/pages/public/dance.js',
@@ -676,6 +718,9 @@ describe('entry tests', () => {
     // shared between code.org and hourofcode.com
     tutorialExplorer: './src/tutorialExplorer/tutorialExplorer.js'
   };
+
+  //SQ
+  pegasusEntries = {};
 
   var professionalDevelopmentEntries = {
     'code.org/public/pd-workshop-survey/splat':
@@ -738,6 +783,8 @@ describe('entry tests', () => {
       './src/sites/studio/pages/foorm/simple_survey_forms/show.js'
   };
 
+  professionalDevelopmentEntries = {};
+  
   // Entries which are shared between dashboard and pegasus, which are included
   // by haml partials in the shared/haml/ directory.
   const sharedEntries = {
@@ -766,8 +813,8 @@ describe('entry tests', () => {
 
     brambleHost: './src/weblab/brambleHost.js',
 
-    'applab-api': './src/applab/api-entry.js',
-    'gamelab-api': './src/p5lab/gamelab/api-entry.js',
+    //'applab-api': './src/applab/api-entry.js',
+    //'gamelab-api': './src/p5lab/gamelab/api-entry.js',
 
     'census_reviewers/review_reported_inaccuracies':
       './src/sites/studio/pages/census_reviewers/review_reported_inaccuracies.js',
@@ -1053,7 +1100,7 @@ describe('entry tests', () => {
       proxy: {
         '**': 'http://localhost:3000'
       },
-      publicPath: '/assets/js/',
+      publicPath: '/js/',
       hot: true,
       inline: true,
       port: 3001,
@@ -1186,7 +1233,7 @@ describe('entry tests', () => {
     'lint-entry-points',
     'newer:messages',
     'exec:convertScssVars',
-    'exec:generateSharedConstants',
+    //'exec:generateSharedConstants',
     'newer:copy:src',
     'newer:copy:lib',
     'locales',
@@ -1251,7 +1298,9 @@ describe('entry tests', () => {
     envConstants.DEV ? 'webpack:build' : 'webpack:uglify',
     'notify:js-build',
     'postbuild',
-    envConstants.DEV ? 'noop' : 'newer:copy:unhash'
+    envConstants.DEV ? 'noop' : 'newer:copy:unhash',
+    'copy:move_to_assets',
+    'clean:after_build'
   ]);
 
   grunt.registerTask('rebuild', ['clean', 'build']);

@@ -173,6 +173,10 @@ ImageFilter.prototype.checkBrowserSupport_ = function() {
   // Chrome also contains 'Safari' in its user agent string, so check for
   // 'Safari' but not 'Chrome'
   // See http://stackoverflow.com/a/7768006/5000129
+
+  // Disable glow effect
+  return false;
+  
   if (
     navigator.userAgent.indexOf('Safari') !== -1 &&
     navigator.userAgent.indexOf('Chrome') === -1

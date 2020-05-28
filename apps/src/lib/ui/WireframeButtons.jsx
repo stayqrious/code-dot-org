@@ -67,7 +67,7 @@ export default class WireframeButtons extends React.Component {
             appType={appType}
             channelId={channelId}
             isLegacyShare={isLegacyShare}
-          />
+          /> 
         )}
       </div>
     );

@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import 'qtip2';
+import './jquery.overlaps';
 var clientState = require('./clientState');
 
 /**
@@ -26,6 +27,8 @@ var clientState = require('./clientState');
  * Given a set of callout definitions, installs them on the page
  * @param {CalloutDefinition[]} callouts
  */
+
+
 export default function createCallouts(callouts) {
   if (!callouts || callouts.length === 0) {
     return;

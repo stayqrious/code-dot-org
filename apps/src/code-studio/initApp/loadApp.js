@@ -28,6 +28,40 @@ import msg from '@cdo/locale';
 
 const SHARE_IMAGE_NAME = '_share_image.png';
 
+
+/*** Canvas patching ***/
+const getCanvasContext = HTMLCanvasElement.prototype.getContext;
+const event = new Event("canvas_change", { bubbles: true });
+
+HTMLCanvasElement.prototype.getContext = function () {
+  const context = getCanvasContext.apply(this, arguments)
+  
+  const canvas = this;
+
+  const drawImage = context.drawImage
+  context.drawImage = function() {
+    drawImage.apply(this, arguments)
+    canvas.dispatchEvent(event);
+  }
+
+  return context
+}
+
+if(window.Phaser) {
+  function streamChanges() {
+    const canvas = document.getElementById("phaser-game").querySelector("canvas");
+    if (!canvas) {
+      window.setTimeout(streamChanges, 300);
+      return;
+    }
+    canvas.dispatchEvent(event);
+    requestAnimationFrame(streamChanges);
+  }
+
+  window.setTimeout(streamChanges, 300);
+}
+
+
 /**
  * Legacy Blockly initialization that was moved here from _blockly.html.haml.
  * Modifies `appOptions` with some default values in `baseOptions`.
@@ -115,7 +149,8 @@ export function setupApp(appOptions) {
         trackEvent('Puzzle', 'Success', window.script_path, report.attempt);
         timing.stopTiming('Puzzle', window.script_path, '');
       }
-      reporting.sendReport(report);
+      //reporting.sendReport(report);
+      reporting.sendReportMessage(report);
     },
     onResetPressed: function() {
       reporting.cancelReport();
@@ -146,7 +181,10 @@ export function setupApp(appOptions) {
         });
         dialog.show();
       } else if (lastServerResponse.nextRedirect) {
-        window.location.href = lastServerResponse.nextRedirect;
+        //window.location.href = lastServerResponse.nextRedirect;
+        if (window.parent) {
+          window.parent.postMessage({"event": "end"})
+        }
       }
     },
     showInstructionsWrapper: function(showInstructions) {
@@ -261,6 +299,31 @@ function loadProjectAndCheckAbuse(appOptions) {
   });
 }
 
+
+function loadTemplateFromParent(appOptions) {
+  return new Promise((resolve, reject) => {
+    function onMsg(event) {
+      const payload = event.data;
+      if(payload.event === 'templateResponse') {
+        window.removeEventListener("message", onMsg);
+        appOptions.level.lastAttempt = payload.source;
+        resolve(appOptions);
+      }
+
+      if (payload.event === 'loadTemplate') { // means we got our own message :|
+        resolve(appOptions);
+      }
+    }
+
+    if(window.parent) {
+      window.addEventListener("message", onMsg);
+      window.parent.postMessage({"event": "loadTemplate", "template": appOptions.level.projectTemplateLevelName })
+    } else {
+      resolve(appOptions);
+    }
+  })
+}
+
 /**
  * @param {AppOptionsConfig} appOptions
  * @return {Promise.<AppOptionsConfig>}
@@ -289,6 +352,10 @@ function loadAppAsync(appOptions) {
     return loadProjectAndCheckAbuse(appOptions);
   }
 
+  if (appOptions.level.projectTemplateLevelName && !appOptions.readonlyWorkspace) {
+    return loadTemplateFromParent(appOptions);
+  }
+
   return new Promise((resolve, reject) => {
     if (appOptions.publicCaching) {
       // Disable social share by default on publicly-cached pages, because we don't know
@@ -297,43 +364,50 @@ function loadAppAsync(appOptions) {
       appOptions.disableSocialShare = true;
     }
 
-    $.ajax(
-      `/api/user_progress` +
-        `/${appOptions.scriptName}` +
-        `/${appOptions.lessonPosition}` +
-        `/${appOptions.levelPosition}` +
-        `/${appOptions.serverLevelId}`
-    )
-      .done(data => {
-        appOptions.disableSocialShare = data.disableSocialShare;
+    // $.ajax(
+    //   `/api/user_progress` +
+    //     `/${appOptions.scriptName}` +
+    //     `/${appOptions.lessonPosition}` +
+    //     `/${appOptions.levelPosition}` +
+    //     `/${appOptions.serverLevelId}`
+    // )
+    //   .done(data => {
+    //     appOptions.disableSocialShare = data.disableSocialShare;
 
-        // We do not need to process data.progress here because labs do not use
-        // the level progress data directly. (The progress bubbles in the header
-        // of the level pages are rendered by header.build in header.js.)
+    //     // We do not need to process data.progress here because labs do not use
+    //     // the level progress data directly. (The progress bubbles in the header
+    //     // of the level pages are rendered by header.build in header.js.)
 
-        if (data.lastAttempt) {
-          appOptions.level.lastAttempt = data.lastAttempt.source;
-        } else if (!data.signedIn) {
-          // User is not signed in, load last attempt from session storage.
-          appOptions.level.lastAttempt = clientState.sourceForLevel(
-            appOptions.scriptName,
-            appOptions.serverProjectLevelId || appOptions.serverLevelId
-          );
-        }
+    //     if (data.lastAttempt) {
+    //       appOptions.level.lastAttempt = data.lastAttempt.source;
+    //     } else if (!data.signedIn) {
+    //       // User is not signed in, load last attempt from session storage.
+    //       appOptions.level.lastAttempt = clientState.sourceForLevel(
+    //         appOptions.scriptName,
+    //         appOptions.serverProjectLevelId || appOptions.serverLevelId
+    //       );
+    //     }
 
-        if (data.pairingDriver) {
-          appOptions.level.pairingDriver = data.pairingDriver;
-          appOptions.level.pairingAttempt = data.pairingAttempt;
-          appOptions.level.pairingChannelId = data.pairingChannelId;
-        }
+    //     if (data.pairingDriver) {
+    //       appOptions.level.pairingDriver = data.pairingDriver;
+    //       appOptions.level.pairingAttempt = data.pairingAttempt;
+    //       appOptions.level.pairingChannelId = data.pairingChannelId;
+    //     }
 
-        resolve(appOptions);
-      })
-      .fail(() => {
-        // TODO: Show an error to the user here? (LP-1815)
-        console.error('Could not load user progress.');
-        resolve(appOptions);
-      });
+    //     resolve(appOptions);
+    //   })
+    //   .fail(() => {
+    //     // TODO: Show an error to the user here? (LP-1815)
+    //     console.error('Could not load user progress.');
+    //     resolve(appOptions);
+    //   });
+
+    appOptions.level.lastAttempt = clientState.sourceForLevel(
+      appOptions.scriptName,
+      appOptions.serverProjectLevelId || appOptions.serverLevelId
+    );
+    
+    resolve(appOptions);
   });
 }
 
