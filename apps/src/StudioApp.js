@@ -530,28 +530,28 @@ StudioApp.prototype.init = function(config) {
   initializeContainedLevel();
 
   if (config.isChallengeLevel) {
-    const startDialogDiv = document.createElement('div');
-    document.body.appendChild(startDialogDiv);
-    const progress = getStore().getState().progress;
-    const isComplete =
-      progress.levelProgress[progress.currentLevelId] >=
-      TestResults.MINIMUM_OPTIMAL_RESULT;
-    ReactDOM.render(
-      <ChallengeDialog
-        isOpen={true}
-        avatar={this.icon}
-        handleCancel={() => {
-          this.skipLevel();
-        }}
-        cancelButtonLabel={msg.challengeLevelSkip()}
-        complete={isComplete}
-        isIntro={true}
-        primaryButtonLabel={msg.challengeLevelStart()}
-        text={msg.challengeLevelIntro()}
-        title={msg.challengeLevelTitle()}
-      />,
-      startDialogDiv
-    );
+    // const startDialogDiv = document.createElement('div');
+    // document.body.appendChild(startDialogDiv);
+    // const progress = getStore().getState().progress;
+    // const isComplete =
+    //   progress.levelProgress[progress.currentLevelId] >=
+    //   TestResults.MINIMUM_OPTIMAL_RESULT;
+    // ReactDOM.render(
+    //   <ChallengeDialog
+    //     isOpen={true}
+    //     avatar={this.icon}
+    //     handleCancel={() => {
+    //       this.skipLevel();
+    //     }}
+    //     cancelButtonLabel={msg.challengeLevelSkip()}
+    //     complete={isComplete}
+    //     isIntro={true}
+    //     primaryButtonLabel={msg.challengeLevelStart()}
+    //     text={msg.challengeLevelIntro()}
+    //     title={msg.challengeLevelTitle()}
+    //   />,
+    //   startDialogDiv
+    // );
   }
   if (!config.readOnlyWorkspace) {
     this.addChangeHandler(() => {
@@ -1651,7 +1651,7 @@ StudioApp.prototype.displayFeedback = function(options) {
 
   try {
     options.shareLink =
-      (options.response && options.response.level_source) ||
+      (options.response && (options.response.level_source) || options.response.share_url) ||
       project.getShareUrl();
   } catch (e) {}
 
@@ -2044,12 +2044,15 @@ StudioApp.prototype.skipLevel = function() {
     result: false,
     testResult: TestResults.SKIPPED,
     onComplete() {
-      const newUrl = getStore().getState().pageConstants.nextLevelUrl;
-      if (newUrl) {
-        window.location.href = newUrl;
-      } else {
-        throw new Error('No next level url available to skip to');
+      if (window.parent) {
+        window.parent.postMessage({"event": "end"})
       }
+      // const newUrl = getStore().getState().pageConstants.nextLevelUrl;
+      // if (newUrl) {
+      //   window.location.href = newUrl;
+      // } else {
+      //   throw new Error('No next level url available to skip to');
+      // }
     }
   });
 };
@@ -3273,10 +3276,11 @@ StudioApp.prototype.isNotStartedLevel = function(config) {
   ) {
     return config.readonlyWorkspace && !config.channel;
   } else {
-    return (
-      config.readonlyWorkspace &&
-      progress.levelProgress[progress.currentLevelId] === undefined
-    );
+    return false // we have no progress.
+    // return (
+    //   config.readonlyWorkspace &&
+    //   progress.levelProgress[progress.currentLevelId] === undefined
+    // );
   }
 };
 

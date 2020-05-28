@@ -18,7 +18,8 @@ class StudioAppWrapper extends React.Component {
   };
 
   requiresLandscape() {
-    return !(this.props.isEmbedView || this.props.isShareView);
+    return false;
+    //return !(this.props.isEmbedView || this.props.isShareView);
   }
 
   render() {

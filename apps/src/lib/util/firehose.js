@@ -375,15 +375,15 @@ function getSingleton() {
 }
 
 function putRecord(data, options) {
-  getSingleton().then(firehoseClient =>
-    firehoseClient.putRecord(data, options)
-  );
+  // getSingleton().then(firehoseClient =>
+  //   firehoseClient.putRecord(data, options)
+  // );
 }
 
 function putRecordBatch(data, options) {
-  getSingleton().then(firehoseClient =>
-    firehoseClient.putRecordBatch(data, options)
-  );
+  // getSingleton().then(firehoseClient =>
+  //   firehoseClient.putRecordBatch(data, options)
+  // );
 }
 
 export default {putRecord, putRecordBatch};

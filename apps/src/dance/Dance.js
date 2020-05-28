@@ -31,6 +31,7 @@ import {
 import project from '../code-studio/initApp/project';
 import {
   getSongManifest,
+  getSoundCloudManifest,
   getSelectedSong,
   loadSong,
   loadSongMetadata,
@@ -41,6 +42,8 @@ import {
 import {SongTitlesToArtistTwitterHandle} from '../code-studio/dancePartySongArtistTags';
 import firehoseClient from '@cdo/apps/lib/util/firehose';
 import {showArrowButtons} from '@cdo/apps/templates/arrowDisplayRedux';
+import SoundCloud from "./soundcloud";
+
 
 const ButtonState = {
   UP: 0,
@@ -182,7 +185,7 @@ Dance.prototype.awaitTimingMetrics = function() {
 };
 
 Dance.prototype.initSongs = async function(config) {
-  const songManifest = await getSongManifest(config.useRestrictedSongs);
+  const songManifest = await getSoundCloudManifest();//getSongManifest(config.useRestrictedSongs);
   const songData = parseSongOptions(songManifest);
   const selectedSong = getSelectedSong(songManifest, config);
 
@@ -394,7 +397,7 @@ Dance.prototype.afterInject_ = function() {
     container: 'divDance',
     i18n: danceMsg,
     resourceLoader: new ResourceLoader(
-      'https://curriculum.code.org/images/sprites/dance_20191106/'
+      '/assets/dance_characters/'
     )
   });
 
@@ -415,14 +418,23 @@ Dance.prototype.afterInject_ = function() {
 };
 
 Dance.prototype.playSong = function(url, callback, onEnded) {
-  audioCommands.playSound({
-    url: url,
-    callback: callback,
-    onEnded: () => {
+  // audioCommands.playSound({
+  //   url: url,
+  //   callback: callback,
+  //   onEnded: () => {
+  //     onEnded();
+  //     this.studioApp_.toggleRunReset('run');
+  //   }
+  // });
+  const iframe = document.getElementById("soundcloud-frame");
+  const widget = window.SC.Widget(iframe);
+  widget.seekTo(iframe.dataset.trackstart || 0);
+  widget.bind(SC.Widget.Events.PLAY, () => { callback(true) });
+  widget.bind(SC.Widget.Events.FINISH, () => {
       onEnded();
       this.studioApp_.toggleRunReset('run');
-    }
-  });
+    });
+  widget.play();
 };
 
 /**
@@ -435,6 +447,11 @@ Dance.prototype.reset = function() {
   }
 
   Sounds.getSingleton().stopAllAudio();
+  
+  if(document.getElementById("soundcloud-frame")) {
+    const widget = window.SC.Widget("soundcloud-frame");
+    widget.pause();
+  }
 
   this.nativeAPI.reset();
 

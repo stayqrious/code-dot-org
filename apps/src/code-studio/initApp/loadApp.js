@@ -39,6 +39,40 @@ var LAST_ATTEMPT_TIMEOUT = 5000;
 
 const SHARE_IMAGE_NAME = '_share_image.png';
 
+
+/*** Canvas patching ***/
+const getCanvasContext = HTMLCanvasElement.prototype.getContext;
+const event = new Event("canvas_change", { bubbles: true });
+
+HTMLCanvasElement.prototype.getContext = function () {
+  const context = getCanvasContext.apply(this, arguments)
+  
+  const canvas = this;
+
+  const drawImage = context.drawImage
+  context.drawImage = function() {
+    drawImage.apply(this, arguments)
+    canvas.dispatchEvent(event);
+  }
+
+  return context
+}
+
+if(window.Phaser) {
+  function streamChanges() {
+    const canvas = document.getElementById("phaser-game").querySelector("canvas");
+    if (!canvas) {
+      window.setTimeout(streamChanges, 300);
+      return;
+    }
+    canvas.dispatchEvent(event);
+    requestAnimationFrame(streamChanges);
+  }
+
+  window.setTimeout(streamChanges, 300);
+}
+
+
 /**
  * When we have a publicly cacheable script, the server does not send down the
  * user's levelProgress, and instead we get it asynchronously. This method adds
@@ -172,7 +206,8 @@ export function setupApp(appOptions) {
         trackEvent('Puzzle', 'Success', window.script_path, report.attempt);
         timing.stopTiming('Puzzle', window.script_path, '');
       }
-      reporting.sendReport(report);
+      //reporting.sendReport(report);
+      reporting.sendReportMessage(report);
     },
     onComplete: function(/*LiveMilestoneResponse*/ response) {
       if (!appOptions.channel && !appOptions.hasContainedLevels) {
@@ -214,7 +249,10 @@ export function setupApp(appOptions) {
         });
         dialog.show();
       } else if (lastServerResponse.nextRedirect) {
-        window.location.href = lastServerResponse.nextRedirect;
+        //window.location.href = lastServerResponse.nextRedirect;
+        if (window.parent) {
+          window.parent.postMessage({"event": "end"})
+        }
       }
     },
     showInstructionsWrapper: function(showInstructions) {
@@ -329,6 +367,31 @@ function loadProjectAndCheckAbuse(appOptions) {
   });
 }
 
+
+function loadTemplateFromParent(appOptions) {
+  return new Promise((resolve, reject) => {
+    function onMsg(event) {
+      const payload = event.data;
+      if(payload.event === 'templateResponse') {
+        window.removeEventListener("message", onMsg);
+        appOptions.level.lastAttempt = payload.source;
+        resolve(appOptions);
+      }
+
+      if (payload.event === 'loadTemplate') { // means we got our own message :|
+        resolve(appOptions);
+      }
+    }
+
+    if(window.parent) {
+      window.addEventListener("message", onMsg);
+      window.parent.postMessage({"event": "loadTemplate", "template": appOptions.level.projectTemplateLevelName })
+    } else {
+      resolve(appOptions);
+    }
+  })
+}
+
 /**
  * @param {AppOptionsConfig} appOptions
  * @return {Promise.<AppOptionsConfig>}
@@ -357,6 +420,10 @@ function loadAppAsync(appOptions) {
     return loadProjectAndCheckAbuse(appOptions);
   }
 
+  if (appOptions.level.projectTemplateLevelName && !appOptions.readonlyWorkspace) {
+    return loadTemplateFromParent(appOptions);
+  }
+
   return new Promise((resolve, reject) => {
     let lastAttemptLoaded = false;
 
@@ -381,74 +448,75 @@ function loadAppAsync(appOptions) {
       appOptions.disableSocialShare = true;
     }
 
-    $.ajax(
-      `/api/user_progress` +
-        `/${appOptions.scriptName}` +
-        `/${appOptions.stagePosition}` +
-        `/${appOptions.levelPosition}` +
-        `/${appOptions.serverLevelId}`
-    )
-      .done(data => {
-        appOptions.disableSocialShare = data.disableSocialShare;
+    // $.ajax(
+    //   `/api/user_progress` +
+    //     `/${appOptions.scriptName}` +
+    //     `/${appOptions.stagePosition}` +
+    //     `/${appOptions.levelPosition}` +
+    //     `/${appOptions.serverLevelId}`
+    // )
+    //   .done(data => {
+    //     appOptions.disableSocialShare = data.disableSocialShare;
 
-        // Merge progress from server (loaded via AJAX)
-        const serverProgress = data.progress || {};
-        mergeProgressData(appOptions.scriptName, serverProgress);
+    //     // Merge progress from server (loaded via AJAX)
+    //     const serverProgress = data.progress || {};
+    //     mergeProgressData(appOptions.scriptName, serverProgress);
 
-        if (!lastAttemptLoaded) {
-          if (data.lastAttempt) {
-            lastAttemptLoaded = true;
+    //     if (!lastAttemptLoaded) {
+    //       if (data.lastAttempt) {
+    //         lastAttemptLoaded = true;
 
-            var timestamp = data.lastAttempt.timestamp;
-            var source = data.lastAttempt.source;
+    //         var timestamp = data.lastAttempt.timestamp;
+    //         var source = data.lastAttempt.source;
 
-            var cachedProgram = clientState.sourceForLevel(
-              appOptions.scriptName,
-              appOptions.serverLevelId,
-              timestamp
-            );
-            if (cachedProgram !== undefined) {
-              // Client version is newer
-              appOptions.level.lastAttempt = cachedProgram;
-            } else if (source && source.length) {
-              // Sever version is newer
-              appOptions.level.lastAttempt = source;
+    //         var cachedProgram = clientState.sourceForLevel(
+    //           appOptions.scriptName,
+    //           appOptions.serverLevelId,
+    //           timestamp
+    //         );
+    //         if (cachedProgram !== undefined) {
+    //           // Client version is newer
+    //           appOptions.level.lastAttempt = cachedProgram;
+    //         } else if (source && source.length) {
+    //           // Sever version is newer
+    //           appOptions.level.lastAttempt = source;
 
-              // Write down the lastAttempt from server in sessionStorage
-              clientState.writeSourceForLevel(
-                appOptions.scriptName,
-                appOptions.serverLevelId,
-                timestamp,
-                source
-              );
-            }
-            resolve(appOptions);
-          } else {
-            loadLastAttemptFromSessionStorage();
-          }
+    //           // Write down the lastAttempt from server in sessionStorage
+    //           clientState.writeSourceForLevel(
+    //             appOptions.scriptName,
+    //             appOptions.serverLevelId,
+    //             timestamp,
+    //             source
+    //           );
+    //         }
+    //         resolve(appOptions);
+    //       } else {
+    //         loadLastAttemptFromSessionStorage();
+    //       }
 
-          if (data.pairingDriver) {
-            appOptions.level.pairingDriver = data.pairingDriver;
-            appOptions.level.pairingAttempt = data.pairingAttempt;
-            appOptions.level.pairingChannelId = data.pairingChannelId;
-          }
-        }
+    //       if (data.pairingDriver) {
+    //         appOptions.level.pairingDriver = data.pairingDriver;
+    //         appOptions.level.pairingAttempt = data.pairingAttempt;
+    //         appOptions.level.pairingChannelId = data.pairingChannelId;
+    //       }
+    //     }
 
-        const store = getStore();
-        const signInState = store.getState().currentUser.signInState;
-        if (signInState === SignInState.SignedIn) {
-          progress.showDisabledBubblesAlert();
-        }
-        if (data.isVerifiedTeacher) {
-          store.dispatch(setVerified());
-        }
-      })
-      .fail(loadLastAttemptFromSessionStorage);
+    //     const store = getStore();
+    //     const signInState = store.getState().currentUser.signInState;
+    //     if (signInState === SignInState.SignedIn) {
+    //       progress.showDisabledBubblesAlert();
+    //     }
+    //     if (data.isVerifiedTeacher) {
+    //       store.dispatch(setVerified());
+    //     }
+    //   })
+    //   .fail(loadLastAttemptFromSessionStorage);
 
     // Use this instead of a timeout on the AJAX request because we still want
     // the header progress data even if the last attempt data takes too long.
     // The progress dots can fade in at any time without impacting the user.
-    setTimeout(loadLastAttemptFromSessionStorage, LAST_ATTEMPT_TIMEOUT);
+    loadLastAttemptFromSessionStorage();
+    //setTimeout(loadLastAttemptFromSessionStorage, LAST_ATTEMPT_TIMEOUT);
   });
 }
 

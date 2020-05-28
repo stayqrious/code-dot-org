@@ -11,5 +11,5 @@ export default function trackEvent(...args) {
     // want this call to fail if window.trackEvent is not available.
     return;
   }
-  window.trackEvent(...args);
+  //window.trackEvent(...args);
 }

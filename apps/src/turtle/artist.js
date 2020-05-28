@@ -159,6 +159,7 @@ const REMIX_PROPS_BY_SKIN = {
 
 const PUBLISHABLE_SKINS = ['artist', 'artist_zombie', 'anna', 'elsa'];
 
+
 /**
  * An instantiable Artist class
  * @param {StudioApp} studioApp The studioApp instance to build upon.
@@ -226,7 +227,7 @@ Artist.prototype.preloadAllStickerImages = function() {
 
       img.onload = () => resolve();
       img.onerror = () => resolve();
-
+      img.crossOrigin = "anonymous";
       img.src = this.skin.stickers[name];
       this.stickers[name] = img;
     });
@@ -260,7 +261,7 @@ Artist.prototype.preloadAllPatternImages = function() {
 
         img.onload = () => resolve();
         img.onerror = () => resolve();
-
+        img.crossOrigin = "anonymous";
         img.src = this.linePatterns[pattern];
         this.loadedPathPatterns[pattern] = img;
       } else {
@@ -616,6 +617,7 @@ Artist.prototype.drawCurrentBlocksOnCanvas = function(canvas) {
  */
 Artist.prototype.placeImage = function(filename, position, scale) {
   var img = new Image();
+  img.crossOrigin = "anonymous";
   img.onload = _.bind(function() {
     if (img.width !== 0) {
       if (scale) {
@@ -679,7 +681,7 @@ Artist.prototype.loadTurtle = function(initializing = true) {
     : () => this.visualization.drawTurtle();
   this.visualization.avatar.image = new Image();
   this.visualization.avatar.image.onload = _.bind(onloadCallback, this);
-
+  this.visualization.avatar.image.crossOrigin = 'anonymous';
   this.visualization.avatar.image.src = this.skin.avatar;
 };
 
@@ -688,6 +690,7 @@ Artist.prototype.loadTurtle = function(initializing = true) {
  */
 Artist.prototype.loadDecorationAnimation = function() {
   if (this.skin.id === 'elsa') {
+    this.decorationAnimationImage.crossOrigin = "anonymous";
     this.decorationAnimationImage.src = this.skin.decorationAnimation;
   }
 };
