@@ -3466,7 +3466,8 @@ StudioApp.prototype.setPageConstants = function(config, appSpecificConstants) {
         !config.level.isK1 &&
         !config.readonlyWorkspace,
       serverScriptId: config.serverScriptId,
-      serverLevelId: config.serverLevelId
+      serverLevelId: config.serverLevelId,
+      runButtonText: config.runButtonText
     },
     appSpecificConstants
   );
