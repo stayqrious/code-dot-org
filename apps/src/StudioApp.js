@@ -1855,6 +1855,14 @@ StudioApp.prototype.updateBlockCount = function() {
     element.appendChild(
       document.createTextNode(this.feedback_.getNumCountableBlocks())
     );
+
+    if (window.parent !== window) {
+      window.parent.postMessage({
+        event: 'blockUsed', 
+        used: this.feedback_.getNumCountableBlocks(), 
+        ideal: this.IDEAL_BLOCK_NUM
+      }, "*");
+    }
   }
 };
 
@@ -3274,7 +3282,7 @@ StudioApp.prototype.isNotStartedLevel = function(config) {
       config.levelGameName
     )
   ) {
-    return config.readonlyWorkspace && !config.channel;
+    return false; // todo figure this out later: config.readonlyWorkspace && !config.channel;
   } else {
     return false // we have no progress.
     // return (

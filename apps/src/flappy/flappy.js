@@ -18,6 +18,12 @@ var FlappyVisualizationColumn = require('./FlappyVisualizationColumn');
 var dom = require('../dom');
 var constants = require('./constants');
 var utils = require('../utils');
+
+const containedLevels = require('../containedLevels');
+const getContainedLevelResultInfo = containedLevels.getContainedLevelResultInfo;
+const postContainedLevelAttempt = containedLevels.postContainedLevelAttempt;
+const runAfterPostContainedLevel = containedLevels.runAfterPostContainedLevel;
+
 import {getRandomDonorTwitter} from '../util/twitterHelper';
 import {getStore} from '../redux';
 
@@ -741,6 +747,11 @@ Flappy.runButtonClick = function() {
 
   var runButton = document.getElementById('runButton');
   var resetButton = document.getElementById('resetButton');
+
+  if (runButton.disabled) {
+    return;
+  }
+
   // Ensure that Reset button is at least as wide as Run button.
   if (!resetButton.style.minWidth) {
     resetButton.style.minWidth = runButton.offsetWidth + 'px';
@@ -774,6 +785,11 @@ var displayFeedback = function() {
     getStore().getState().currentUser.signInState === SignInState.SignedIn;
   if (!Flappy.waitingForReport) {
     dataURIFromURI(placeholder).then(feedbackImageUri => {
+      let message;
+      if (studioApp().hasContainedLevels) {
+        message = getContainedLevelResultInfo().feedback;
+      }
+
       studioApp().displayFeedback({
         feedbackType: Flappy.testResults,
         response: Flappy.response,
@@ -788,7 +804,8 @@ var displayFeedback = function() {
         feedbackImage: feedbackImageUri,
         disableSaveToGallery: !isSignedIn,
         hideXButton: true,
-        continueText: level.freePlay ? "Submit" : undefined
+        continueText: level.freePlay ? "Submit" : undefined,
+        message: message
       });
     });
   }
@@ -898,15 +915,23 @@ function sendReport() {
 
   Flappy.waitingForReport = true;
 
-  // Report result to server.
-  studioApp().report({
-    app: 'flappy',
-    level: level.id,
-    result: Flappy.result === ResultType.SUCCESS,
-    testResult: Flappy.testResults,
-    program: encodeURIComponent(textBlocks),
-    onComplete: Flappy.onReportComplete
-  });
+  if (studioApp().hasContainedLevels) {
+    // Contained levels post progress in a special way, and always pass
+    postContainedLevelAttempt(studioApp());
+    Flappy.testResults = TestResults.ALL_PASS;
+    runAfterPostContainedLevel(Flappy.onReportComplete);
+  } else {
+    // Report result to server.
+    studioApp().report({
+      app: 'flappy',
+      level: level.id,
+      result: Flappy.result === ResultType.SUCCESS,
+      testResult: Flappy.testResults,
+      program: encodeURIComponent(textBlocks),
+      onComplete: Flappy.onReportComplete
+    });
+  }
+  
 }
 
 /**
