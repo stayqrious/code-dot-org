@@ -350,12 +350,13 @@ reporting.sendReportMessage = function(report) {
       window.removeEventListener('message', onMessage);
     }
   }
-  if (window.parent) {
+  if (window.parent !== window) {
     window.addEventListener('message', onMessage);
     const { onComplete, fallbackResponse, callback, ...msg } = report;
     window.parent.postMessage({event: 'report', report: msg});
+  } else {
+    reportComplete(report, getFallbackResponse(report));
   }
-  //reportComplete(report, getFallbackResponse(report));
 };
 
 reporting.cancelReport = function() {

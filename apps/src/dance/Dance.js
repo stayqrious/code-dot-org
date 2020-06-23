@@ -442,7 +442,8 @@ Dance.prototype.playSong = function(url, callback, onEnded) {
   const iframe = document.getElementById("soundcloud-frame");
   const widget = window.SC.Widget(iframe);
   widget.seekTo(iframe.dataset.trackstart || 0);
-  widget.bind(SC.Widget.Events.PLAY, () => { callback(true) });
+  var timeout = window.setTimeout(() => { callback(true) }, 10000);
+  widget.bind(SC.Widget.Events.PLAY, () => { callback(true); clearTimeout(timeout); });
   widget.bind(SC.Widget.Events.FINISH, () => {
       onEnded();
       this.studioApp_.toggleRunReset('run');

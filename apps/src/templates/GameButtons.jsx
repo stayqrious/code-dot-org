@@ -92,7 +92,7 @@ export const UnconnectedGameButtons = props => (
       {props.children}
     </ProtectedStatefulDiv>
     <div id="gameButtonExtras">
-      {props.showSkipButton && <SkipButton nextLevelUrl={props.nextLevelUrl} />}
+      {/*props.showSkipButton && <SkipButton nextLevelUrl={props.nextLevelUrl} />*/}
       {props.showFinishButton && <FinishButton />}
     </div>
   </div>

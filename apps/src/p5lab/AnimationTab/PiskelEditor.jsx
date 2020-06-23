@@ -14,7 +14,7 @@ import {show, Goal} from '../AnimationPicker/animationPickerModule';
  * In special environment builds, append ?debug flag to get Piskel to load its own debug mode.
  */
 const PISKEL_PATH =
-  '/blockly/js/piskel/index.html' + (PISKEL_DEVELOPMENT_MODE ? '?debug' : '');
+  '/assets/js/piskel/index.html' + (PISKEL_DEVELOPMENT_MODE ? '?debug' : '');
 
 /**
  * The PiskelEditor component is a wrapper for the iframe that contains the

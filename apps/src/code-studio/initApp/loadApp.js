@@ -12,6 +12,8 @@ import {
   setAppLoaded
 } from '@cdo/apps/code-studio/headerRedux';
 import {files} from '@cdo/apps/clientApi';
+import * as Sentry from '@sentry/browser';
+
 var renderAbusive = require('./renderAbusive');
 var userAgentParser = require('./userAgentParser');
 var progress = require('../progress');
@@ -34,6 +36,9 @@ import * as imageUtils from '@cdo/apps/imageUtils';
 import trackEvent from '../../util/trackEvent';
 import msg from '@cdo/locale';
 import _ from 'lodash';
+
+
+Sentry.init({ dsn: 'https://93ee53fab0ef471d8da898849309536e@o353341.ingest.sentry.io/5286225', environment: process.env.NODE_ENV });
 
 // Max milliseconds to wait for last attempt data from the server
 var LAST_ATTEMPT_TIMEOUT = 5000;
@@ -116,6 +121,13 @@ export function setupApp(appOptions) {
     throw new Error('Assume existence of window.dashboard');
   }
   timing.startTiming('Puzzle', window.script_path, '');
+
+
+
+  Sentry.configureScope(function(scope) {
+    scope.setExtra("appOptions", appOptions);
+  });
+
 
   var lastSavedProgram;
 
