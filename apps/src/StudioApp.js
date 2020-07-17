@@ -735,7 +735,7 @@ StudioApp.prototype.setupLegacyShareView = function() {
   $(phoneFrameScreen).append(vizContainer);
   $(vizColumn).append(phoneFrameScreen);
 
-  this.renderShareFooter_(phoneFrameScreen);
+  //this.renderShareFooter_(phoneFrameScreen);
   if (dom.isMobile) {
     // re-scale on resize events to adjust to orientation and navbar changes
     $(window).resize(this.scaleLegacyShare);

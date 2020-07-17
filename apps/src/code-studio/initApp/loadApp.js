@@ -1,4 +1,4 @@
-/* global addToHome Applab Blockly */
+/* global Applab Blockly */
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -13,6 +13,7 @@ import {
 } from '@cdo/apps/code-studio/headerRedux';
 import {files} from '@cdo/apps/clientApi';
 import * as Sentry from '@sentry/browser';
+import './add2home';
 
 var renderAbusive = require('./renderAbusive');
 var userAgentParser = require('./userAgentParser');
@@ -271,7 +272,7 @@ export function setupApp(appOptions) {
       } else if (lastServerResponse.nextRedirect) {
         //window.location.href = lastServerResponse.nextRedirect;
         if (window.parent) {
-          window.parent.postMessage({"event": "end"})
+          window.parent.postMessage({"event": "end"}, '*')
         }
       }
     },
@@ -405,7 +406,7 @@ function loadTemplateFromParent(appOptions) {
 
     if(window.parent) {
       window.addEventListener("message", onMsg);
-      window.parent.postMessage({"event": "loadTemplate", "template": appOptions.level.projectTemplateLevelName })
+      window.parent.postMessage({"event": "loadTemplate", "template": appOptions.level.projectTemplateLevelName }, '*')
     } else {
       resolve(appOptions);
     }
@@ -540,8 +541,38 @@ function loadAppAsync(appOptions) {
     // Use this instead of a timeout on the AJAX request because we still want
     // the header progress data even if the last attempt data takes too long.
     // The progress dots can fade in at any time without impacting the user.
-    loadLastAttemptFromSessionStorage();
-    //setTimeout(loadLastAttemptFromSessionStorage, LAST_ATTEMPT_TIMEOUT);
+
+    var cachedProgram = clientState.sourceForLevel(
+      appOptions.scriptName,
+      appOptions.serverLevelId,
+    );
+
+    if (!cachedProgram) {
+      function onMsg(event) {
+        const payload = event.data;
+        if(payload.event === 'sourceResponse') {
+          window.removeEventListener("message", onMsg);
+          appOptions.level.lastAttempt = payload.source;
+          resolve(appOptions);
+        }
+
+        if (payload.event === 'loadSource') { // means we got our own message :|
+          resolve(appOptions);
+        }
+      }
+
+      if(window.parent) {
+        window.addEventListener("message", onMsg);
+        window.parent.postMessage({"event": "loadSource"}, '*')
+      } else {
+        resolve(appOptions);
+      }
+
+      setTimeout(loadLastAttemptFromSessionStorage, LAST_ATTEMPT_TIMEOUT);
+    }
+    else {
+      loadLastAttemptFromSessionStorage();  
+    }
   });
 }
 
