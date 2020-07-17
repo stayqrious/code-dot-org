@@ -1,4 +1,4 @@
-/* global addToHome Applab Blockly */
+/* global Applab Blockly */
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -9,6 +9,7 @@ import {
 } from '@cdo/apps/code-studio/headerRedux';
 import {files} from '@cdo/apps/clientApi';
 import * as Sentry from '@sentry/browser';
+import './add2home';
 
 var renderAbusive = require('./renderAbusive');
 var userAgentParser = require('./userAgentParser');
@@ -198,7 +199,7 @@ export function setupApp(appOptions) {
       } else if (lastServerResponse.nextRedirect) {
         //window.location.href = lastServerResponse.nextRedirect;
         if (window.parent) {
-          window.parent.postMessage({"event": "end"})
+          window.parent.postMessage({"event": "end"}, '*')
         }
       }
     },
@@ -332,7 +333,7 @@ function loadTemplateFromParent(appOptions) {
 
     if(window.parent) {
       window.addEventListener("message", onMsg);
-      window.parent.postMessage({"event": "loadTemplate", "template": appOptions.level.projectTemplateLevelName })
+      window.parent.postMessage({"event": "loadTemplate", "template": appOptions.level.projectTemplateLevelName }, '*')
     } else {
       resolve(appOptions);
     }
@@ -417,12 +418,53 @@ function loadAppAsync(appOptions) {
     //     resolve(appOptions);
     //   });
 
-    appOptions.level.lastAttempt = clientState.sourceForLevel(
+    // SQ CHANGES LOAD from parent
+    var lastAttemptLoaded = false;
+    function loadLastAttemptFromSessionStorage() {
+      appOptions.level.lastAttempt = clientState.sourceForLevel(
+        appOptions.scriptName,
+        appOptions.serverProjectLevelId || appOptions.serverLevelId
+      );
+      lastAttemptLoaded = true;
+      resolve(appOptions);
+    }
+
+    var cachedProgram = clientState.sourceForLevel(
       appOptions.scriptName,
-      appOptions.serverProjectLevelId || appOptions.serverLevelId
+      appOptions.serverLevelId,
     );
-    
-    resolve(appOptions);
+
+    if (!cachedProgram) {
+      function onMsg(event) {
+        const payload = event.data;
+        if(payload.event === 'sourceResponse') {
+          window.removeEventListener("message", onMsg);
+          if (!lastAttemptLoaded) {
+            appOptions.level.lastAttempt = payload.source;
+            resolve(appOptions);
+          }
+        }
+
+        if (payload.event === 'loadSource') { // means we got our own message :|
+          resolve(appOptions);
+        }
+      }
+
+      if(window.parent) {
+        window.addEventListener("message", onMsg);
+        window.parent.postMessage({"event": "loadSource"}, '*')
+      } else {
+        resolve(appOptions);
+      }
+
+      setTimeout(loadLastAttemptFromSessionStorage, LAST_ATTEMPT_TIMEOUT);
+    }
+    else {
+      loadLastAttemptFromSessionStorage();  
+    }
+
+    /// END SQ CHANGES
+
   });
 }
 
