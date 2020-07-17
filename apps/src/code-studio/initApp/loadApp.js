@@ -1,4 +1,4 @@
-/* global addToHome Applab Blockly */
+/* global Applab Blockly */
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -9,6 +9,7 @@ import {
 } from '@cdo/apps/code-studio/headerRedux';
 import {files} from '@cdo/apps/clientApi';
 import * as Sentry from '@sentry/browser';
+import './add2home';
 
 var renderAbusive = require('./renderAbusive');
 var userAgentParser = require('./userAgentParser');
@@ -199,7 +200,7 @@ export function setupApp(appOptions) {
       } else if (lastServerResponse.nextRedirect) {
         //window.location.href = lastServerResponse.nextRedirect;
         if (window.parent) {
-          window.parent.postMessage({"event": "end"})
+          window.parent.postMessage({"event": "end"}, '*')
         }
       }
     },
@@ -333,7 +334,7 @@ function loadTemplateFromParent(appOptions) {
 
     if(window.parent) {
       window.addEventListener("message", onMsg);
-      window.parent.postMessage({"event": "loadTemplate", "template": appOptions.level.projectTemplateLevelName })
+      window.parent.postMessage({"event": "loadTemplate", "template": appOptions.level.projectTemplateLevelName }, '*')
     } else {
       resolve(appOptions);
     }
