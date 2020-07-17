@@ -192,7 +192,7 @@ export default class SmallFooter extends React.Component {
           {this.renderCopyright()}
           {this.renderMoreMenuButton()}
         </div>
-        <div id="copyright-flyout" style={styles.copyright}>
+        { this.props.copyrightStrings && <div id="copyright-flyout" style={styles.copyright}>
           <div id="copyright-scroll-area" style={styles.copyrightScrollArea}>
             <h4>{this.props.baseCopyrightString}</h4>
             <SafeMarkdown
@@ -218,7 +218,7 @@ export default class SmallFooter extends React.Component {
               )}
             />
           </div>
-        </div>
+        </div> }
         {this.renderMoreMenu(styles)}
       </div>
     );
