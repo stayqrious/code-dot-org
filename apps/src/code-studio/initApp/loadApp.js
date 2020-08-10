@@ -542,37 +542,52 @@ function loadAppAsync(appOptions) {
     // the header progress data even if the last attempt data takes too long.
     // The progress dots can fade in at any time without impacting the user.
 
-    var cachedProgram = clientState.sourceForLevel(
-      appOptions.scriptName,
-      appOptions.serverLevelId,
-    );
+    function onMsg(event) {
+      const payload = event.data;
+      if(payload.event === 'sourceResponse') {
+        window.removeEventListener("message", onMsg);
+        const source = payload.source;
+        const timestamp = payload.timestamp;
 
-    if (!cachedProgram) {
-      function onMsg(event) {
-        const payload = event.data;
-        if(payload.event === 'sourceResponse') {
-          window.removeEventListener("message", onMsg);
-          appOptions.level.lastAttempt = payload.source;
-          resolve(appOptions);
+        if (source && source.length) {
+          var cachedProgram = clientState.sourceForLevel(
+            appOptions.scriptName,
+            appOptions.serverLevelId,
+            timestamp
+          );
+
+          if (cachedProgram !== undefined) {
+            // Client version is newer
+            appOptions.level.lastAttempt = cachedProgram;
+          } else {
+            // Sever version is newer
+            appOptions.level.lastAttempt = source;
+
+            // Write down the lastAttempt from server in sessionStorage
+            clientState.writeSourceForLevel(
+              appOptions.scriptName,
+              appOptions.serverLevelId,
+              timestamp,
+              source
+            );
+          }
         }
-
-        if (payload.event === 'loadSource') { // means we got our own message :|
-          resolve(appOptions);
-        }
-      }
-
-      if(window.parent) {
-        window.addEventListener("message", onMsg);
-        window.parent.postMessage({"event": "loadSource"}, '*')
-      } else {
         resolve(appOptions);
       }
 
-      setTimeout(loadLastAttemptFromSessionStorage, LAST_ATTEMPT_TIMEOUT);
+      if (payload.event === 'loadSource') { // means we got our own message :|
+        resolve(appOptions);
+      }
     }
-    else {
-      loadLastAttemptFromSessionStorage();  
+
+    if(window.parent) {
+      window.addEventListener("message", onMsg);
+      window.parent.postMessage({"event": "loadSource"}, '*')
+    } else {
+      resolve(appOptions);
     }
+
+    setTimeout(loadLastAttemptFromSessionStorage, LAST_ATTEMPT_TIMEOUT);
   });
 }
 
