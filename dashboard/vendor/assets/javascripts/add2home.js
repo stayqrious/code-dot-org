@@ -7,7 +7,7 @@
 // Modified for code.org with startDelay 0, autostart false
 //
 
-var addToHome = (function (w) {
+export default const addToHome = (function (w) {
 	var nav = w.navigator,
 		isIDevice = 'platform' in nav && (/iphone|ipod|ipad/gi).test(nav.platform),
 		isIPad,
