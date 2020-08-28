@@ -389,18 +389,17 @@ export function addBlankAnimation() {
   // picks "Draw my own."  As soon as the user makes any changes to the
   // animation it gets saved as a custom animation in their own project, just
   // like we do with other library animations.
-  return addLibraryAnimation(
-    {
-      name: 'animation',
-      sourceUrl:
-        '/api/v1/animation-library/mUlvnlbeZ5GHYr_Lb4NIuMwPs7kGxHWz/category_backgrounds/blank.png',
-      frameSize: {x: 100, y: 100},
-      frameCount: 1,
-      looping: true,
-      frameDelay: 4,
-      version: 'mUlvnlbeZ5GHYr_Lb4NIuMwPs7kGxHWz'
-    },
-    false /*skipBackground. False because these are going to be sprites or we're in gamelab*/
+  return addLibraryAnimation({
+    name: 'animation',
+    sourceUrl:
+      '/api/v1/animation-library/imjWw4UqJSpWQIEslJj62NgF46lxKLiH/category_backgrounds/blank.png',
+    frameSize: {x: 100, y: 100},
+    frameCount: 1,
+    looping: true,
+    frameDelay: 4,
+    version: 'imjWw4UqJSpWQIEslJj62NgF46lxKLiH'
+  },
+  false
   );
 }
 
@@ -945,6 +944,7 @@ export function saveAnimation(animationKey, animationProps) {
     xhr.addEventListener('error', onError);
     xhr.open('PUT', animationsApi.basePath(animationKey + '.png'), true);
     xhr.setRequestHeader('Content-type', 'image/png');
+    xhr.setRequestHeader('X-Token', window.SQ_TOKEN);
     xhr.send(animationProps.blob);
   });
 }

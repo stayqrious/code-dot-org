@@ -67,7 +67,13 @@ HTMLCanvasElement.prototype.getContext = function () {
 
 if(window.Phaser) {
   function streamChanges() {
-    const canvas = document.getElementById("phaser-game").querySelector("canvas");
+    const game = document.getElementById("phaser-game");
+    if (!game) {
+      window.setTimeout(streamChanges, 300);
+      return;
+    }
+
+    const canvas = game.querySelector("canvas");
     if (!canvas) {
       window.setTimeout(streamChanges, 300);
       return;
@@ -413,6 +419,32 @@ function loadTemplateFromParent(appOptions) {
   })
 }
 
+function loadTokenFromParent(appOptions) {
+  return new Promise((resolve, reject) => {
+    function onMsg(event) {
+      const payload = event.data;
+      if(payload.event === 'tokenResponse') {
+        window.removeEventListener("message", onMsg);
+        appOptions.channel = payload.channel;
+        window.SQ_TOKEN = payload.token;
+        resolve(appOptions);
+      }
+
+      if (payload.event === 'loadToken') { // means we got our own message :|
+        resolve(appOptions);
+      }
+    }
+
+    if(window.parent) {
+      window.addEventListener("message", onMsg);
+      window.parent.postMessage({"event": "loadToken", "channel_ref": appOptions.channel_ref }, '*')
+    } else {
+      resolve(appOptions);
+    }
+  })
+}
+
+
 /**
  * @param {AppOptionsConfig} appOptions
  * @return {Promise.<AppOptionsConfig>}
@@ -439,6 +471,12 @@ function loadAppAsync(appOptions) {
 
   if (appOptions.channel || isViewingStudentAnswer) {
     return loadProjectAndCheckAbuse(appOptions);
+  }
+
+  if (appOptions.channel_backed) {
+    return loadTokenFromParent(appOptions).then((appOptions) => {
+      return loadProjectAndCheckAbuse(appOptions);
+    })
   }
 
   if (appOptions.level.projectTemplateLevelName && !appOptions.readonlyWorkspace) {

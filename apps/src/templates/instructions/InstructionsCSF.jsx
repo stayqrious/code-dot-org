@@ -400,6 +400,10 @@ class InstructionsCSF extends React.Component {
    */
   scrollInstructionsToBottom() {
     const instructions = this.instructions;
+    if (!instructions) {
+      return;
+    }
+    
     const contentContainer = instructions.parentElement;
     if (instructions.children.length > 1) {
       const lastChild = instructions.children[instructions.children.length - 1];

@@ -1,0 +1,19 @@
+{
+  "name": "cdo-serve",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@zeit/schemas": "^2.16.0",
+    "arg": "^4.1.3",
+    "boxen": "^4.2.0",
+    "clipboardy": "^2.3.0",
+    "node-http-proxy": "^0.2.3",
+    "serve-handler": "^6.1.3"
+  }
+}
