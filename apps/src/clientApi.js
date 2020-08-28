@@ -28,6 +28,7 @@ function ajaxInternal(method, path, success, error, data) {
   });
 
   xhr.open(method, path, true);
+  xhr.setRequestHeader("X-Token", window.SQ_TOKEN);
   xhr.send(data);
 }
 

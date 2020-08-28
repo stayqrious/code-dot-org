@@ -49,6 +49,7 @@ class StorageApps
 
   def get(channel_id)
     owner, storage_app_id = storage_decrypt_channel_id(channel_id)
+    
     row = @table.where(id: storage_app_id).exclude(state: 'deleted').first
     raise NotFound, "channel `#{channel_id}` not found" unless row
 
