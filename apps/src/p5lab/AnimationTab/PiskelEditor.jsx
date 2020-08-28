@@ -29,7 +29,6 @@ class PiskelEditor extends React.Component {
     // Provided by Redux
     animationList: shapes.AnimationList.isRequired,
     selectedAnimation: shapes.AnimationKey,
-    channelId: PropTypes.string.isRequired,
     editAnimation: PropTypes.func.isRequired,
     allAnimationsSingleFrame: PropTypes.bool.isRequired,
     onNewFrameClick: PropTypes.func.isRequired,
@@ -219,7 +218,6 @@ export default connect(
   state => ({
     selectedAnimation: state.animationTab.selectedAnimation,
     animationList: state.animationList,
-    channelId: state.pageConstants.channelId,
     allAnimationsSingleFrame: !!state.pageConstants.allAnimationsSingleFrame,
     pendingFrames: state.animationList.pendingFrames,
     isBlockly: state.pageConstants.isBlockly

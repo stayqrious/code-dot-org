@@ -1,6 +1,6 @@
 Sequel.migration do
   up do
-    unless [:staging, :adhoc, :test, :production].include?(rack_env)
+    #unless [:staging, :adhoc, :test, :production].include?(rack_env)
       create_table?(:channel_table_metadata, charset: 'utf8') do
         primary_key :id, unsigned: true, null: false
         foreign_key :app_id, index: true, null: false
@@ -11,7 +11,7 @@ Sequel.migration do
 
         DateTime :updated_at, null: false
       end
-    end
+    #end
   end
 
   down do

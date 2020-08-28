@@ -377,12 +377,12 @@ export function addBlankAnimation() {
   return addLibraryAnimation({
     name: 'animation',
     sourceUrl:
-      '/api/v1/animation-library/mUlvnlbeZ5GHYr_Lb4NIuMwPs7kGxHWz/category_backgrounds/blank.png',
+      '/api/v1/animation-library/imjWw4UqJSpWQIEslJj62NgF46lxKLiH/category_backgrounds/blank.png',
     frameSize: {x: 100, y: 100},
     frameCount: 1,
     looping: true,
     frameDelay: 4,
-    version: 'mUlvnlbeZ5GHYr_Lb4NIuMwPs7kGxHWz'
+    version: '90cHyJ4.wC75Jz3zZS3SB.DfTVM3eIHk'
   });
 }
 
@@ -921,6 +921,7 @@ export function saveAnimation(animationKey, animationProps) {
     xhr.addEventListener('error', onError);
     xhr.open('PUT', animationsApi.basePath(animationKey + '.png'), true);
     xhr.setRequestHeader('Content-type', 'image/png');
+    xhr.setRequestHeader('X-Token', window.SQ_TOKEN);
     xhr.send(animationProps.blob);
   });
 }
