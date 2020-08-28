@@ -230,6 +230,7 @@ class InstructionsCSF extends React.Component {
     return this.instructions.parentElement;
   };
 
+
   dismissHintPrompt = () => {
     this.setState({
       promptForHint: false
