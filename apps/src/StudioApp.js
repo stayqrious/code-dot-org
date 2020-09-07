@@ -571,6 +571,12 @@ StudioApp.prototype.init = function(config) {
         );
         this.clearHighlighting();
       }
+
+      if (this.isUsingBlockly()) {
+        const xml = Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace);
+        const textBlocks = Blockly.Xml.domToText(xml);
+        this.onSaveLocal(textBlocks);
+      }
     });
   }
 
@@ -2025,6 +2031,7 @@ StudioApp.prototype.setConfigValues_ = function(config) {
   this.backToPreviousLevel = config.backToPreviousLevel || function() {};
   this.skin = config.skin;
   this.polishCodeHook = config.polishCodeHook;
+  this.onSaveLocal = config.onSaveLocal;
 };
 
 // Overwritten by applab.
