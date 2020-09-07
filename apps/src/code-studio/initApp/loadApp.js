@@ -9,7 +9,7 @@ import {
 } from '@cdo/apps/code-studio/headerRedux';
 import {files} from '@cdo/apps/clientApi';
 import * as Sentry from '@sentry/browser';
-import './add2home';
+import addToHome from './add2home';
 
 var renderAbusive = require('./renderAbusive');
 var userAgentParser = require('./userAgentParser');
@@ -174,6 +174,28 @@ export function setupApp(appOptions) {
       }
       //reporting.sendReport(report);
       reporting.sendReportMessage(report);
+    },
+    onComplete: function(/*LiveMilestoneResponse*/ response) {
+      if (!appOptions.channel && !appOptions.hasContainedLevels) {
+        // Update the cache timestamp with the (more accurate) value from the server.
+        clientState.writeSourceForLevel(
+          appOptions.scriptName,
+          appOptions.serverProjectLevelId || appOptions.serverLevelId,
+          response.timestamp,
+          lastSavedProgram
+        );
+      }
+    },
+    onSaveLocal: function(source) {
+      if (!appOptions.channel && !appOptions.hasContainedLevels) {
+        // Update the cache timestamp with the (more accurate) value from the server.
+        clientState.writeSourceForLevel(
+          appOptions.scriptName,
+          appOptions.serverProjectLevelId || appOptions.serverLevelId,
+          +new Date(),
+          source
+        );
+      }
     },
     onResetPressed: function() {
       reporting.cancelReport();
