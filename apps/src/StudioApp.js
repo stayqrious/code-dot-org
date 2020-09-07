@@ -576,8 +576,18 @@ StudioApp.prototype.init = function(config) {
     // );
   }
 
+
   if (!config.readonlyWorkspace) {
     this.addChangeHandler(this.editDuringRunAlertHandler.bind(this));
+
+  if (!config.readOnlyWorkspace) {
+    this.addChangeHandler(() => {
+      if (this.isUsingBlockly()) {
+        const xml = Blockly.Xml.blockSpaceToDom(Blockly.mainBlockSpace);
+        const textBlocks = Blockly.Xml.domToText(xml);
+        this.onSaveLocal(textBlocks);
+      }
+    });
   }
 
   this.emit('afterInit');
@@ -2121,6 +2131,7 @@ StudioApp.prototype.setConfigValues_ = function(config) {
   this.backToPreviousLevel = config.backToPreviousLevel || function() {};
   this.skin = config.skin;
   this.polishCodeHook = config.polishCodeHook;
+  this.onSaveLocal = config.onSaveLocal;
 };
 
 // Overwritten by applab.

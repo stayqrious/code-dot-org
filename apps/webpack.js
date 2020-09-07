@@ -32,8 +32,12 @@ var toTranspileWithinNodeModules = [
   path.resolve(
     __dirname,
     'node_modules',
-    'microsoft-cognitiveservices-speech-sdk',
     'hast-util-raw'
+  ),
+  path.resolve(
+    __dirname,
+    'node_modules',
+    'microsoft-cognitiveservices-speech-sdk',
   )
 ];
 

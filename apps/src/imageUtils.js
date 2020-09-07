@@ -140,6 +140,7 @@ export async function toImage(input) {
       cleanup();
       reject(err);
     };
+    image.crossOrigin = "anonymous";
     image.src = src;
   });
 }
