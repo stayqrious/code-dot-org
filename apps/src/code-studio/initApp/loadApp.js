@@ -13,7 +13,7 @@ import {
 } from '@cdo/apps/code-studio/headerRedux';
 import {files} from '@cdo/apps/clientApi';
 import * as Sentry from '@sentry/browser';
-import './add2home';
+import addToHome from './add2home';
 
 var renderAbusive = require('./renderAbusive');
 var userAgentParser = require('./userAgentParser');
@@ -244,6 +244,17 @@ export function setupApp(appOptions) {
           appOptions.serverProjectLevelId || appOptions.serverLevelId,
           response.timestamp,
           lastSavedProgram
+        );
+      }
+    },
+    onSaveLocal: function(source) {
+      if (!appOptions.channel && !appOptions.hasContainedLevels) {
+        // Update the cache timestamp with the (more accurate) value from the server.
+        clientState.writeSourceForLevel(
+          appOptions.scriptName,
+          appOptions.serverProjectLevelId || appOptions.serverLevelId,
+          +new Date(),
+          source
         );
       }
     },
@@ -608,6 +619,16 @@ function loadAppAsync(appOptions) {
               timestamp,
               source
             );
+          }
+        } else { // Load the cached version
+          var cachedProgram = clientState.sourceForLevel(
+            appOptions.scriptName,
+            appOptions.serverLevelId
+          );
+
+          if (cachedProgram !== undefined) {
+            // Client version is newer
+            appOptions.level.lastAttempt = cachedProgram;
           }
         }
         resolve(appOptions);
