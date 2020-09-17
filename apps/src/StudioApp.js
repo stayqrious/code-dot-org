@@ -1336,7 +1336,21 @@ StudioApp.prototype.showInstructionsDialog_ = function(level, autoClose) {
 
   var buttons = document.createElement('div');
   instructionsDiv.appendChild(buttons);
-  ReactDOM.render(<DialogButtons ok={true} />, buttons);
+  
+  ReactDOM.render(<DialogButtons ok={true} />, buttons, _.bind(function() {
+      var okayButton = buttons.querySelector('#ok-button');
+      if (okayButton) {
+        dom.addClickTouchEvent(
+          okayButton,
+          _.bind(function() {
+            if (this.instructionsDialog) {
+              this.instructionsDialog.hide();
+            }
+          }, this)
+        );
+      }
+    }, this)
+  );
 
   // If there is an instructions block on the screen, we want the instructions dialog to
   // shrink down to that instructions block when it's dismissed.
