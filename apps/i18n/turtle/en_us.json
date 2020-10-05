@@ -46,7 +46,7 @@
   "jump": "jump",
   "jumpBackward": "jump backward by",
   "jumpForward": "jump forward by",
-  "jumpToOverDown": "jump to %1 over %2 down",
+  "jumpToOverDown": "directly go to %1 right %2 down",
   "jumpToPosition": "jump to the %1 position",
   "jumpByDirection": "jump %1 by %2 pixels",
   "jumpTooltip": "Moves the artist without leaving any marks.",
