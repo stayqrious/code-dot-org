@@ -286,7 +286,7 @@ export function setupApp(appOptions) {
           redirect: lastServerResponse.nextRedirect
         });
         dialog.show();
-      } else if (lastServerResponse.nextRedirect) {
+      } else {
         //window.location.href = lastServerResponse.nextRedirect;
         if (window.parent) {
           window.parent.postMessage({"event": "end"}, '*')
