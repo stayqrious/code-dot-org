@@ -76,7 +76,9 @@ var ALLOWED_KEYS = new Set([
   'validationEnabled',
   'aiEnabled',
   'aiModelId',
-  'aiModelName'
+  'aiModelName',
+  'hideCoordinates'
+
 ]);
 
 const initialState = {

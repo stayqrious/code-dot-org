@@ -54,7 +54,9 @@ class P5LabVisualizationColumn extends React.Component {
     selectPicker: PropTypes.func.isRequired,
     updatePicker: PropTypes.func.isRequired,
     consoleMessages: PropTypes.array.isRequired,
-    isRtl: PropTypes.bool
+    isRtl: PropTypes.bool,
+    pauseHandler: PropTypes.func.isRequired,
+    hideCoordinates: PropTypes.bool.isRequired
   };
 
   constructor(props) {
@@ -123,7 +125,7 @@ class P5LabVisualizationColumn extends React.Component {
 
   renderAppSpaceCoordinates() {
     const {mouseX, mouseY} = this.state;
-    if (this.props.isShareView) {
+    if (this.props.isShareView || this.props.hideCoordinates) {
       return null;
     } else if (
       mouseX < 0 ||
@@ -187,16 +189,15 @@ class P5LabVisualizationColumn extends React.Component {
               onMouseMove={this.onMouseMove}
             >
               <GridOverlay show={this.props.showGrid} showWhileRunning={true} />
-              <CrosshairOverlay flip={isSpritelab} />
-              <TooltipOverlay
-                providers={[coordinatesProvider(isSpritelab, isRtl)]}
+              <CrosshairOverlay flip={spriteLab} />
+              <TooltipOverlay 
+                providers={this.props.hideCoordinates ? []: [coordinatesProvider(spriteLab, isRtl)]} 
               />
             </VisualizationOverlay>
           </ProtectedVisualizationDiv>
           <TextConsole consoleMessages={this.props.consoleMessages} />
           {isSpritelab && <SpritelabInput />}
         </div>
-
         <GameButtons>
           {showPauseButton && (
             <PauseButton
@@ -252,7 +253,8 @@ export default connect(
     showGrid: state.gridOverlay,
     pickingLocation: isPickingLocation(state.locationPicker),
     consoleMessages: state.textConsole,
-    isRtl: state.isRtl
+    isRtl: state.isRtl,
+    hideCoordinates: state.pageConstants.hideCoordinates
   }),
   dispatch => ({
     toggleShowGrid: mode => dispatch(toggleGridOverlay(mode)),
