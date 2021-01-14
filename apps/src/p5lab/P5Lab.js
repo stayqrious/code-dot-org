@@ -447,7 +447,8 @@ P5Lab.prototype.init = function(config) {
     isSubmittable: !!config.level.submittable,
     isSubmitted: !!config.level.submitted,
     librariesEnabled: !!config.level.librariesEnabled,
-    validationEnabled: !!config.level.validationEnabled
+    validationEnabled: !!config.level.validationEnabled,
+    hideCoordinates: !!config.level.hideCoordinates
   });
 
   // Push project-sourced animation metadata into store. Always use the
