@@ -164,7 +164,7 @@ DropletFunctionTooltip.prototype.getFullDocumentationURL = function(appType) {
   if (this.customDocURL) {
     return this.customDocURL;
   }
-  return '/docs/' + appType + '/' + this.functionName + '/';
+  return 'https://curriculum.code.org/docs/' + appType + '/' + this.functionName + '/'; // Arun Changed to absolute
 };
 
 module.exports = DropletFunctionTooltip;
