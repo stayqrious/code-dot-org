@@ -144,6 +144,7 @@ function setupReduxSubscribers(store) {
     // Update the project state when a PublishDialog state transition indicates
     // that a project has just been published.
     if (
+      lastState &&
       lastState.publishDialog &&
       lastState.publishDialog.lastPublishedAt !==
         state.publishDialog.lastPublishedAt
@@ -156,6 +157,7 @@ function setupReduxSubscribers(store) {
     // Update the project state when a ShareDialog state transition indicates
     // that a project has just been unpublished.
     if (
+      lastState &&
       lastState.shareDialog &&
       !lastState.shareDialog.didUnpublish &&
       state.shareDialog.didUnpublish
