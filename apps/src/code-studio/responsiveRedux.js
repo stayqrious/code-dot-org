@@ -6,14 +6,15 @@ export const setResponsiveSize = responsiveSize => ({
   responsiveSize
 });
 
-export const ResponsiveSize = makeEnum('lg', 'md', 'sm', 'xs');
+export const ResponsiveSize = makeEnum('lg', 'md', 'sm', 'xs', 'unknown');
 
 // Default window widths that are the starting points for each width category.
 const Breakpoints = [
   {breakpoint: 992, responsiveSize: ResponsiveSize.lg},
   {breakpoint: 720, responsiveSize: ResponsiveSize.md},
   {breakpoint: 650, responsiveSize: ResponsiveSize.sm},
-  {breakpoint: 0, responsiveSize: ResponsiveSize.xs}
+  {breakpoint: 0, responsiveSize: ResponsiveSize.xs},
+  {breakpoint: -1, responsiveSize: ResponsiveSize.unknown}
 ];
 
 export function getResponsiveBreakpoint(width) {
