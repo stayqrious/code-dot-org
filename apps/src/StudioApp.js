@@ -582,6 +582,7 @@ StudioApp.prototype.init = function(config) {
 
   if (!config.readonlyWorkspace) {
     this.addChangeHandler(this.editDuringRunAlertHandler.bind(this));
+  }
 
   if (!config.readOnlyWorkspace) {
     this.addChangeHandler(() => {
