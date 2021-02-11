@@ -67,7 +67,7 @@ function TopInstructionsHeader(props) {
     >
       <div style={styles.paneHeaderOverride}>
         {/* For CSF contained levels we use the same audio button location as CSD/CSP*/}
-        {tabSelected === TabType.INSTRUCTIONS &&
+        {/*tabSelected === TabType.INSTRUCTIONS &&
           ttsLongInstructionsUrl &&
           (hasContainedLevels || isCSDorCSP) && (
             <InlineAudio
@@ -78,7 +78,7 @@ function TopInstructionsHeader(props) {
               }}
               autoplayTriggerElementId="codeApp"
             />
-          )}
+          )*/}
         {documentationUrl && tabSelected !== TabType.COMMENTS && (
           <PaneButton
             iconClass="fa fa-book"
