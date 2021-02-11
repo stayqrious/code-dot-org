@@ -36,11 +36,9 @@ export default class VersionRow extends React.Component {
       );
     } else {
       button = [
-        <a
+        /*<a //ARUN DISABLED VIEW VERSION
           key={0}
           href={
-            location.origin +
-            location.pathname +
             '?version=' +
             this.props.versionId
           }
@@ -50,7 +48,7 @@ export default class VersionRow extends React.Component {
           <button type="button" className="version-preview">
             <i className="fa fa-eye" />
           </button>
-        </a>,
+        </a>,*/
         <button
           type="button"
           key={1}
