@@ -606,14 +606,14 @@ class TopInstructions extends Component {
         >
           <div style={styles.paneHeaderOverride}>
             {/* For CSF contained levels we use the same audio button location as CSD/CSP*/}
-            {this.state.tabSelected === TabType.INSTRUCTIONS &&
+            {/*this.state.tabSelected === TabType.INSTRUCTIONS &&
               ttsUrl &&
               (this.props.hasContainedLevels || isCSDorCSP) && (
                 <InlineAudio
                   src={ttsUrl}
                   style={this.props.isRtl ? audioStyleRTL : audioStyle}
                 />
-              )}
+              )*/}
             {this.props.documentationUrl &&
               this.state.tabSelected !== TabType.COMMENTS && (
                 <PaneButton
