@@ -1,76 +1,60 @@
 {
   "orderedKeys": [
-    "2223bab1-0b27-4ad1-ad2e-7eb3dd0997c2",
-    "44c5937d-c5c0-4676-bd0c-f7a86e99dd98",
-    "45b457bb-5b22-48f7-8664-4b38957d7799",
-    "d15af884-fb27-455f-b73a-899d07ce8975",
-    "2e9c703b-d8cd-44e5-8cf2-c0d5940b84dc",
-    "b287e053-266b-4eaa-ad59-310083ce3398",
-    "986fdd82-f8e0-4674-806c-62d18f0ca9c3",
-    "0a84474a-a327-47c9-8377-c1c478001cec",
-    "7ecbad62-f575-48eb-8861-b42dbf62d545",
-    "9b98c484-57b8-40cc-ad45-1d1ed02336d6",
-    "1124b3e0-1430-451f-a8b2-137ce8091759",
-    "2c93ddd7-1058-4df8-b4a1-73c1f70a1772",
-    "7887ec4e-1a27-4bfe-898c-3049b131cbe4",
-    "f1c617e5-4a3f-4f04-90f0-7e0305df84af",
-    "8545eeec-aa1c-4193-9896-30e93f7af76b",
-    "fa2a0e9e-e38d-40ee-89a0-cdb72a1fa6cc",
-    "fc4aa65d-fb3c-40af-9845-786503764ad3",
-    "a1d0480c-1263-4847-b188-c892024f6bb8",
-    "a5cf7f32-903e-4d01-b163-08e61c9d39aa",
-    "dfe7d8cc-9097-4fae-a02c-d1951aaf32dc",
-    "98b0bab9-36ca-43b1-8370-c520949c5ec4",
-    "a2110245-266a-42ab-b8dc-84b4165924b5",
-    "f755eca1-9df6-4723-bd2e-0176c7ee1cfd",
-    "d197b759-38ef-4973-a43b-4a07653f62b7",
-    "8c1a5163-04a8-4d78-9886-dc2ca8a2d536",
-    "20c00311-89c5-4eeb-98c9-3edb5ebad13e",
-    "6fa37cd5-4ca2-417a-a603-a3a66e0446be",
-    "8ec43d69-3ae4-4a5f-867d-41bc549a5348",
-    "2256652a-d12f-433f-a8d7-ba1db9869aca",
-    "b16c1f8d-cbf3-4d00-b597-547a4aafb909",
-    "7ae82ac5-bf20-4627-9575-574e29c241c0",
-    "fbf2ef19-964e-4593-9822-9eaf8b8e187f",
-    "5dd1aea2-1f2d-4b7a-90eb-9895b2fc3608",
-    "50274781-8652-48d9-b5ad-03c22efe835a",
-    "7a423fba-22b9-42f0-bf37-5ebc5cdf525e",
-    "da54705b-2478-480b-bda3-758d6c348f3b",
-    "9b89d959-be06-45ed-af41-6861b1288e38",
-    "41f01d32-2495-486b-9a58-b9a188e5ce73",
-    "9deaf802-3ed1-4e9f-ac5b-0a8fd6985c13",
-    "dbfa88e2-0c41-48a6-9047-4b4295cfe73f",
-    "b707e334-a22a-43bb-87eb-035ed95bc104",
-    "5b94a14f-5bb3-432d-9594-fc724897c840",
-    "be61640e-babf-45ca-84d7-9bbf6c8295db",
-    "22e9fe74-0bf7-46aa-9d19-94d0eb00381b",
-    "749d51c7-59ce-4c94-bc4f-12c5234d4a29",
-    "92997275-4280-46dd-9672-4a31de5913b9",
-    "5b430010-3b8f-4e86-a1e1-468d229416d3",
-    "f34f4a47-214f-4e38-94d0-dd07cb2b1dcd",
-    "68917b8c-768a-407e-8258-1e6ebbb2340e",
-    "74539f4c-9f4e-4229-aad7-2650454c3e8a",
-    "08aa254e-653d-4ca0-b943-fc2233db3cde",
-    "20c80bcb-26c2-4701-b3ce-9d8dbe96d459",
-    "a8dabd2a-6faf-4ab5-b870-ee9540d256dc",
-    "12eda44b-58ef-4696-9d37-06623620383b",
-    "8ca751af-ef34-4fd4-9e96-6e985f93f4c2",
-    "d0b3ee56-4324-426a-bd7c-72ea9aec2755",
-    "90ce56d0-f5f9-45ec-a012-32e7e2f57e15",
-    "4b4e5d34-d8d3-4c1a-9d41-e94193afb092",
-    "bd424603-10eb-4e88-8160-4f5e8d1b0e59",
-    "62326fd3-5701-4f32-ac89-c5520fa2430a",
-    "1acf1c10-82d5-42f2-b5f6-9462be53f87a",
-    "9f985df8-6ac3-417f-bcae-6f19e26246df",
-    "918cc09b-0fea-41b7-a64f-ea8fc3d427c9",
-    "1d88dc5d-48f6-42fa-b0e6-a2f18ce9f811",
-    "d6c15c0b-6556-4a40-b9cd-245c53bfdad2",
-    "3d97df38-3c67-497b-937f-48061076fe79"
+    "2e3cc6a8-ee24-4f54-8efd-e4f666712f86",
+    "c12c9345-c52d-42a8-b223-3f8308e7de63",
+    "8689a5f3-4fea-4777-acd8-567127c2b947",
+    "bd9e40e6-7c86-40f4-93ad-69bdaecaba99",
+    "031cef9c-2ed8-484e-a7f5-7898beb689de",
+    "2a9f18cd-be18-4fa4-92be-d0c84b9f8aa8",
+    "264909e2-4992-447e-8693-8263bf4a94e0",
+    "919dea24-92d8-4599-8965-aa89d7605995",
+    "f9b69749-3a0d-4db0-bafb-f80332cb7eb5",
+    "e5467b3b-7388-43ee-bc5e-6feae306baf4",
+    "75552e2f-16be-4ada-822d-57337118d698",
+    "e0e7d3f4-2ee4-4848-baae-8ada277e8549",
+    "6c53c80c-8f8d-4dd0-b21f-597208e8a10b",
+    "a1c481a0-26c3-45ba-81d1-4d3c8dd0fd4f",
+    "eb00c2c8-8ea8-4ce1-8647-e3715f7bbc86",
+    "925e0af7-a3f7-4bdc-a626-046282c08a33",
+    "754b5d0a-7e24-45ff-ada4-fe8854c7d7ed",
+    "aaff4b3e-91ff-4d7a-adec-b07ada79aec5",
+    "21e2e4bf-6bf9-453d-a3ba-204a27f599c2",
+    "8daecada-a5b5-4915-bb70-35ab2f92d158",
+    "fbc4b584-b0a5-4f04-950a-47654a56347a",
+    "8dcf634e-e930-4690-8a59-f8eae5ea17a9",
+    "40b4e439-5dca-4b1b-9c90-ba69add18c7b",
+    "014cddab-edcc-45ca-81c3-6654ac30e87b",
+    "0fbdf02c-f451-4c7d-8c7a-413b12e7f875",
+    "ce421d9f-6b3d-4b92-851d-2a4218a9d2f2",
+    "9d70a9cb-2802-460d-b69b-91ac35867cf2",
+    "5905761d-ac94-47eb-9dde-c0c52f4537cb",
+    "d88e8a0a-d51e-435f-8cd7-cd7eb1ded15f",
+    "c1e2108d-66eb-4327-a48b-7b19c42b2cca",
+    "a7663c9a-b89d-4ef2-8804-fd73adad4525",
+    "3eaec0b1-0ca2-4fe3-92ed-a1a4d2d36ca1",
+    "9e5db118-3479-43c9-b972-542ea5b4b12e",
+    "e439d239-8e9b-4e08-a0f0-7424e9481187",
+    "4726715f-a959-4223-8d78-b31d65e8c4ae",
+    "bd24d8b3-8205-490b-933e-7d47252c5867",
+    "33f9acab-e686-476f-8fb9-c6f10fa85ed4",
+    "9aee62c0-dbf1-4846-a823-74dd01951f01",
+    "eb9172fa-2a3b-432e-a793-eed54b7c28b0",
+    "1e1cf026-e590-42c2-b048-77a5238fefa8",
+    "5489da83-9fa7-43f1-880a-b61fff984881",
+    "a0313c31-5c27-46c8-8092-9aa10f594f0a",
+    "a8dbff6c-ece5-4882-94c8-36be4b402718",
+    "06579a8b-dc52-47b5-959e-664b86350691",
+    "cf184a02-f17a-413b-be21-a3786ec679d0",
+    "bc9c0031-2b74-41d9-b15c-8f53f8ec7140",
+    "cb412eec-b7e3-48e1-bae3-bc0c20b9a71b",
+    "0cadc513-77d1-4581-99c7-bf1c8afe77ea",
+    "3655a37a-b4fe-4386-babc-cbc44937c7e1",
+    "88aa300e-a523-4cdd-b1a5-eece16469978"
   ],
   "propsByKey": {
-    "2223bab1-0b27-4ad1-ad2e-7eb3dd0997c2": {
+    "2e3cc6a8-ee24-4f54-8efd-e4f666712f86": {
       "name": "bear",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/wAQoTe9lNAp19q.JxOmT6hRtv1GceGwp/category_animals/bear.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/mIDwrKQnNM7N__N.XzbtXyYJLZtNcI45/category_animals/bear.png",
       "frameSize": {
         "x": 254,
         "y": 333
@@ -78,12 +62,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "wAQoTe9lNAp19q.JxOmT6hRtv1GceGwp",
-      "categories": ["animals"]
+      "version": "mIDwrKQnNM7N__N.XzbtXyYJLZtNcI45",
+      "categories": [
+        "animals"
+      ]
     },
-    "44c5937d-c5c0-4676-bd0c-f7a86e99dd98": {
+    "c12c9345-c52d-42a8-b223-3f8308e7de63": {
       "name": "bee",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/b2QZ1J9ww5XYdjExrVb7lWgP2q6Gfx1C/category_animals/bee.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/z5od8MkvnXahzzy0LaXjug5Q8NRy7SSU/category_animals/bee.png",
       "frameSize": {
         "x": 62,
         "y": 50
@@ -91,12 +77,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "b2QZ1J9ww5XYdjExrVb7lWgP2q6Gfx1C",
-      "categories": ["animals"]
+      "version": "z5od8MkvnXahzzy0LaXjug5Q8NRy7SSU",
+      "categories": [
+        "animals"
+      ]
     },
-    "45b457bb-5b22-48f7-8664-4b38957d7799": {
+    "8689a5f3-4fea-4777-acd8-567127c2b947": {
       "name": "brown bunny",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/uPIxfWA_cXFQ3rZjtIfd5beAWtSMrP1l/category_animals/bunny1_ready.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/U63RVM_sxBtz5LPyOwQgGM9MpR_D4jha/category_animals/bunny1_ready.png",
       "frameSize": {
         "x": 120,
         "y": 191
@@ -104,12 +92,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "uPIxfWA_cXFQ3rZjtIfd5beAWtSMrP1l",
-      "categories": ["animals"]
+      "version": "U63RVM_sxBtz5LPyOwQgGM9MpR_D4jha",
+      "categories": [
+        "animals"
+      ]
     },
-    "d15af884-fb27-455f-b73a-899d07ce8975": {
+    "bd9e40e6-7c86-40f4-93ad-69bdaecaba99": {
       "name": "purple bunny",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/kBiszeGACcLTGTrqmS4laPVQKPGQnDln/category_animals/bunny2.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/NjihzJQ2Em8sTFVDmgtmFH1Eic3CiWcK/category_animals/bunny2.png",
       "frameSize": {
         "x": 152,
         "y": 193
@@ -117,12 +107,15 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "kBiszeGACcLTGTrqmS4laPVQKPGQnDln",
-      "categories": ["animals", "characters"]
+      "version": "NjihzJQ2Em8sTFVDmgtmFH1Eic3CiWcK",
+      "categories": [
+        "animals",
+        "characters"
+      ]
     },
-    "2e9c703b-d8cd-44e5-8cf2-c0d5940b84dc": {
+    "031cef9c-2ed8-484e-a7f5-7898beb689de": {
       "name": "corgi",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/VtKpUDKH2C9JjfbimUkhbbH.dHQ5t7ex/category_animals/corgi.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/kG8v1z4BEZQHYLHDxgepb8ZoLM2MZtuH/category_animals/corgi.png",
       "frameSize": {
         "x": 542,
         "y": 500
@@ -130,12 +123,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "VtKpUDKH2C9JjfbimUkhbbH.dHQ5t7ex",
-      "categories": ["animals"]
+      "version": "kG8v1z4BEZQHYLHDxgepb8ZoLM2MZtuH",
+      "categories": [
+        "animals"
+      ]
     },
-    "b287e053-266b-4eaa-ad59-310083ce3398": {
+    "2a9f18cd-be18-4fa4-92be-d0c84b9f8aa8": {
       "name": "cow",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/ROqEBwbLmX6qg9Acz.DUkfyl2gaMh4lP/category_animals/cow.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/et4awID1Zarj0rhfc6LW1_766agr6BuD/category_animals/cow.png",
       "frameSize": {
         "x": 265,
         "y": 300
@@ -143,12 +138,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "ROqEBwbLmX6qg9Acz.DUkfyl2gaMh4lP",
-      "categories": ["animals"]
+      "version": "et4awID1Zarj0rhfc6LW1_766agr6BuD",
+      "categories": [
+        "animals"
+      ]
     },
-    "986fdd82-f8e0-4674-806c-62d18f0ca9c3": {
+    "264909e2-4992-447e-8693-8263bf4a94e0": {
       "name": "crab",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/SdV.w3j8_4Djmt1L5C_gEVpS2VTh53Od/category_animals/crab.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/kk18gD_rBQ7qHmm0nNVI6tUO85ZlaxQi/category_animals/crab.png",
       "frameSize": {
         "x": 288,
         "y": 191
@@ -156,12 +153,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "SdV.w3j8_4Djmt1L5C_gEVpS2VTh53Od",
-      "categories": ["animals"]
+      "version": "kk18gD_rBQ7qHmm0nNVI6tUO85ZlaxQi",
+      "categories": [
+        "animals"
+      ]
     },
-    "0a84474a-a327-47c9-8377-c1c478001cec": {
+    "919dea24-92d8-4599-8965-aa89d7605995": {
       "name": "elephant",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/jK3q6UNbOMNbaiWBwclkhL3D8isE1cLQ/category_animals/elephant2.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/_naXimdFy8_o5GmoNq_h1klf0x8zrly_/category_animals/elephant2.png",
       "frameSize": {
         "x": 99,
         "y": 97
@@ -169,12 +168,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "jK3q6UNbOMNbaiWBwclkhL3D8isE1cLQ",
-      "categories": []
+      "version": "_naXimdFy8_o5GmoNq_h1klf0x8zrly_",
+      "categories": [
+
+      ]
     },
-    "7ecbad62-f575-48eb-8861-b42dbf62d545": {
+    "f9b69749-3a0d-4db0-bafb-f80332cb7eb5": {
       "name": "fish",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/CwVno2kER.r_tECMOL4D4YL.lcaFNv7h/category_animals/fish.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/hzqXsJ5_Xc2N919yyPq7FRaeH6jf_RM_/category_animals/fish.png",
       "frameSize": {
         "x": 128,
         "y": 128
@@ -182,12 +183,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "CwVno2kER.r_tECMOL4D4YL.lcaFNv7h",
-      "categories": ["animals"]
+      "version": "hzqXsJ5_Xc2N919yyPq7FRaeH6jf_RM_",
+      "categories": [
+        "animals"
+      ]
     },
-    "9b98c484-57b8-40cc-ad45-1d1ed02336d6": {
+    "e5467b3b-7388-43ee-bc5e-6feae306baf4": {
       "name": "hippo",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/zqsDGpXOezy.SxANtxyxyThklFz1v1.1/category_animals/hippo_gray.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/IgM8wEB2er.arPCH.Sc3sLkQclD29Yg5/category_animals/hippo_gray.png",
       "frameSize": {
         "x": 243,
         "y": 300
@@ -195,12 +198,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "zqsDGpXOezy.SxANtxyxyThklFz1v1.1",
-      "categories": ["animals"]
+      "version": "IgM8wEB2er.arPCH.Sc3sLkQclD29Yg5",
+      "categories": [
+        "animals"
+      ]
     },
-    "1124b3e0-1430-451f-a8b2-137ce8091759": {
+    "75552e2f-16be-4ada-822d-57337118d698": {
       "name": "ladybug",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/BF9M9h767oyE2PE2u8uCA2pDQzJG19ji/category_animals/ladybug.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/KMpXeq2pkT56mbS78shNOhnyn6fjhz8_/category_animals/ladybug.png",
       "frameSize": {
         "x": 63,
         "y": 36
@@ -208,12 +213,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "BF9M9h767oyE2PE2u8uCA2pDQzJG19ji",
-      "categories": ["animals"]
+      "version": "KMpXeq2pkT56mbS78shNOhnyn6fjhz8_",
+      "categories": [
+        "animals"
+      ]
     },
-    "2c93ddd7-1058-4df8-b4a1-73c1f70a1772": {
+    "e0e7d3f4-2ee4-4848-baae-8ada277e8549": {
       "name": "mouse",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/sTV_ECoTPZ4e322cfbiihNiMroU13hpD/category_animals/mouse.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/pXp1etw3VdbVaOtfFew_6_UPQE0TgOkX/category_animals/mouse.png",
       "frameSize": {
         "x": 61,
         "y": 37
@@ -221,12 +228,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "sTV_ECoTPZ4e322cfbiihNiMroU13hpD",
-      "categories": ["animals"]
+      "version": "pXp1etw3VdbVaOtfFew_6_UPQE0TgOkX",
+      "categories": [
+        "animals"
+      ]
     },
-    "7887ec4e-1a27-4bfe-898c-3049b131cbe4": {
+    "6c53c80c-8f8d-4dd0-b21f-597208e8a10b": {
       "name": "pig",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/A8YFs.SdlbWk..8K5pSt_fGAc.F_oGE3/category_animals/pig.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/SDbgbjO1FQ1tzB8__zqQFcXMDHOx_7Bc/category_animals/pig.png",
       "frameSize": {
         "x": 288,
         "y": 257
@@ -234,12 +243,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "A8YFs.SdlbWk..8K5pSt_fGAc.F_oGE3",
-      "categories": ["animals"]
+      "version": "SDbgbjO1FQ1tzB8__zqQFcXMDHOx_7Bc",
+      "categories": [
+        "animals"
+      ]
     },
-    "f1c617e5-4a3f-4f04-90f0-7e0305df84af": {
+    "a1c481a0-26c3-45ba-81d1-4d3c8dd0fd4f": {
       "name": "bell",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/PXwfEV0ey9ywPrIX.eBetY3EPIBehUdU/category_generic_items/bell.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/TRrVM0mpV83pmppQrUkXkeroyadXPc0B/category_school_objects/bell.png",
       "frameSize": {
         "x": 85,
         "y": 100
@@ -247,12 +258,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "PXwfEV0ey9ywPrIX.eBetY3EPIBehUdU",
-      "categories": ["generic items"]
+      "version": "TRrVM0mpV83pmppQrUkXkeroyadXPc0B",
+      "categories": [
+        "school_objects"
+      ]
     },
-    "8545eeec-aa1c-4193-9896-30e93f7af76b": {
+    "eb00c2c8-8ea8-4ce1-8647-e3715f7bbc86": {
       "name": "book",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/LjwHKxijspVx1mP9MzObUvyxK5WG3oim/category_generic_items/book.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/Nu0psmDRb9Sg8hXz.gTj9D14FcKx6gyt/category_school_objects/book.png",
       "frameSize": {
         "x": 109,
         "y": 125
@@ -260,12 +273,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "LjwHKxijspVx1mP9MzObUvyxK5WG3oim",
-      "categories": ["generic items"]
+      "version": "Nu0psmDRb9Sg8hXz.gTj9D14FcKx6gyt",
+      "categories": [
+        "school_objects"
+      ]
     },
-    "fa2a0e9e-e38d-40ee-89a0-cdb72a1fa6cc": {
+    "925e0af7-a3f7-4bdc-a626-046282c08a33": {
       "name": "compass",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/2dfHfS8SHX0KZKAOFL4p1tpdmcyE.P5q/category_generic_items/compass.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/pYSDFoiOjuUYxYWLUqTAyBZOA51Xc387/category_school_objects/compass.png",
       "frameSize": {
         "x": 105,
         "y": 79
@@ -273,12 +288,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "2dfHfS8SHX0KZKAOFL4p1tpdmcyE.P5q",
-      "categories": ["generic items"]
+      "version": "pYSDFoiOjuUYxYWLUqTAyBZOA51Xc387",
+      "categories": [
+        "school_objects"
+      ]
     },
-    "fc4aa65d-fb3c-40af-9845-786503764ad3": {
+    "754b5d0a-7e24-45ff-ada4-fe8854c7d7ed": {
       "name": "computer monitor",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/AV67_BG0DzS_w3UNmSsT7JXTV_wmaBeo/category_generic_items/computer_monitor.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/q2Isk14znZF6lhSYJR2cZMPM6_yfORo1/category_school_objects/computer_monitor.png",
       "frameSize": {
         "x": 136,
         "y": 129
@@ -286,12 +303,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "AV67_BG0DzS_w3UNmSsT7JXTV_wmaBeo",
-      "categories": ["generic items"]
+      "version": "q2Isk14znZF6lhSYJR2cZMPM6_yfORo1",
+      "categories": [
+        "school_objects"
+      ]
     },
-    "a1d0480c-1263-4847-b188-c892024f6bb8": {
+    "aaff4b3e-91ff-4d7a-adec-b07ada79aec5": {
       "name": "first aid kit",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/qJH1.9rzwUqhdOsDInXK3DZLW2JQLHjE/category_generic_items/first_aid.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/U0Smyf619_HtShL2poS6BBet3JVueINp/category_school_objects/first_aid.png",
       "frameSize": {
         "x": 117,
         "y": 117
@@ -299,12 +318,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "qJH1.9rzwUqhdOsDInXK3DZLW2JQLHjE",
-      "categories": ["generic items"]
+      "version": "U0Smyf619_HtShL2poS6BBet3JVueINp",
+      "categories": [
+        "school_objects"
+      ]
     },
-    "a5cf7f32-903e-4d01-b163-08e61c9d39aa": {
+    "21e2e4bf-6bf9-453d-a3ba-204a27f599c2": {
       "name": "keys",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/yLPZZ9U2U5MNSf321I3XMwS_kAw9LyZZ/category_generic_items/keys.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/SgcV8tH8ZfWKa1CzNiPx3O7Yc_iIL9r1/category_household_objects/keys.png",
       "frameSize": {
         "x": 94,
         "y": 73
@@ -312,12 +333,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "yLPZZ9U2U5MNSf321I3XMwS_kAw9LyZZ",
-      "categories": ["generic items"]
+      "version": "SgcV8tH8ZfWKa1CzNiPx3O7Yc_iIL9r1",
+      "categories": [
+        "household_objects"
+      ]
     },
-    "dfe7d8cc-9097-4fae-a02c-d1951aaf32dc": {
+    "8daecada-a5b5-4915-bb70-35ab2f92d158": {
       "name": "money",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/WOADjHCtrTpzfug5zO08.VemfZQxczxM/category_generic_items/money.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/1MSkmBve6sInP7bEBXVccDBHKcg7FZhM/category_household_objects/money.png",
       "frameSize": {
         "x": 101,
         "y": 106
@@ -325,12 +348,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "WOADjHCtrTpzfug5zO08.VemfZQxczxM",
-      "categories": ["generic items"]
+      "version": "1MSkmBve6sInP7bEBXVccDBHKcg7FZhM",
+      "categories": [
+        "household_objects"
+      ]
     },
-    "98b0bab9-36ca-43b1-8370-c520949c5ec4": {
+    "fbc4b584-b0a5-4f04-950a-47654a56347a": {
       "name": "paint pallette",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/N1aMvPy04__knoU3yolIxey_2v3kCnN3/category_generic_items/paint_pallette.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/rpTz3TC.Hm4tP7cmfej1jSCeK3.ndBz8/category_school_objects/paint_pallette.png",
       "frameSize": {
         "x": 116,
         "y": 96
@@ -338,12 +363,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "N1aMvPy04__knoU3yolIxey_2v3kCnN3",
-      "categories": ["generic items"]
+      "version": "rpTz3TC.Hm4tP7cmfej1jSCeK3.ndBz8",
+      "categories": [
+        "school_objects"
+      ]
     },
-    "a2110245-266a-42ab-b8dc-84b4165924b5": {
+    "8dcf634e-e930-4690-8a59-f8eae5ea17a9": {
       "name": "potion",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/lwbDlPwSetDvZN1Qg.5X9rLcUirjG5ZZ/category_generic_items/flask.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/N.mfmK0H8losy3ioUboFYv6c4qVHQkYW/category_school_objects/flask.png",
       "frameSize": {
         "x": 60,
         "y": 112
@@ -351,12 +378,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "lwbDlPwSetDvZN1Qg.5X9rLcUirjG5ZZ",
-      "categories": ["generic items"]
+      "version": "N.mfmK0H8losy3ioUboFYv6c4qVHQkYW",
+      "categories": [
+        "school_objects"
+      ]
     },
-    "f755eca1-9df6-4723-bd2e-0176c7ee1cfd": {
+    "40b4e439-5dca-4b1b-9c90-ba69add18c7b": {
       "name": "tablet",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/nBBhpOU7OIfXpQlr3_A3Qc2rXHON5Pyo/category_generic_items/tablet.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/XifGzitX0iMbV16j1HwptGbADHHCzhGk/category_school_objects/tablet.png",
       "frameSize": {
         "x": 84,
         "y": 98
@@ -364,12 +393,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "nBBhpOU7OIfXpQlr3_A3Qc2rXHON5Pyo",
-      "categories": ["generic items"]
+      "version": "XifGzitX0iMbV16j1HwptGbADHHCzhGk",
+      "categories": [
+        "school_objects"
+      ]
     },
-    "d197b759-38ef-4973-a43b-4a07653f62b7": {
+    "014cddab-edcc-45ca-81c3-6654ac30e87b": {
       "name": "teapot",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/8sssIK6UnCKrpe.Zuv3D3QCDOsIj4CnM/category_generic_items/teapot.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/sUMFbvgUJoTy5xYQsNjKe4CAG7CfvrTy/category_household_objects/teapot.png",
       "frameSize": {
         "x": 152,
         "y": 116
@@ -377,12 +408,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "8sssIK6UnCKrpe.Zuv3D3QCDOsIj4CnM",
-      "categories": ["generic items"]
+      "version": "sUMFbvgUJoTy5xYQsNjKe4CAG7CfvrTy",
+      "categories": [
+        "household_objects"
+      ]
     },
-    "8c1a5163-04a8-4d78-9886-dc2ca8a2d536": {
+    "0fbdf02c-f451-4c7d-8c7a-413b12e7f875": {
       "name": "boat",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/oI8SYIuf5aImfljkVGuZQjPe_qAA.3Do/category_vehicles/boat.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/PsZhuLZxuSJDvivC8of_xzoGA08qCtkl/category_vehicles/boat.png",
       "frameSize": {
         "x": 128,
         "y": 128
@@ -390,12 +423,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "oI8SYIuf5aImfljkVGuZQjPe_qAA.3Do",
-      "categories": ["vehicles"]
+      "version": "PsZhuLZxuSJDvivC8of_xzoGA08qCtkl",
+      "categories": [
+        "vehicles"
+      ]
     },
-    "20c00311-89c5-4eeb-98c9-3edb5ebad13e": {
+    "ce421d9f-6b3d-4b92-851d-2a4218a9d2f2": {
       "name": "black car",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/0lBn3xCLJZlin7ivKqBjD.7HTJDRBHeZ/category_vehicles/car_black.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/Rp6THHQrxrOunFea3Fdsh17xusgIft_8/category_vehicles/car_black.png",
       "frameSize": {
         "x": 131,
         "y": 71
@@ -403,12 +438,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "0lBn3xCLJZlin7ivKqBjD.7HTJDRBHeZ",
-      "categories": ["vehicles"]
+      "version": "Rp6THHQrxrOunFea3Fdsh17xusgIft_8",
+      "categories": [
+        "vehicles"
+      ]
     },
-    "6fa37cd5-4ca2-417a-a603-a3a66e0446be": {
+    "9d70a9cb-2802-460d-b69b-91ac35867cf2": {
       "name": "blue car",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/QNi1wKq8_tXRnejQdBn8_zgJ6Jf1F_yc/category_vehicles/car_blue.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/H7wwrUYxb5VmZbeB1W1ICYbN8SVukjE6/category_vehicles/car_blue.png",
       "frameSize": {
         "x": 131,
         "y": 71
@@ -416,12 +453,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "QNi1wKq8_tXRnejQdBn8_zgJ6Jf1F_yc",
-      "categories": ["vehicles"]
+      "version": "H7wwrUYxb5VmZbeB1W1ICYbN8SVukjE6",
+      "categories": [
+        "vehicles"
+      ]
     },
-    "8ec43d69-3ae4-4a5f-867d-41bc549a5348": {
+    "5905761d-ac94-47eb-9dde-c0c52f4537cb": {
       "name": "green car",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/UEAWMH.YSbQdPRF2y5wIQ5_k4CC4YkIj/category_vehicles/car_green.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/SfTWB9DNpPBcVqxLQvvtV7Ljpmn.eety/category_vehicles/car_green.png",
       "frameSize": {
         "x": 131,
         "y": 71
@@ -429,12 +468,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "UEAWMH.YSbQdPRF2y5wIQ5_k4CC4YkIj",
-      "categories": ["vehicles"]
+      "version": "SfTWB9DNpPBcVqxLQvvtV7Ljpmn.eety",
+      "categories": [
+        "vehicles"
+      ]
     },
-    "2256652a-d12f-433f-a8d7-ba1db9869aca": {
+    "d88e8a0a-d51e-435f-8cd7-cd7eb1ded15f": {
       "name": "red car",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/pdfd16yWiuCkzL.IVlYq1SSosQSPrLZe/category_vehicles/car_red.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/hd6CnZltKxmlWtdq.QnW0GOuCYG55Cxt/category_vehicles/car_red.png",
       "frameSize": {
         "x": 131,
         "y": 71
@@ -442,12 +483,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "pdfd16yWiuCkzL.IVlYq1SSosQSPrLZe",
-      "categories": ["vehicles"]
+      "version": "hd6CnZltKxmlWtdq.QnW0GOuCYG55Cxt",
+      "categories": [
+        "vehicles"
+      ]
     },
-    "b16c1f8d-cbf3-4d00-b597-547a4aafb909": {
+    "c1e2108d-66eb-4327-a48b-7b19c42b2cca": {
       "name": "yellow car",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/d0RI2Pc1wkXZsac.5orilt2QcrzynLy3/category_vehicles/car_yellow.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/frAazTPJmgN_WH7tCmOlWHtblpx51ovD/category_vehicles/car_yellow.png",
       "frameSize": {
         "x": 131,
         "y": 71
@@ -455,12 +498,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "d0RI2Pc1wkXZsac.5orilt2QcrzynLy3",
-      "categories": ["vehicles"]
+      "version": "frAazTPJmgN_WH7tCmOlWHtblpx51ovD",
+      "categories": [
+        "vehicles"
+      ]
     },
-    "7ae82ac5-bf20-4627-9575-574e29c241c0": {
+    "a7663c9a-b89d-4ef2-8804-fd73adad4525": {
       "name": "blue plane",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/grzc0jLLnQ2NSxjwUjplDJj.R2E10flT/category_vehicles/planeBlue1.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/L6rwpyvT1LY8UhnAjHw3Akm9JgpF5xM7/category_vehicles/planeBlue1.png",
       "frameSize": {
         "x": 88,
         "y": 73
@@ -468,12 +513,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "grzc0jLLnQ2NSxjwUjplDJj.R2E10flT",
-      "categories": ["vehicles"]
+      "version": "L6rwpyvT1LY8UhnAjHw3Akm9JgpF5xM7",
+      "categories": [
+        "vehicles"
+      ]
     },
-    "fbf2ef19-964e-4593-9822-9eaf8b8e187f": {
+    "3eaec0b1-0ca2-4fe3-92ed-a1a4d2d36ca1": {
       "name": "red plane",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/AX6K06DecwVXhRO4AvAt7SLsE7NtvfNt/category_vehicles/planeRed1.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/9TtOWtJj2QO3FPsreKkPQG5Uy0I1Zsk6/category_vehicles/planeRed1.png",
       "frameSize": {
         "x": 88,
         "y": 73
@@ -481,155 +528,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "AX6K06DecwVXhRO4AvAt7SLsE7NtvfNt",
-      "categories": ["vehicles"]
+      "version": "9TtOWtJj2QO3FPsreKkPQG5Uy0I1Zsk6",
+      "categories": [
+        "vehicles"
+      ]
     },
-    "5dd1aea2-1f2d-4b7a-90eb-9895b2fc3608": {
-      "name": "blue alien",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/ejbq67QKuPrQTpRKtoL.M2HVHzpNduns/category_characters/alienBlue.png",
-      "frameSize": {
-        "x": 66,
-        "y": 92
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "ejbq67QKuPrQTpRKtoL.M2HVHzpNduns",
-      "categories": ["characters"]
-    },
-    "50274781-8652-48d9-b5ad-03c22efe835a": {
-      "name": "green alien",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/DW4DypUlfossYbRM0NcaMXXGBvbs9tJW/category_characters/alienGreen.png",
-      "frameSize": {
-        "x": 66,
-        "y": 92
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "DW4DypUlfossYbRM0NcaMXXGBvbs9tJW",
-      "categories": ["characters"]
-    },
-    "7a423fba-22b9-42f0-bf37-5ebc5cdf525e": {
-      "name": "pink alien",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/2QJkd5Ya9YmFBKAnIwNVeRr0Om.Hroxu/category_characters/alienPink.png",
-      "frameSize": {
-        "x": 66,
-        "y": 92
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "2QJkd5Ya9YmFBKAnIwNVeRr0Om.Hroxu",
-      "categories": ["characters"]
-    },
-    "da54705b-2478-480b-bda3-758d6c348f3b": {
-      "name": "yellow alien",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/7iIxntwgHtrM.IEp6Ga2OFAGz1Ciq_y1/category_characters/alienYellow.png",
-      "frameSize": {
-        "x": 66,
-        "y": 82
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "7iIxntwgHtrM.IEp6Ga2OFAGz1Ciq_y1",
-      "categories": ["characters"]
-    },
-    "9b89d959-be06-45ed-af41-6861b1288e38": {
-      "name": "ghost",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/X2R5uPhDuVXpg9iy6qK_kYrY9KWXxASH/category_characters/ghost.png",
-      "frameSize": {
-        "x": 51,
-        "y": 73
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "X2R5uPhDuVXpg9iy6qK_kYrY9KWXxASH",
-      "categories": ["characters"]
-    },
-    "41f01d32-2495-486b-9a58-b9a188e5ce73": {
-      "name": "orange monster",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/PYXi1AIsJ3QoaegkbPhHIqcC.yWg_t0X/category_characters/orange_monster.png",
-      "frameSize": {
-        "x": 240,
-        "y": 300
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "PYXi1AIsJ3QoaegkbPhHIqcC.yWg_t0X",
-      "categories": ["characters"]
-    },
-    "9deaf802-3ed1-4e9f-ac5b-0a8fd6985c13": {
-      "name": "green monster",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/rT9oAB0skB62_LtrjffjYO0SrACE6D_Y/category_characters/happy_critter.png",
-      "frameSize": {
-        "x": 262,
-        "y": 300
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "rT9oAB0skB62_LtrjffjYO0SrACE6D_Y",
-      "categories": ["characters"]
-    },
-    "dbfa88e2-0c41-48a6-9047-4b4295cfe73f": {
-      "name": "purple monster",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/CdlNOvtih6CV7QUekCCPH7e11tMwCGQh/category_characters/purple_monster.png",
-      "frameSize": {
-        "x": 280,
-        "y": 290
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "CdlNOvtih6CV7QUekCCPH7e11tMwCGQh",
-      "categories": ["characters"]
-    },
-    "b707e334-a22a-43bb-87eb-035ed95bc104": {
-      "name": "cloud",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/zQs0ejWu81wIiZyi4WyF0G0efY1RG5kY/category_environment/cloud.png",
-      "frameSize": {
-        "x": 260,
-        "y": 134
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "zQs0ejWu81wIiZyi4WyF0G0efY1RG5kY",
-      "categories": ["environment"]
-    },
-    "5b94a14f-5bb3-432d-9594-fc724897c840": {
-      "name": "rock",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/bwzgoXDO24mMPbQmo21kn4tqxa8CZm_X/category_environment/rock.png",
-      "frameSize": {
-        "x": 128,
-        "y": 128
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "bwzgoXDO24mMPbQmo21kn4tqxa8CZm_X",
-      "categories": ["environment"]
-    },
-    "be61640e-babf-45ca-84d7-9bbf6c8295db": {
-      "name": "sun",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/5i6Vfj3NhrIHW5XFDTfF6K0y4Xegltto/category_environment/sun.png",
-      "frameSize": {
-        "x": 150,
-        "y": 150
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "5i6Vfj3NhrIHW5XFDTfF6K0y4Xegltto",
-      "categories": ["characters"]
-    },
-    "22e9fe74-0bf7-46aa-9d19-94d0eb00381b": {
+    "9e5db118-3479-43c9-b972-542ea5b4b12e": {
       "name": "apple",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/vbw9BDeBFLTx8OXL1VvVXKtSU8Bchm7_/category_food/apple.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/Ir0rDmCis.FWLlIr_44tObDYBSKlOtHl/category_food/apple.png",
       "frameSize": {
         "x": 128,
         "y": 128
@@ -637,12 +543,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "vbw9BDeBFLTx8OXL1VvVXKtSU8Bchm7_",
-      "categories": ["food"]
+      "version": "Ir0rDmCis.FWLlIr_44tObDYBSKlOtHl",
+      "categories": [
+        "food"
+      ]
     },
-    "749d51c7-59ce-4c94-bc4f-12c5234d4a29": {
+    "e439d239-8e9b-4e08-a0f0-7424e9481187": {
       "name": "carrot",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/LktfiFiKxVZilg.oRMm7BIzGPEA3igqc/category_food/carrot.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/ScDjLsshXSu8I7zEt1vkGhIeSySwcpug/category_food/carrot.png",
       "frameSize": {
         "x": 78,
         "y": 70
@@ -650,12 +558,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "LktfiFiKxVZilg.oRMm7BIzGPEA3igqc",
-      "categories": ["food"]
+      "version": "ScDjLsshXSu8I7zEt1vkGhIeSySwcpug",
+      "categories": [
+        "food"
+      ]
     },
-    "92997275-4280-46dd-9672-4a31de5913b9": {
+    "4726715f-a959-4223-8d78-b31d65e8c4ae": {
       "name": "cupcake",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/9YuGeoTtld.6UW7A462ht9nigqil_6xs/category_food/cupcake.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/40MLnTzqTesYimrzDhrgk54yWwiVrtrn/category_food/cupcake.png",
       "frameSize": {
         "x": 283,
         "y": 300
@@ -663,12 +573,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "9YuGeoTtld.6UW7A462ht9nigqil_6xs",
-      "categories": ["food"]
+      "version": "40MLnTzqTesYimrzDhrgk54yWwiVrtrn",
+      "categories": [
+        "food"
+      ]
     },
-    "5b430010-3b8f-4e86-a1e1-468d229416d3": {
+    "bd24d8b3-8205-490b-933e-7d47252c5867": {
       "name": "mushroom",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/12FsgKxv2Cvon5LWsmLIZQckWyx.tAyv/category_food/mushroom_red.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/aGJEXKHUn_qjYKuauspWXmAVHcsGJSaR/category_food/mushroom_red.png",
       "frameSize": {
         "x": 81,
         "y": 99
@@ -676,12 +588,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "12FsgKxv2Cvon5LWsmLIZQckWyx.tAyv",
-      "categories": ["food"]
+      "version": "aGJEXKHUn_qjYKuauspWXmAVHcsGJSaR",
+      "categories": [
+        "food"
+      ]
     },
-    "f34f4a47-214f-4e38-94d0-dd07cb2b1dcd": {
+    "33f9acab-e686-476f-8fb9-c6f10fa85ed4": {
       "name": "watermelon",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/5BW1xx6Sl6Ec6d_sOSReEIOe5W.UXMiG/category_food/sliced_watermelon.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/I6hDFzhQF3whv8UxHZ3Du5kDj66.CoaH/category_food/sliced_watermelon.png",
       "frameSize": {
         "x": 300,
         "y": 240
@@ -689,90 +603,29 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "5BW1xx6Sl6Ec6d_sOSReEIOe5W.UXMiG",
-      "categories": ["food"]
+      "version": "I6hDFzhQF3whv8UxHZ3Du5kDj66.CoaH",
+      "categories": [
+        "food"
+      ]
     },
-    "68917b8c-768a-407e-8258-1e6ebbb2340e": {
-      "name": "gold coin",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/Vs3f3C74lKLX_.v83wHjBOqPduB14F0T/category_gameplay/coin_gold.png",
-      "frameSize": {
-        "x": 61,
-        "y": 61
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "Vs3f3C74lKLX_.v83wHjBOqPduB14F0T",
-      "categories": ["gameplay"]
-    },
-    "74539f4c-9f4e-4229-aad7-2650454c3e8a": {
-      "name": "silver coin",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/kDI1bxJye5Z4LS0frg.jfN6qZ0piUaxl/category_gameplay/coin_silver.png",
-      "frameSize": {
-        "x": 61,
-        "y": 61
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "kDI1bxJye5Z4LS0frg.jfN6qZ0piUaxl",
-      "categories": ["gameplay"]
-    },
-    "08aa254e-653d-4ca0-b943-fc2233db3cde": {
-      "name": "target",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/Ni9UlmGl0cBLI14MCNOniT4tNaMJJSzC/category_gameplay/target_red3_outline.png",
-      "frameSize": {
-        "x": 142,
-        "y": 142
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "Ni9UlmGl0cBLI14MCNOniT4tNaMJJSzC",
-      "categories": ["gameplay"]
-    },
-    "20c80bcb-26c2-4701-b3ce-9d8dbe96d459": {
-      "name": "cactus",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/fvP_YDSp32ON.B1R69F.ha4Et2iu.U5W/category_obstacles/cactus.png",
-      "frameSize": {
-        "x": 117,
-        "y": 160
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "fvP_YDSp32ON.B1R69F.ha4Et2iu.U5W",
-      "categories": ["obstacles"]
-    },
-    "a8dabd2a-6faf-4ab5-b870-ee9540d256dc": {
-      "name": "wheat",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/1T4NkoECSpVfV_gWsnBrrMcXWDhL5Heb/category_obstacles/wheat.png",
-      "frameSize": {
-        "x": 128,
-        "y": 128
-      },
-      "frameCount": 1,
-      "looping": true,
-      "frameDelay": 2,
-      "version": "1T4NkoECSpVfV_gWsnBrrMcXWDhL5Heb",
-      "categories": ["obstacles"]
-    },
-    "12eda44b-58ef-4696-9d37-06623620383b": {
+    "9aee62c0-dbf1-4846-a823-74dd01951f01": {
       "name": "soap",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/RV2Re1P6P8WVQ_g_HytRqSBokiQG1uUZ/category_generic_items/soap.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/Xdp_e3sVsMJSPKp4qJm2mK0vbdQabz7s/category_household_objects/soap.png",
       "frameSize": {
-        "x": 97,
-        "y": 97
+        "x": 382,
+        "y": 387
       },
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "RV2Re1P6P8WVQ_g_HytRqSBokiQG1uUZ",
-      "categories": []
+      "version": "Xdp_e3sVsMJSPKp4qJm2mK0vbdQabz7s",
+      "categories": [
+        "household_objects"
+      ]
     },
-    "8ca751af-ef34-4fd4-9e96-6e985f93f4c2": {
+    "eb9172fa-2a3b-432e-a793-eed54b7c28b0": {
       "name": "cave",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/3LUT4MZxHDWhZbAtYtEmQD1ZrfwQ7jFG/category_backgrounds/background_cave.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/Jew1r0diJWbWB4kbAZ7.NJ2AUYEGe6gf/category_backgrounds/background_cave.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -780,12 +633,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "3LUT4MZxHDWhZbAtYtEmQD1ZrfwQ7jFG",
-      "categories": ["backgrounds"]
+      "version": "Jew1r0diJWbWB4kbAZ7.NJ2AUYEGe6gf",
+      "categories": [
+        "backgrounds"
+      ]
     },
-    "d0b3ee56-4324-426a-bd7c-72ea9aec2755": {
+    "1e1cf026-e590-42c2-b048-77a5238fefa8": {
       "name": "court",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/ljzwi6meI5Bef4xgi7Vm17lrAQgnsQb6/category_backgrounds/background_court.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/adiEJboYctqvH_6oWQsa2pntrWoKSWCe/category_backgrounds/background_court.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -793,12 +648,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "ljzwi6meI5Bef4xgi7Vm17lrAQgnsQb6",
-      "categories": ["backgrounds"]
+      "version": "adiEJboYctqvH_6oWQsa2pntrWoKSWCe",
+      "categories": [
+        "backgrounds"
+      ]
     },
-    "90ce56d0-f5f9-45ec-a012-32e7e2f57e15": {
+    "5489da83-9fa7-43f1-880a-b61fff984881": {
       "name": "desert",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/5vYFILCZh.Lr7UIRnzfvkUs.NB9rNzmA/category_backgrounds/background_desert.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/jk3M8I5meW0fLpyM6u.r8uxw48VmFI8m/category_backgrounds/background_desert.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -806,12 +663,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "5vYFILCZh.Lr7UIRnzfvkUs.NB9rNzmA",
-      "categories": ["backgrounds"]
+      "version": "jk3M8I5meW0fLpyM6u.r8uxw48VmFI8m",
+      "categories": [
+        "backgrounds"
+      ]
     },
-    "4b4e5d34-d8d3-4c1a-9d41-e94193afb092": {
+    "a0313c31-5c27-46c8-8092-9aa10f594f0a": {
       "name": "grid",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/nG_cj1NXQ56VOdqMbGXqKxKupa4bCoNQ/category_backgrounds/background_grid.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/MPnxVQ7JpSjqVU9B_AEEdlI8RukDG6Np/category_backgrounds/background_grid.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -819,12 +678,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "nG_cj1NXQ56VOdqMbGXqKxKupa4bCoNQ",
-      "categories": ["backgrounds"]
+      "version": "MPnxVQ7JpSjqVU9B_AEEdlI8RukDG6Np",
+      "categories": [
+        "backgrounds"
+      ]
     },
-    "bd424603-10eb-4e88-8160-4f5e8d1b0e59": {
+    "a8dbff6c-ece5-4882-94c8-36be4b402718": {
       "name": "rainbow",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/MYI66A.p.d.nsybsDI1jgCMx1bikkVBV/category_backgrounds/background_rainbow.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/.NEByTTdvGYBmHbCgC31lkLP3r54MrUr/category_backgrounds/background_rainbow.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -832,12 +693,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "MYI66A.p.d.nsybsDI1jgCMx1bikkVBV",
-      "categories": ["backgrounds"]
+      "version": ".NEByTTdvGYBmHbCgC31lkLP3r54MrUr",
+      "categories": [
+        "backgrounds"
+      ]
     },
-    "62326fd3-5701-4f32-ac89-c5520fa2430a": {
+    "06579a8b-dc52-47b5-959e-664b86350691": {
       "name": "sci_fi",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/VgCmbJgqgLF9jDbyXCgmEdiExTouoSzM/category_backgrounds/background_scifi.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/7WGrtxRF0xE9GxyvmkSCB03aEmSnP1BJ/category_backgrounds/background_scifi.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -845,12 +708,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "VgCmbJgqgLF9jDbyXCgmEdiExTouoSzM",
-      "categories": ["backgrounds"]
+      "version": "7WGrtxRF0xE9GxyvmkSCB03aEmSnP1BJ",
+      "categories": [
+        "backgrounds"
+      ]
     },
-    "1acf1c10-82d5-42f2-b5f6-9462be53f87a": {
+    "cf184a02-f17a-413b-be21-a3786ec679d0": {
       "name": "space",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/Qbu7Ts39zZI4Ge1hsHJOCv4Hn.Uc4vP6/category_backgrounds/background_space.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/GkTl8wY.EIs7j.aQ0guul9MkQurV2nXb/category_backgrounds/background_space.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -858,12 +723,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "Qbu7Ts39zZI4Ge1hsHJOCv4Hn.Uc4vP6",
-      "categories": ["backgrounds"]
+      "version": "GkTl8wY.EIs7j.aQ0guul9MkQurV2nXb",
+      "categories": [
+        "backgrounds"
+      ]
     },
-    "9f985df8-6ac3-417f-bcae-6f19e26246df": {
+    "bc9c0031-2b74-41d9-b15c-8f53f8ec7140": {
       "name": "underwater",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/BX96uCjiPxLoAtJ6WtsGBIoupYXpXjZC/category_backgrounds/background_underwater.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/xIYCzHqWYaGTKTc.iqy0NAcVSuVT6u58/category_backgrounds/background_underwater.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -871,12 +738,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "BX96uCjiPxLoAtJ6WtsGBIoupYXpXjZC",
-      "categories": ["backgrounds"]
+      "version": "xIYCzHqWYaGTKTc.iqy0NAcVSuVT6u58",
+      "categories": [
+        "backgrounds"
+      ]
     },
-    "918cc09b-0fea-41b7-a64f-ea8fc3d427c9": {
+    "cb412eec-b7e3-48e1-bae3-bc0c20b9a71b": {
       "name": "city",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/qd8rCUFQjPYGQ3DxHN5FR0wnUsRqyZ66/category_backgrounds/city.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/B8kY3B8zXRk.dGgTTFgZKNS35c9N.DZg/category_backgrounds/city.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -884,12 +753,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "qd8rCUFQjPYGQ3DxHN5FR0wnUsRqyZ66",
-      "categories": ["backgrounds"]
+      "version": "B8kY3B8zXRk.dGgTTFgZKNS35c9N.DZg",
+      "categories": [
+        "backgrounds"
+      ]
     },
-    "1d88dc5d-48f6-42fa-b0e6-a2f18ce9f811": {
+    "0cadc513-77d1-4581-99c7-bf1c8afe77ea": {
       "name": "floating_grass",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/RH.MmPr8zDcQ7sl7X3Cl3.pXLfUQHDdQ/category_backgrounds/floating_grass.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/yV.ZCUM_7X6N4iRY_acYSNmPK3p7xPtN/category_backgrounds/floating_grass.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -897,12 +768,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "RH.MmPr8zDcQ7sl7X3Cl3.pXLfUQHDdQ",
-      "categories": ["backgrounds"]
+      "version": "yV.ZCUM_7X6N4iRY_acYSNmPK3p7xPtN",
+      "categories": [
+        "backgrounds"
+      ]
     },
-    "d6c15c0b-6556-4a40-b9cd-245c53bfdad2": {
+    "3655a37a-b4fe-4386-babc-cbc44937c7e1": {
       "name": "living_room",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/5zAL.r_K1YSVWBuf3S3Ehr6JZqAG3v5q/category_backgrounds/living_room.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/4x6Z5zcMM25uAXN7ZxEmznHxW7DLOJYU/category_backgrounds/living_room.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -910,12 +783,14 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "5zAL.r_K1YSVWBuf3S3Ehr6JZqAG3v5q",
-      "categories": ["backgrounds"]
+      "version": "4x6Z5zcMM25uAXN7ZxEmznHxW7DLOJYU",
+      "categories": [
+        "backgrounds"
+      ]
     },
-    "3d97df38-3c67-497b-937f-48061076fe79": {
+    "88aa300e-a523-4cdd-b1a5-eece16469978": {
       "name": "stage",
-      "sourceUrl": "https://studio.code.org/api/v1/animation-library/spritelab/o5tnEelSHuct9HvjREeeWLfGyl4lNx9e/category_backgrounds/stage.png",
+      "sourceUrl": "/api/v1/animation-library/spritelab/mpyZAmKXL98z2CXGq2mNtPiB5h95V9Dq/category_backgrounds/stage.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -923,8 +798,10 @@
       "frameCount": 1,
       "looping": true,
       "frameDelay": 2,
-      "version": "o5tnEelSHuct9HvjREeeWLfGyl4lNx9e",
-      "categories": ["backgrounds"]
+      "version": "mpyZAmKXL98z2CXGq2mNtPiB5h95V9Dq",
+      "categories": [
+        "backgrounds"
+      ]
     }
   }
 }

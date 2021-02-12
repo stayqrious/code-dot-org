@@ -3,9 +3,9 @@ import React from 'react';
 import MarkdownInstructions from './MarkdownInstructions';
 import InputOutputTable from './InputOutputTable';
 import AniGifPreview from './AniGifPreview';
-import ImmersiveReaderButton from './ImmersiveReaderButton';
+// import ImmersiveReaderButton from './ImmersiveReaderButton';
+// import i18n from '@cdo/locale';
 import ExampleImage from './ExampleImage';
-import i18n from '@cdo/locale';
 
 /**
  * A component for displaying our level instructions text, and possibly also
@@ -41,10 +41,10 @@ export default class Instructions extends React.Component {
       <div style={inTopPane ? styles.inTopPane : styles.notInTopPane}>
         {instructions && (
           <>
-            <ImmersiveReaderButton
+            {/* <ImmersiveReaderButton
               title={i18n.instructions()}
               text={instructions}
-            />
+            /> */}
             <MarkdownInstructions
               markdown={instructions}
               onResize={onResize}
