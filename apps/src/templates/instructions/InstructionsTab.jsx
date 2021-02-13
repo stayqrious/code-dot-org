@@ -70,17 +70,19 @@ const styles = {
     cursor: 'pointer'
   },
   text: {
-    color: color.charcoal
+    color: color.white //arun changed color for dark bg
   },
   teacherText: {
     color: color.lightest_cyan
   },
   highlighted: {
-    borderBottom: '2px solid ' + color.default_text,
-    color: color.default_text
+    borderBottom: '2px solid ' + color.white, //arun changed color for dark bg
+    color: color.white //arun changed color for dark bg
   },
   teacherHighlighted: {
     borderBottom: '2px solid ' + color.lightest_cyan,
     color: color.white
   }
 };
+
+

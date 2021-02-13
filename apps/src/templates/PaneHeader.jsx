@@ -52,14 +52,17 @@ const styles = {
     float: 'right',
     overflow: 'hidden',
     backgroundColor: color.light_purple,
+    backgroundImage: 'linear-gradient(90deg, #72E1F3 0%, #F8D299 100%)', //sq
     marginTop: 3,
     marginBottom: 3,
     marginRight: 3,
     marginLeft: 0,
     height: 24,
-    borderRadius: 4,
+    borderRadius: 38,
     fontFamily: '"Gotham 5r", sans-serif',
     lineHeight: '18px',
+    color: color.default_text, //sq
+    boxShadow: '0 3px 2px 0 rgba(0, 0, 0, 0.4)',
     ':hover': {
       backgroundColor: color.cyan
     }
