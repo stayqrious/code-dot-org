@@ -3525,7 +3525,9 @@ StudioApp.prototype.setPageConstants = function(config, appSpecificConstants) {
       serverScriptId: config.serverScriptId,
       serverLevelId: config.serverLevelId,
       serverScriptLevelId: config.serverScriptLevelId,
-      runButtonText: config.runButtonText
+      runButtonText: config.runButtonText,
+      waitingTime: level.waitingTime || 0,
+      waitingTimeText: level.waitingTimeText,
     },
     appSpecificConstants
   );

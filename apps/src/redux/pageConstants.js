@@ -74,7 +74,10 @@ var ALLOWED_KEYS = new Set([
   'widgetMode',
   'librariesEnabled',
   'validationEnabled',
-  'hideCoordinates'
+  ///SQ constants:
+  'hideCoordinates',
+  'waitingTime',
+  'waitingTimeText'
 ]);
 
 const initialState = {
