@@ -10,6 +10,7 @@ import Radium from 'radium';
 import {connect} from 'react-redux';
 import * as utils from '../utils';
 import commonStyles from '../commonStyles';
+import CodeWorkspaceWaiting from './CodeWorkspaceWaiting';
 
 class CodeWorkspaceContainer extends React.Component {
   static propTypes = {
@@ -51,6 +52,7 @@ class CodeWorkspaceContainer extends React.Component {
       <div style={mainStyle} className="editor-column">
         <div id="codeWorkspace" style={styles.codeWorkspace}>
           {children}
+          <CodeWorkspaceWaiting />
         </div>
       </div>
     );
