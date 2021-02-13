@@ -83,8 +83,10 @@ var ALLOWED_KEYS = new Set([
   'aiEnabled',
   'aiModelId',
   'aiModelName',
-  'hideCoordinates'
-
+  ///SQ constants:
+  'hideCoordinates',
+  'waitingTime',
+  'waitingTimeText'
 ]);
 
 const initialState = {
