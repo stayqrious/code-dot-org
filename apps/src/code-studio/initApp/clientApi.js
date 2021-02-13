@@ -5,7 +5,6 @@ import $ from 'jquery';
 import _ from 'lodash';
 import {stringifyQueryParams} from '../../utils';
 
-window.SQ_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjF9.ScCr1-AurdLVVzqIU2YOCevYyT55XBaDIeXRmZJHgTk"
 /**
  * Standard callback form for asynchronous operations, popularized by Node.
  * @typedef {function} NodeStyleCallback
