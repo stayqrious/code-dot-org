@@ -9,6 +9,7 @@ commonStyles.hidden = {
 commonStyles.purpleHeader = {
   height: styleConstants['workspace-headers-height'],
   backgroundColor: color.purple,
+  backgroundImage: 'linear-gradient(to right, #2c3f52 0%, #3494d5 100%)',
   color: color.white,
   overflowY: 'hidden',
   WebkitUserSelect: 'none',
