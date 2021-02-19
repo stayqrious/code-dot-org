@@ -174,6 +174,7 @@ const startEndpoint = (endpoint, config, args, previous) => {
 
 		if (request.url.startsWith('/api/') || request.url.startsWith('/v3/')) {
 			return proxy.web(request, response, {
+				//target: { 'host': 'd1n9fvt32n0fdi.cloudfront.net', 'port': 443 }
     			target: 'http://127.0.0.1:3333'
   			});
 		}

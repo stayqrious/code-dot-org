@@ -776,7 +776,8 @@ var projects = (module.exports = {
 
         //// ARUN ADDED EVENT HOOK FOR FORCE VERSION
         $(window).on("message", function(event) {
-          if (event.data.event === 'saveNewVersion') {
+          const data = event.originalEvent.data || {};
+          if (data.event === 'saveNewVersion') {
             this.saveIfSourcesChanged(true, false).then(function() {
               window.parent.postMessage({event: 'saveNewVersionResponse', versionId: this.getCurrentSourceVersionId()});
             }.bind(this));
