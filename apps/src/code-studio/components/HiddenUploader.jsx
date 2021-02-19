@@ -50,6 +50,9 @@ export default class HiddenUploader extends React.Component {
         if (props.onUploadError) {
           props.onUploadError(e.status);
         }
+      },
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-Token', window.SQ_TOKEN);
       }
     });
   }
