@@ -20,7 +20,7 @@ commonStyles.purpleHeader = {
 
 commonStyles.purpleHeaderUnfocused = {
   backgroundColor: color.lighter_purple,
-  color: color.dark_charcoal
+  color: color.lighter_gray
 };
 
 commonStyles.teacherBlueHeader = {
@@ -29,7 +29,7 @@ commonStyles.teacherBlueHeader = {
 };
 
 commonStyles.teacherHeaderUnfocused = {
-  color: color.dark_charcoal
+  color: color.lighter_gray
 };
 
 commonStyles.minecraftHeader = {
