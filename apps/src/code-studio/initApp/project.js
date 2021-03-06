@@ -779,7 +779,7 @@ var projects = (module.exports = {
           const data = event.originalEvent.data || {};
           if (data.event === 'saveNewVersion') {
             this.saveIfSourcesChanged(true, false).then(function() {
-              window.parent.postMessage({event: 'saveNewVersionResponse', versionId: this.getCurrentSourceVersionId()});
+              window.parent.postMessage({event: 'saveNewVersionResponse', versionId: this.getCurrentSourceVersionId()}, '*');
             }.bind(this));
           }
         }.bind(this));

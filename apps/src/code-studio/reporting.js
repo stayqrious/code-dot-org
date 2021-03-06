@@ -400,7 +400,7 @@ reporting.sendReportMessage = function(report) {
   if (window.parent !== window) {
     window.addEventListener('message', onMessage);
     const { onComplete, fallbackResponse, callback, ...msg } = report;
-    window.parent.postMessage({event: 'report', report: msg});
+    window.parent.postMessage({event: 'report', report: msg}, '*');
   } else {
     reportComplete(report, getFallbackResponse(report));
   }
