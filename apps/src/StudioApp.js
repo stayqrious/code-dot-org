@@ -2141,6 +2141,25 @@ StudioApp.prototype.configureDom = function(config) {
       smallFooter.className += ' responsive';
     }
   }
+
+  if (config.introVideo) {
+    const video = document.createElement('video');
+    video.src = config.introVideo;
+    video.autoplay = true;
+    video.style.position = 'absolute';
+    video.style.bottom = 0;
+    video.style.left = 0;
+    video.style.width = '50%';
+    video.style.zIndex = 100;
+    video.style.pointerEvents = 'none';
+    document.body.addEventListener('click', () => {
+      video.play();
+    }, {once: true, capture: true});
+    video.addEventListener('ended', () => {
+      video.style.display = "none";
+    })
+    $(container).append(video);
+  }
 };
 
 /**
