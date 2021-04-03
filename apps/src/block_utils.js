@@ -461,6 +461,7 @@ exports.appendNewFunctions = function(blocksXml, functionsXml) {
       XPathResult.STRING_TYPE,
       null
     ).stringValue;
+
     const alreadyPresent =
       startBlocksDocument.evaluate(
         `//block[@type="${type}"]/field[@id="${name}"]`,
@@ -472,7 +473,27 @@ exports.appendNewFunctions = function(blocksXml, functionsXml) {
     if (!alreadyPresent) {
       startBlocksDom.ownerDocument.firstChild.appendChild(func);
     }
+
+    ///// FIX DUPLICATE NODES /////
+    const existingNodes =
+      startBlocksDocument.evaluate(
+        `//block[@type="${type}"]/title[@id="${name}"]`,
+        startBlocksDom,
+        null,
+        XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+        null
+      );
+    if (existingNodes.snapshotLength > 1) {
+      for(var i=1, l=existingNodes.snapshotLength; i<l; i++) {
+        const node = existingNodes.snapshotItem(i);
+        node.parentNode.parentNode.removeChild(node.parentNode);
+      }
+    }
+    ///// FIX DUPLICATE NODES END /////
   }
+
+
+
   return xml.serialize(startBlocksDom);
 };
 
