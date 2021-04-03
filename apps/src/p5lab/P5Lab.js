@@ -537,15 +537,15 @@ P5Lab.prototype.loadAnyMissingDefaultAnimations = function(
       configDictionary[defaultSprites.propsByKey[key].name]
     );
   });
-  const hasBackgrounds = categoryCheck.length > 0 || nameCheck.length > 0;
-  if (!hasBackgrounds) {
-    defaultSprites.orderedKeys.forEach(key => {
-      if (defaultSprites.propsByKey[key].categories.includes('backgrounds')) {
-        initialAnimationList.orderedKeys.push(key);
-        initialAnimationList.propsByKey[key] = defaultSprites.propsByKey[key];
-      }
-    });
-  }
+  // const hasBackgrounds = categoryCheck.length > 0 || nameCheck.length > 0;
+  // if (!hasBackgrounds) {
+  //   defaultSprites.orderedKeys.forEach(key => {
+  //     if (defaultSprites.propsByKey[key].categories.includes('backgrounds')) {
+  //       initialAnimationList.orderedKeys.push(key);
+  //       initialAnimationList.propsByKey[key] = defaultSprites.propsByKey[key];
+  //     }
+  //   });
+  // }
   return initialAnimationList;
 };
 
