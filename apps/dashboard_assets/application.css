@@ -9450,6 +9450,14 @@ body.embedded_iframe .full_container {
   width: 640px;
   margin-left: -320px; }
 
+/* sq */
+.sq-feedback-baby-img {
+  position: absolute;
+  height:100px;
+  top: -30px;
+  left: 0;
+}
+
 .dash_modal_body {
   padding-right: 25px; }
 
