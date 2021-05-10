@@ -27,6 +27,14 @@ export const style = {
       boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)'
     }
   },
+  sq: {
+    borderWidth: 0,
+    fontSize: 17,
+    fontWeight: 700,
+    borderRadius: 20,
+    paddingLeft: 25,
+    paddingRight: 25,
+  },
   large: {
     fontSize: 35,
     lineHeight: 'normal',
@@ -92,9 +100,9 @@ style.withArrow = {
   }
 };
 
-function buttonStyle(buttonColor, textColor = color.white) {
+function buttonStyle(buttonColor, textColor = color.black) {
   return {
-    backgroundColor: buttonColor,
+    background: buttonColor,
     borderColor: buttonColor,
     color: textColor
   };
@@ -109,10 +117,10 @@ export const BUTTON_TYPES = {
     }
   },
   cancel: {
-    style: buttonStyle(color.green)
+    style: buttonStyle(color.secondaryBtn)
   },
   primary: {
-    style: buttonStyle(color.orange)
+    style: buttonStyle(color.primaryBtn)
   },
   danger: {
     style: buttonStyle(color.red)
@@ -130,7 +138,7 @@ const BaseButton = Radium(function BaseButton({
 }) {
   const sizeStyle = style[size || 'normal'];
   const config = BUTTON_TYPES[type];
-  let styleArray = [style.base, config.style, sizeStyle];
+  let styleArray = [style.base, style.sq, config.style, sizeStyle];
   return (
     <button type="button" {...props} style={[styleArray, props.style]}>
       {children}

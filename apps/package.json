@@ -235,7 +235,7 @@
     "@codemirror/theme-one-dark": "^0.17.5",
     "@codemirror/view": "^0.17.0",
     "@microsoft/immersive-reader-sdk": "^1.1.0",
-    "@sentry/browser": "^5.17.0",
+    "@sentry/browser": "^6.3.5",
     "ace-builds": "^1.4.12",
     "blockly": "5.20210325.1",
     "bootstrap": "^4.4.1",
