@@ -133,13 +133,6 @@ FeedbackUtils.prototype.displayFeedback = function(
     canContinue &&
     !showingSharing;
   var feedback = document.createElement('div');
-
-  // sq
-  var babyImg = document.createElement("img");
-  babyImg.src='/assets/images/popup-kid.png'
-  babyImg.className = 'sq-feedback-baby-img'
-  feedback.appendChild(babyImg)
-
   var sharingDiv =
     canContinue && showingSharing ? this.createSharingDiv(options) : null;
   var showCode = displayShowCode ? this.getShowCodeElement_(options) : null;
