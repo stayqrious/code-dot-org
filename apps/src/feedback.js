@@ -174,6 +174,7 @@ FeedbackUtils.prototype.displayFeedback = function(
   }
 
   feedback.className += canContinue ? ' win-feedback' : ' failure-feedback';
+  feedback.className += ' sq-win-feedback'
 
   feedback.appendChild(
     this.getFeedbackButtons_({
@@ -641,6 +642,7 @@ FeedbackUtils.prototype.getNumCountableBlocks = function() {
 FeedbackUtils.prototype.getFeedbackButtons_ = function(options) {
   var buttons = document.createElement('div');
   buttons.id = 'feedbackButtons';
+  buttons.style.width = '75%'; // sq
 
   let tryAgainText = undefined;
   if (!options.hideTryAgain) {

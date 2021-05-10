@@ -9450,6 +9450,23 @@ body.embedded_iframe .full_container {
   width: 640px;
   margin-left: -320px; }
 
+/* sq */
+.dash_modal { 
+  background: url(/assets/images/top-left.png) no-repeat, white url(/assets/images/bottom-right.png) no-repeat;
+  background-size: 25%, 10%;
+  background-position: left top, right bottom;
+  border-radius: 18px;
+}
+
+/* sq */
+.sq-win-feedback {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .dash_modal_body {
   padding-right: 25px; }
 
@@ -11027,6 +11044,12 @@ html[dir=rtl] .modal-content {
   font-family: "Gotham 5r", sans-serif;
   font-size: 21px;
   line-height: 27px; }
+
+/* sq */
+.modal-content .congrats {
+  text-align: center;
+  color: #0a3f6e;
+}
 
 .modal-content .instructions2 {
   font-size: 18px;

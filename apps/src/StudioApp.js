@@ -419,6 +419,10 @@ StudioApp.prototype.init = function(config) {
     this.winIcon = config.skin[config.level.instructionsIcon];
   }
 
+  // sq
+  this.icon = '/assets/images/popup-kid.png';
+  this.winIcon = '/assets/images/popup-kid.png';
+
   if (config.showInstructionsWrapper) {
     config.showInstructionsWrapper(() => {});
   }

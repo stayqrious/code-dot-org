@@ -597,6 +597,17 @@ button.blocklyLaunch {
 
 }
 
+//sq
+button.blocklyLaunch {
+  border-radius: 14px;
+  box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.4);
+  background: linear-gradient(to right, #f46b45 0%, #eea749 100%);
+  &#resetButton {
+    border: 0px;
+    background-color: $cyan;
+  }
+}
+
 button.share {
   border: 1px solid #FFA000;
   background-color: #FFA000;
@@ -604,6 +615,15 @@ button.share {
   margin-left: 0px;
   margin-right: 0px;
 }
+
+// sq
+button.share {
+  border-radius: 14px;
+  box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.4);
+  border: unset;
+  background-image: linear-gradient(to right, #6211c1 0%, #a507a5 100%);
+}
+
 button.share:focus {
   outline-style: none;
 }
