@@ -1847,7 +1847,6 @@ function simulateClick(element) {
  */
 FeedbackUtils.prototype.createModalDialog = function(options) {
   var modalBody = document.createElement('div');
-  modalBody.style.height = '100%'; // sq
   if (options.icon) {
     var imageDiv;
     imageDiv = document.createElement('img');

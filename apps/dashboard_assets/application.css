@@ -9455,13 +9455,12 @@ body.embedded_iframe .full_container {
   background: url(/assets/images/top-left.png) no-repeat, white url(/assets/images/bottom-right.png) no-repeat;
   background-size: 25%, 10%;
   background-position: left top, right bottom;
-  height: 300px;
   border-radius: 18px;
 }
 
 /* sq */
 .sq-win-feedback {
-  height: 100%;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

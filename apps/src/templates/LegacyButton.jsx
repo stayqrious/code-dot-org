@@ -29,7 +29,7 @@ export const style = {
   },
   sq: {
     borderWidth: 0,
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: 700,
     borderRadius: 20,
     paddingLeft: 25,
