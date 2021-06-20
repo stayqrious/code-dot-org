@@ -90,7 +90,8 @@ export function setupApp(appOptions) {
 
 
   Sentry.configureScope(function(scope) {
-    scope.setExtra("appOptions", appOptions);
+    scope.setExtra("version", "20210620");
+    scope.setExtra("appOptions", JSON.stringify(appOptions));
   });
 
 
@@ -507,11 +508,70 @@ async function loadAppAsync(appOptions) {
       );
     }
 
+<<<<<<< HEAD
     appOptions.level.isNavigator = data.isNavigator;
     if (data.pairingDriver) {
       appOptions.level.pairingDriver = data.pairingDriver;
       appOptions.level.pairingAttempt = data.pairingAttempt;
       appOptions.level.pairingChannelId = data.pairingChannelId;
+=======
+
+    function onMsg(event) {
+      const payload = event.data;
+      if(payload.event === 'sourceResponse') {
+        window.removeEventListener("message", onMsg);
+        if (lastAttemptLoaded) return;
+
+        const source = payload.source;
+        const timestamp = payload.timestamp;
+
+        if (source && source.length) {
+          var cachedProgram = clientState.sourceForLevel(
+            appOptions.scriptName,
+            appOptions.serverLevelId,
+            timestamp
+          );
+
+          if (cachedProgram !== undefined) {
+            // Client version is newer
+            appOptions.level.lastAttempt = cachedProgram;
+          } else {
+            // Sever version is newer
+            appOptions.level.lastAttempt = source;
+
+            // Write down the lastAttempt from server in sessionStorage
+            clientState.writeSourceForLevel(
+              appOptions.scriptName,
+              appOptions.serverLevelId,
+              timestamp,
+              source
+            );
+          }
+        } else { // Load the cached version
+          var cachedProgram = clientState.sourceForLevel(
+            appOptions.scriptName,
+            appOptions.serverLevelId
+          );
+
+          if (cachedProgram !== undefined) {
+            // Client version is newer
+            appOptions.level.lastAttempt = cachedProgram;
+          }
+        }
+
+        /// FOR NOW adding here
+        if (payload.username) {
+          Sentry.configureScope(function(scope) {
+            scope.setUser({id: payload.username});
+          });
+        }
+        resolve(appOptions);
+      }
+
+      if (payload.event === 'loadSource') { // means we got our own message :|
+        resolve(appOptions);
+      }
+>>>>>>> Add version and track user
     }
 
     if (data.channel) {
