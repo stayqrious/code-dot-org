@@ -90,7 +90,8 @@ export function setupApp(appOptions) {
 
 
   Sentry.configureScope(function(scope) {
-    scope.setExtra("appOptions", appOptions);
+    scope.setExtra("version", "20210620");
+    scope.setExtra("appOptions", JSON.stringify(appOptions));
   });
 
 
@@ -531,6 +532,13 @@ function loadAppAsync(appOptions) {
             // Client version is newer
             appOptions.level.lastAttempt = cachedProgram;
           }
+        }
+
+        /// FOR NOW adding here
+        if (payload.username) {
+          Sentry.configureScope(function(scope) {
+            scope.setUser({id: payload.username});
+          });
         }
         resolve(appOptions);
       }
