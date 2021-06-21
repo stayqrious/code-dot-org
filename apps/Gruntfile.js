@@ -580,10 +580,10 @@ describe('entry tests', () => {
       './src/sites/studio/pages/programming_environments/show.js',
     'programming_expressions/show':
       './src/sites/studio/pages/programming_expressions/show.js',
-    'devise/registrations/_finish_sign_up':
-      './src/sites/studio/pages/devise/registrations/_finish_sign_up.js',
-    'devise/registrations/edit':
-      './src/sites/studio/pages/devise/registrations/edit.js',
+    // 'devise/registrations/_finish_sign_up':
+    //   './src/sites/studio/pages/devise/registrations/_finish_sign_up.js',
+    // 'devise/registrations/edit':
+    //   './src/sites/studio/pages/devise/registrations/edit.js',
     essential: './src/sites/studio/pages/essential.js',
     'home/_homepage': './src/sites/studio/pages/home/_homepage.js',
     'layouts/_parent_email_banner':

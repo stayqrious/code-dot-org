@@ -184,9 +184,9 @@ class P5LabVisualizationColumn extends React.Component {
               onMouseMove={this.onMouseMove}
             >
               <GridOverlay show={this.props.showGrid} showWhileRunning={true} />
-              <CrosshairOverlay flip={spriteLab} />
+              <CrosshairOverlay flip={isSpritelab} />
               <TooltipOverlay 
-                providers={this.props.hideCoordinates ? []: [coordinatesProvider(spriteLab, isRtl)]} 
+                providers={this.props.hideCoordinates ? []: [coordinatesProvider(isSpritelab, isRtl)]} 
               />
             </VisualizationOverlay>
           </ProtectedVisualizationDiv>

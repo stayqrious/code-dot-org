@@ -1,11 +1,9 @@
-cdo/blockly
+Blockly:
+build from stayqrious/blockly
 
-createImageDropdownPreviewElement_
+Craft:
+add cross origin anonymous as per stayqrious/craft
 
-t.setAttribute("crossOrigin", "anonymous")
-
-
-
-
-
-
+Piskel:
+cross iframe communication origin as * 
+npm run build and copy
