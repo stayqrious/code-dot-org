@@ -922,7 +922,7 @@ Artist.prototype.execute = function(executionInfo) {
   }
 
   if (this.shouldAnimate_) {
-    this.studioApp_.playAudio('start', {loop: true});
+    this.studioApp_.playAudio('start', {loop: true, volume: 0.25});
     // animate the transcript.
     this.pid = window.setTimeout(_.bind(this.animate, this), 100);
   } else {

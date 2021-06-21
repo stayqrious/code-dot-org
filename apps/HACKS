@@ -7,3 +7,4 @@ add cross origin anonymous as per stayqrious/craft
 Piskel:
 cross iframe communication origin as * 
 npm run build and copy
+verify piskel/src/js/PiskelApi.js is patched
