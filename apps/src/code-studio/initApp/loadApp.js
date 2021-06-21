@@ -27,53 +27,18 @@ import queryString from 'query-string';
 import * as imageUtils from '@cdo/apps/imageUtils';
 import trackEvent from '../../util/trackEvent';
 import msg from '@cdo/locale';
+<<<<<<< HEAD
 import {queryParams} from '@cdo/apps/code-studio/utils';
 import './sentry';
+=======
+import './sq';
+>>>>>>> move loadApp to sq, patch more canvas methods for CSI
 
 // Max milliseconds to wait for last attempt data from the server
 var LAST_ATTEMPT_TIMEOUT = 5000;
 
 
 const SHARE_IMAGE_NAME = '_share_image.png';
-
-
-/*** Canvas patching ***/
-const getCanvasContext = HTMLCanvasElement.prototype.getContext;
-const event = new Event("canvas_change", { bubbles: true });
-
-HTMLCanvasElement.prototype.getContext = function () {
-  const context = getCanvasContext.apply(this, arguments)
-  
-  const canvas = this;
-
-  const drawImage = context.drawImage
-  context.drawImage = function() {
-    drawImage.apply(this, arguments)
-    canvas.dispatchEvent(event);
-  }
-
-  return context
-}
-
-if(window.Phaser) {
-  function streamChanges() {
-    const game = document.getElementById("phaser-game");
-    if (!game) {
-      window.setTimeout(streamChanges, 300);
-      return;
-    }
-
-    const canvas = game.querySelector("canvas");
-    if (!canvas) {
-      window.setTimeout(streamChanges, 300);
-      return;
-    }
-    canvas.dispatchEvent(event);
-    requestAnimationFrame(streamChanges);
-  }
-
-  window.setTimeout(streamChanges, 300);
-}
 
 
 /**
@@ -508,70 +473,11 @@ async function loadAppAsync(appOptions) {
       );
     }
 
-<<<<<<< HEAD
     appOptions.level.isNavigator = data.isNavigator;
     if (data.pairingDriver) {
       appOptions.level.pairingDriver = data.pairingDriver;
       appOptions.level.pairingAttempt = data.pairingAttempt;
       appOptions.level.pairingChannelId = data.pairingChannelId;
-=======
-
-    function onMsg(event) {
-      const payload = event.data;
-      if(payload.event === 'sourceResponse') {
-        window.removeEventListener("message", onMsg);
-        if (lastAttemptLoaded) return;
-
-        const source = payload.source;
-        const timestamp = payload.timestamp;
-
-        if (source && source.length) {
-          var cachedProgram = clientState.sourceForLevel(
-            appOptions.scriptName,
-            appOptions.serverLevelId,
-            timestamp
-          );
-
-          if (cachedProgram !== undefined) {
-            // Client version is newer
-            appOptions.level.lastAttempt = cachedProgram;
-          } else {
-            // Sever version is newer
-            appOptions.level.lastAttempt = source;
-
-            // Write down the lastAttempt from server in sessionStorage
-            clientState.writeSourceForLevel(
-              appOptions.scriptName,
-              appOptions.serverLevelId,
-              timestamp,
-              source
-            );
-          }
-        } else { // Load the cached version
-          var cachedProgram = clientState.sourceForLevel(
-            appOptions.scriptName,
-            appOptions.serverLevelId
-          );
-
-          if (cachedProgram !== undefined) {
-            // Client version is newer
-            appOptions.level.lastAttempt = cachedProgram;
-          }
-        }
-
-        /// FOR NOW adding here
-        if (payload.username) {
-          Sentry.configureScope(function(scope) {
-            scope.setUser({id: payload.username});
-          });
-        }
-        resolve(appOptions);
-      }
-
-      if (payload.event === 'loadSource') { // means we got our own message :|
-        resolve(appOptions);
-      }
->>>>>>> Add version and track user
     }
 
     if (data.channel) {
