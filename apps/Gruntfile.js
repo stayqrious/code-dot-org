@@ -550,10 +550,10 @@ describe('entry tests', () => {
     'courses/resources': './src/sites/studio/pages/courses/resources.js',
     'courses/code': './src/sites/studio/pages/courses/code.js',
     'courses/standards': './src/sites/studio/pages/courses/standards.js',
-    'devise/registrations/_finish_sign_up':
-      './src/sites/studio/pages/devise/registrations/_finish_sign_up.js',
-    'devise/registrations/edit':
-      './src/sites/studio/pages/devise/registrations/edit.js',
+    //'devise/registrations/_finish_sign_up':
+      //'./src/sites/studio/pages/devise/registrations/_finish_sign_up.js',
+    //'devise/registrations/edit':
+      //'./src/sites/studio/pages/devise/registrations/edit.js',
     essential: './src/sites/studio/pages/essential.js',
     'home/_homepage': './src/sites/studio/pages/home/_homepage.js',
     'layouts/_parent_email_banner':
