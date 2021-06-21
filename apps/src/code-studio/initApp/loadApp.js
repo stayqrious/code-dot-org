@@ -28,52 +28,13 @@ import queryString from 'query-string';
 import * as imageUtils from '@cdo/apps/imageUtils';
 import trackEvent from '../../util/trackEvent';
 import msg from '@cdo/locale';
-import './sentry';
+import './sq';
 
 // Max milliseconds to wait for last attempt data from the server
 var LAST_ATTEMPT_TIMEOUT = 5000;
 
 
 const SHARE_IMAGE_NAME = '_share_image.png';
-
-
-/*** Canvas patching ***/
-const getCanvasContext = HTMLCanvasElement.prototype.getContext;
-const event = new Event("canvas_change", { bubbles: true });
-
-HTMLCanvasElement.prototype.getContext = function () {
-  const context = getCanvasContext.apply(this, arguments)
-  
-  const canvas = this;
-
-  const drawImage = context.drawImage
-  context.drawImage = function() {
-    drawImage.apply(this, arguments)
-    canvas.dispatchEvent(event);
-  }
-
-  return context
-}
-
-if(window.Phaser) {
-  function streamChanges() {
-    const game = document.getElementById("phaser-game");
-    if (!game) {
-      window.setTimeout(streamChanges, 300);
-      return;
-    }
-
-    const canvas = game.querySelector("canvas");
-    if (!canvas) {
-      window.setTimeout(streamChanges, 300);
-      return;
-    }
-    canvas.dispatchEvent(event);
-    requestAnimationFrame(streamChanges);
-  }
-
-  window.setTimeout(streamChanges, 300);
-}
 
 
 /**
