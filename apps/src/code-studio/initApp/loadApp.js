@@ -343,6 +343,12 @@ function loadTokenFromParent(appOptions) {
         window.removeEventListener("message", onMsg);
         appOptions.channel = payload.channel;
         window.SQ_TOKEN = payload.token;
+        /// FOR NOW adding here
+        if (payload.username) {
+          Sentry.configureScope(function(scope) {
+            scope.setUser({id: payload.username});
+          });
+        }
         resolve(appOptions);
       }
 
