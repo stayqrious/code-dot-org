@@ -20,7 +20,7 @@ const styles = {
 };
 
 export const MuteButton = () => {
-  return <button type="button" id="UserMutehButton" className="btn-info">
+  return <button type="button" id="UserMuteButton" className="btn-info">
     Mute
   </button>
 };

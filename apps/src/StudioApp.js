@@ -1048,12 +1048,15 @@ StudioApp.prototype.setupChangeHandlers = function() {
 };
 
 StudioApp.prototype.muteButtonClick = function() {
-  var muteButton = document.getElementById('UserMutehButton');
+  var muteButton = document.getElementById('UserMuteButton');
 
   if (muteButton) {
-    const sound = Sounds.getSingleton();
-    sound.setUserMute(!sound.isUserMuted);
-    muteButton.innerHTML = sound.isUserMuted ? 'Unmute' : 'Mute';
+    const sounds = Sounds.getSingleton();
+    sounds.setUserMute(!sounds.isUserMuted);
+    if (sounds.isUserMuted) {
+      sounds.stopAllAudio();
+    }
+    muteButton.innerHTML = sounds.isUserMuted ? 'Unmute' : 'Mute';
   }
 };
 
@@ -2092,7 +2095,7 @@ StudioApp.prototype.configureDom = function(config) {
     dom.addClickTouchEvent(skipButton, this.skipLevel.bind(this));
   }
 
-  var muteButton = container.querySelector('#UserMutehButton');
+  var muteButton = container.querySelector('#UserMuteButton');
   if(muteButton){
     dom.addClickTouchEvent(muteButton, _.bind(this.muteButtonClick, this));
   }
