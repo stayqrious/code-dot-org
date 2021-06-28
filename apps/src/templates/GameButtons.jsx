@@ -11,6 +11,20 @@ import {connect} from 'react-redux';
 
 import blankImg from '../../static/common_images/1x1.gif';
 
+const styles = {
+  main: {
+    // common.scss provides an :after selector that ends up adding 18px of height
+    // to gameButtons. We want to get rid of that
+    marginBottom: -18
+  }
+};
+
+export const MuteButton = () => {
+  return <button type="button" id="UserMutehButton" className="btn-info">
+    Mute
+  </button>
+};
+
 export const FinishButton = () => (
   <button type="button" id="finishButton" className="share">
     <img src="/blockly/media/1x1.gif" />
@@ -80,6 +94,7 @@ export const UnconnectedGameButtons = props => (
     <div id="gameButtonExtras">
       {/*props.showSkipButton && <SkipButton nextLevelUrl={props.nextLevelUrl} />*/}
       {props.showFinishButton && <FinishButton />}
+      <MuteButton/>
     </div>
   </div>
 );

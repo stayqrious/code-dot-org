@@ -1047,6 +1047,16 @@ StudioApp.prototype.setupChangeHandlers = function() {
   }
 };
 
+StudioApp.prototype.muteButtonClick = function() {
+  var muteButton = document.getElementById('UserMutehButton');
+
+  if (muteButton) {
+    const sound = Sounds.getSingleton();
+    sound.setUserMute(!sound.isUserMuted);
+    muteButton.innerHTML = sound.isUserMuted ? 'Unmute' : 'Mute';
+  }
+};
+
 /**
  * Toggle whether run button or reset button is shown
  * @param {string} button Button to show, either "run" or "reset"
@@ -2080,6 +2090,11 @@ StudioApp.prototype.configureDom = function(config) {
   var skipButton = container.querySelector('#skipButton');
   if (skipButton) {
     dom.addClickTouchEvent(skipButton, this.skipLevel.bind(this));
+  }
+
+  var muteButton = container.querySelector('#UserMutehButton');
+  if(muteButton){
+    dom.addClickTouchEvent(muteButton, _.bind(this.muteButtonClick, this));
   }
 
   // TODO (cpirich): make conditional for applab
