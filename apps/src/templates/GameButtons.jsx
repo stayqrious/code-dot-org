@@ -19,6 +19,12 @@ const styles = {
   }
 };
 
+export const MuteButton = () => {
+  return <button type="button" id="UserMutehButton" className="btn-info">
+    Mute
+  </button>
+};
+
 export const FinishButton = () => (
   <button type="button" id="finishButton" className="share">
     <img src="/blockly/media/1x1.gif" />
@@ -94,6 +100,7 @@ export const UnconnectedGameButtons = props => (
     <div id="gameButtonExtras">
       {/*props.showSkipButton && <SkipButton nextLevelUrl={props.nextLevelUrl} />*/}
       {props.showFinishButton && <FinishButton />}
+      <MuteButton/>
     </div>
   </div>
 );

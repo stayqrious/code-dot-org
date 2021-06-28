@@ -52,6 +52,8 @@ export default function Sounds() {
 
   this.isMuted = false;
 
+  this.isUserMuted = false;
+
   /**
    * Detect whether audio system is "unlocked" - it usually works immediately
    * on dekstop, but mobile usually restricts audio until triggered by user.
@@ -285,6 +287,9 @@ Sounds.prototype.register = function(config) {
  * @param {function} [options.onEnded]
  */
 Sounds.prototype.play = function(soundId, options) {
+  if (this.isUserMuted) {
+    return;
+  }
   var sound = this.soundsById[soundId];
   if (sound) {
     sound.play(options);
@@ -388,6 +393,10 @@ Sounds.prototype.muteURLs = function() {
 
 Sounds.prototype.unmuteURLs = function() {
   this.isMuted = false;
+};
+
+Sounds.prototype.setUserMute = function(val) {
+  this.isUserMuted = val;
 };
 
 /**
