@@ -69,7 +69,7 @@ describe('entry tests', () => {
   /** @const {string[]} */
   var ALL_APPS = [
     //'ailab',
-    //'applab',
+    'applab',
     'bounce',
     'calc',
     'craft',
@@ -85,7 +85,7 @@ describe('entry tests', () => {
     'netsim',
     'studio',
     'turtle',
-    //'weblab'
+    'weblab'
     //'scratch',
   ];
 
