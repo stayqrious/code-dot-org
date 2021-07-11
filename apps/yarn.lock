@@ -26873,7 +26873,7 @@ wrappy@1:
   "resolved" "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-2.1.2.tgz"
   "version" "2.1.2"
 
-"serialport@^4.0.0", "serialport@^8.0.5":
+"serialport@^4.0.0", "serialport@^8.0.5", "serialport@^8.0.8":
   "integrity" "sha512-GEaMYbAk9chfGyxoVC27PHnKMUMOQOCAg+9umOhAgk88vH0H6DbQ9/Tj3lRwoj7lE+TLra75P/0l1RXMfX4yQg=="
   "resolved" "https://registry.npmjs.org/serialport/-/serialport-8.0.8.tgz"
   "version" "8.0.8"

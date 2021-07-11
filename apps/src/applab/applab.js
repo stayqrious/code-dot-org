@@ -66,8 +66,8 @@ import {outputError, injectErrorHandler} from '../lib/util/javascriptMode';
 import {actions as jsDebugger} from '../lib/tools/jsdebugger/redux';
 import JavaScriptModeErrorHandler from '../JavaScriptModeErrorHandler';
 import * as aiConfig from '@cdo/apps/applab/ai/dropletConfig';
-import * as makerToolkit from '../lib/kits/maker/toolkit';
-import * as makerToolkitRedux from '../lib/kits/maker/redux';
+// import * as makerToolkit from '../lib/kits/maker/toolkit';
+// import * as makerToolkitRedux from '../lib/kits/maker/redux';
 import project from '../code-studio/initApp/project';
 import * as thumbnailUtils from '../util/thumbnail';
 import Sounds from '../Sounds';
@@ -711,45 +711,45 @@ Applab.init = function(config) {
     );
   }
 
-  if (config.level.makerlabEnabled) {
-    makerToolkit.enable();
+  // if (config.level.makerlabEnabled) {
+  //   makerToolkit.enable();
 
-    config.dropletConfig = utils.deepMergeConcatArrays(
-      config.dropletConfig,
-      makerToolkit.dropletConfig
-    );
+  //   config.dropletConfig = utils.deepMergeConcatArrays(
+  //     config.dropletConfig,
+  //     makerToolkit.dropletConfig
+  //   );
 
-    if (config.level.makerlabEnabled === MB_API) {
-      config.dropletConfig = utils.deepMergeConcatArrays(
-        config.dropletConfig,
-        makerToolkit.configMicrobit
-      );
-    } else {
-      config.dropletConfig = utils.deepMergeConcatArrays(
-        config.dropletConfig,
-        makerToolkit.configCircuitPlayground
-      );
-    }
-  } else {
-    // Combine all maker blocks for both CP and MB since all maker blocks, regardless
-    // of board type, should be disabled in this branch
-    let allBoardsConfig = utils.deepMergeConcatArrays(
-      makerToolkit.configCircuitPlayground,
-      makerToolkit.configMicrobit
-    );
+  //   if (config.level.makerlabEnabled === MB_API) {
+  //     config.dropletConfig = utils.deepMergeConcatArrays(
+  //       config.dropletConfig,
+  //       makerToolkit.configMicrobit
+  //     );
+  //   } else {
+  //     config.dropletConfig = utils.deepMergeConcatArrays(
+  //       config.dropletConfig,
+  //       makerToolkit.configCircuitPlayground
+  //     );
+  //   }
+  // } else {
+  //   // Combine all maker blocks for both CP and MB since all maker blocks, regardless
+  //   // of board type, should be disabled in this branch
+  //   let allBoardsConfig = utils.deepMergeConcatArrays(
+  //     makerToolkit.configCircuitPlayground,
+  //     makerToolkit.configMicrobit
+  //   );
 
-    const makerConfig = utils.deepMergeConcatArrays(
-      makerToolkit.dropletConfig,
-      allBoardsConfig
-    );
+  //   const makerConfig = utils.deepMergeConcatArrays(
+  //     makerToolkit.dropletConfig,
+  //     allBoardsConfig
+  //   );
 
-    // Push gray, no-autocomplete versions of maker blocks for display purposes.
-    const disabledMakerDropletConfig = makeDisabledConfig(makerConfig);
-    config.dropletConfig = utils.deepMergeConcatArrays(
-      config.dropletConfig,
-      disabledMakerDropletConfig
-    );
-  }
+  //   // Push gray, no-autocomplete versions of maker blocks for display purposes.
+  //   const disabledMakerDropletConfig = makeDisabledConfig(makerConfig);
+  //   config.dropletConfig = utils.deepMergeConcatArrays(
+  //     config.dropletConfig,
+  //     disabledMakerDropletConfig
+  //   );
+  // }
 
   let customFunctions = level.codeFunctions
     ? level.codeFunctions['customFunctions']
@@ -1132,7 +1132,7 @@ Applab.reset = function() {
     designMode.resetPropertyTab();
   }
 
-  makerToolkit.reset();
+  // makerToolkit.reset();
 
   if (level.showTurtleBeforeRun) {
     applabTurtle.turtleSetVisibility(true);
@@ -1327,24 +1327,24 @@ Applab.execute = function() {
     }
   }
 
-  if (makerToolkitRedux.isEnabled(getStore().getState())) {
-    makerToolkit
-      .connect({
-        interpreter: Applab.JSInterpreter,
-        onDisconnect: () => studioApp().resetButtonClick()
-      })
-      .then(Applab.beginVisualizationRun)
-      .catch(error => {
-        // Don't just throw any error away, but squelch errors that we already
-        // handle gracefully (like early disconnect or a missing board).
-        if (!(error instanceof makerToolkit.MakerError)) {
-          Applab.log(error);
-          return Promise.reject(error);
-        }
-      });
-  } else {
+  // if (makerToolkitRedux.isEnabled(getStore().getState())) {
+  //   makerToolkit
+  //     .connect({
+  //       interpreter: Applab.JSInterpreter,
+  //       onDisconnect: () => studioApp().resetButtonClick()
+  //     })
+  //     .then(Applab.beginVisualizationRun)
+  //     .catch(error => {
+  //       // Don't just throw any error away, but squelch errors that we already
+  //       // handle gracefully (like early disconnect or a missing board).
+  //       if (!(error instanceof makerToolkit.MakerError)) {
+  //         Applab.log(error);
+  //         return Promise.reject(error);
+  //       }
+  //     });
+  // } else {
     Applab.beginVisualizationRun();
-  }
+  // }
 };
 
 Applab.beginVisualizationRun = function() {

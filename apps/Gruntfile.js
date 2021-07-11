@@ -74,7 +74,7 @@ describe('entry tests', () => {
   /** @const {string[]} */
   var ALL_APPS = [
     //'ailab',
-    //'applab',
+    'applab',
     'bounce',
     'calc',
     'craft',
@@ -91,7 +91,7 @@ describe('entry tests', () => {
     'poetry',
     'studio',
     'turtle',
-    //'weblab'
+    'weblab'
     //'scratch',
   ];
 
