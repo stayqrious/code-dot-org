@@ -2,7 +2,8 @@ import {unicode} from '@cdo/apps/code-studio/components/icons';
 import {getStore} from '@cdo/apps/redux';
 
 // For proxying non-https assets
-const MEDIA_PROXY = '//' + location.host + '/media?u=';
+const baseHref = (document.getElementsByTagName('base')[0] || {}).href || '/';
+const MEDIA_PROXY = baseHref + 'media?u=';
 
 // starts with http or https
 export const ABSOLUTE_REGEXP = new RegExp('^https?://', 'i');
