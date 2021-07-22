@@ -342,6 +342,13 @@ function loadTokenFromParent(appOptions) {
       if(payload.event === 'tokenResponse') {
         window.removeEventListener("message", onMsg);
         appOptions.channel = payload.channel;
+        // firebase
+        appOptions.firebaseName = payload.firebaseName;
+        appOptions.firebaseAuthToken = payload.firebaseToken;
+        appOptions.firebaseChannelIdSuffix = '';
+        appOptions.firebaseSharedAuthToken = payload.firebaseToken;
+        //
+
         window.SQ_TOKEN = payload.token;
         /// FOR NOW adding here
         if (payload.username) {

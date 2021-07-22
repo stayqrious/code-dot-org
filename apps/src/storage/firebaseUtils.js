@@ -1,5 +1,5 @@
 import Firebase from 'firebase';
-const SHARED_ENV = 'cdo-v3-shared';
+const SHARED_ENV = 'sq-cdo-v3-shared';
 let config;
 let projectFirebaseCache;
 let sharedFirebaseCache;
