@@ -81,7 +81,7 @@ export default class AssetManager extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.levelName) {
+    if (false && this.props.levelName) {
       starterAssetsApi.getStarterAssets(
         this.props.levelName,
         this.onStarterAssetsReceived,
@@ -277,7 +277,7 @@ export default class AssetManager extends React.Component {
           api={api}
           onChoose={
             this.props.assetChosen &&
-            (() => this.props.assetChosen(asset.filename, asset.timestamp))
+            (() => this.props.assetChosen(api.basePath(asset.filename), asset.timestamp))
           }
           onDelete={() => this.deleteAssetRow(asset.filename)}
         />
