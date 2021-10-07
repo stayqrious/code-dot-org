@@ -121,25 +121,25 @@
     height: 16px;
 }
 .ui-icon, .ui-widget-content .ui-icon {
-    background-image: url(/assets/jquery-ui/ui-icons_444444_256x240-40ebbb6ee238252c7dcc2982618098cdab1647cd49e2089e41e48e0d269d8c5d.png);
+    background-image: url(/assets/jquery-ui/ui-icons_444444_256x240.png);
 }
 .ui-widget-header .ui-icon {
-    background-image: url(/assets/jquery-ui/ui-icons_444444_256x240-40ebbb6ee238252c7dcc2982618098cdab1647cd49e2089e41e48e0d269d8c5d.png);
+    background-image: url(/assets/jquery-ui/ui-icons_444444_256x240.png);
 }
 .ui-state-hover .ui-icon, .ui-state-focus .ui-icon, .ui-button:hover .ui-icon, .ui-button:focus .ui-icon {
-    background-image: url(/assets/jquery-ui/ui-icons_555555_256x240-73927f997f553c4f08f8accede2f3b37e54abb6f074f4e24c9fee2c170560a8f.png);
+    background-image: url(/assets/jquery-ui/ui-icons_555555_256x240.png);
 }
 .ui-state-active .ui-icon, .ui-button:active .ui-icon {
-    background-image: url(/assets/jquery-ui/ui-icons_ffffff_256x240-8d3b7891e6731703b30cfa627483dcac1e81dfbfaf6e2e8336d0f65b16fddf78.png);
+    background-image: url(/assets/jquery-ui/ui-icons_ffffff_256x240.png);
 }
 .ui-state-highlight .ui-icon, .ui-button .ui-state-highlight.ui-icon {
-    background-image: url(/assets/jquery-ui/ui-icons_777620_256x240-2ce4779fc63f30bd0edb694341368ce27be117aee1dc4c5011c9e808f87f2cbc.png);
+    background-image: url(/assets/jquery-ui/ui-icons_777620_256x240.png);
 }
 .ui-state-error .ui-icon, .ui-state-error-text .ui-icon {
-    background-image: url(/assets/jquery-ui/ui-icons_cc0000_256x240-f64d41de4cb455454ce23be7b2e68f997effc937a601a44fca9c253d8b9461de.png);
+    background-image: url(/assets/jquery-ui/ui-icons_cc0000_256x240.png);
 }
 .ui-button .ui-icon {
-    background-image: url(/assets/jquery-ui/ui-icons_777777_256x240-b147d0757d7e9c868d19244030bba2fbf6044bdf534b636c6036dc3f32bcc21f.png);
+    background-image: url(/assets/jquery-ui/ui-icons_777777_256x240.png);
 }
 .ui-icon-blank {
     background-position: 16px 16px;
@@ -6736,8 +6736,7 @@ to {
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1,  CSS: MIT License)
  */@font-face {
     font-family: 'FontAwesome';
-    src: url("/assets/fontawesome-webfont-7bfcab6db99d5cfbf1705ca0536ddc78585432cc5fa41bbd7ad0f009033b2979.eot");
-    src: url("/assets/fontawesome-webfont-7bfcab6db99d5cfbf1705ca0536ddc78585432cc5fa41bbd7ad0f009033b2979.eot?#iefix") format("embedded-opentype"), url("/assets/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2") format("woff2"), url("/assets/fontawesome-webfont-ba0c59deb5450f5cb41b3f93609ee2d0d995415877ddfa223e8a8a7533474f07.woff") format("woff"), url("/assets/fontawesome-webfont-aa58f33f239a0fb02f5c7a6c45c043d7a9ac9a093335806694ecd6d4edc0d6a8.ttf") format("truetype"), url("/assets/fontawesome-webfont-ad6157926c1622ba4e1d03d478f1541368524bfc46f51e42fe0d945f7ef323e4.svg#fontawesomeregular") format("svg");
+    src: url("/assets/fontawesome/fontawesome-webfont.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
 }
@@ -9162,7 +9161,7 @@ input.header_input {
 }
 .header_popup_body .loading {
     margin: 20px;
-    background: url(/assets/spinner-big-c133f80475149189ebb5889ca47babde4a1deb6999a42ba098ce351004e1a2b1.gif) no-repeat center center;
+    background: url(/assets/images/spinner-big.gif) no-repeat center center;
 }
 .header_finished_link {
     display: inline-block;
@@ -9189,7 +9188,7 @@ input.header_input {
     padding: 5px;
 }
 .oceans-blue #codeApp .loading {
-    background: url(/assets/spinner-big-oceans-blue-a632f5b5f551fcf2ae3fd9e4aa858a7fcbcf2d8ca84e9348fb7add4d7aea470c.gif) no-repeat center center;
+    background: url(/assets/images/spinner-big.gif) no-repeat center center;
 }
 .oceans-blue #codeApp .slow_load {
     color: #fff;
@@ -9199,7 +9198,7 @@ input.header_input {
 }
 #codeApp .loading {
     height: 520px;
-    background: url(/assets/spinner-big-c133f80475149189ebb5889ca47babde4a1deb6999a42ba098ce351004e1a2b1.gif) no-repeat center center;
+    background: url(/assets/images/spinner-big.gif) no-repeat center center;
 }
 #codeApp .slow_load {
     display: none;
@@ -9311,7 +9310,7 @@ html[dir=rtl] .video-modal .ui-tabs-nav li {
     position: absolute;
     cursor: pointer;
     z-index: 1;
-    background: url(/assets/x_button-a943bf2f706c7128fb5928fe677b4f665ed9f9deb10536ff9c1338cdcab69e0a.png) no-repeat center center;
+    background: url(/assets/images/x_button.png) no-repeat center center;
     background-size: 100% auto;
     top: -20px;
     right: -20px;
@@ -9344,7 +9343,7 @@ html[dir=rtl] .flip-x-close .x-close:hover {
     position: absolute;
     cursor: pointer;
     z-index: 1;
-    background: url(/assets/open_button-2341fa3f4a0e1326747b972d395eb670cf27bfb4f88b13771074ddbc9bcc9c3c.png) no-repeat center center;
+    background: url(/assets/images/open_button.png) no-repeat center center;
     background-size: 100% auto;
     top: -20px;
     right: 31px;
@@ -9395,7 +9394,7 @@ html[dir=rtl] .qtip-content {
     position: absolute;
     cursor: pointer;
     z-index: 1;
-    background: url(/assets/x_button-a943bf2f706c7128fb5928fe677b4f665ed9f9deb10536ff9c1338cdcab69e0a.png) no-repeat center center;
+    background: url(/assets/images/x_button.png) no-repeat center center;
     background-size: 100% auto;
     top: -20px;
     right: -20px;
@@ -10219,7 +10218,7 @@ a.download-video img:hover {
 }
 .curriculum-reference #iframe-loading.loading {
     height: 200px;
-    background: url(/assets/spinner-big-c133f80475149189ebb5889ca47babde4a1deb6999a42ba098ce351004e1a2b1.gif) no-repeat center center;
+    background: url(/assets/images/spinner-big.gif) no-repeat center center;
 }
 .external, .free-response, .curriculum-reference {
     max-width: 970px;
@@ -12414,5 +12413,17 @@ summary:hover {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+}
+
+#codeApp.pin_bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.full_container {
+    padding: 0;
 }
 /* end sq */
