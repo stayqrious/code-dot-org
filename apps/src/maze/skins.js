@@ -127,6 +127,30 @@ var CONFIGS = {
     danceOnLoad: true
   },
 
+  autowala: {
+    goalIdle: 'goalIdle.gif',
+    obstacleIdle: 'obstacle.png',
+
+    goalAnimation: 'goal.gif',
+    maze_forever: 'maze_forever.png',
+    largerObstacleAnimationTiles: 'tiles-broken.png',
+
+    obstacleScale: 1.2,
+    additionalSound: true,
+    idlePegmanAnimation: 'idle_avatar.gif',
+    wallPegmanAnimation: 'wall_avatar.png',
+    movePegmanAnimation: 'move_avatar.png',
+    movePegmanAnimationSpeedScale: 1.5,
+    // This is required when move pegman animation is set
+    movePegmanAnimationFrameNumber: 9,
+    hittingWallAnimation: 'wall.gif',
+    approachingGoalAnimation: 'close_goal.png',
+    pegmanHeight: 68,
+    pegmanWidth: 51,
+    pegmanYOffset: -14,
+    turnAfterVictory: true
+  },
+
   birds: {
     goalIdle: 'goalIdle.gif',
     obstacleIdle: 'obstacle.png',
