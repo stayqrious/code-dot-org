@@ -641,7 +641,7 @@ Flappy.init = function(config) {
 
   // when we have when_run and when_click, put when_run in top row
   if (level.startBlocks.indexOf('flappy_whenRunButtonClick') !== -1 || level.startBlocks.indexOf('when_run') !== -1) {
-    config.blockArrangement.flappy_whenClick.y = row2;
+    config.blockArrangement.flappy_whenClick.y = row3;
   }
 
   var onMount = function() {
