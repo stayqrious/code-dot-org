@@ -315,6 +315,8 @@ Applab.getHtml = function() {
   return Applab.levelHtml;
 };
 
+window.__TestInterface.getHtml = Applab.getHtml;
+
 /**
  * Sets Applab.levelHtml as well as #designModeViz contents.
  * designModeViz is the source of truth for the app's HTML.
