@@ -150,7 +150,7 @@
     "moment": "^2.19.3",
     "newrelic": "^1.27.2",
     "node-js-marker-clusterer": "^1.0.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "pepjs": "^0.4.3",
     "phantomjs-prebuilt": "^2.1.14",
     "pixelmatch": "^5.2.0",

@@ -1714,9 +1714,9 @@ FeedbackUtils.prototype.getTestResults = function(
     if (this.hasUnusedParam_()) {
       return TestResults.UNUSED_PARAM;
     }
-    if (this.hasUnusedFunction_()) {
-      return TestResults.UNUSED_FUNCTION;
-    }
+    // if (this.hasUnusedFunction_()) {
+    //   return TestResults.UNUSED_FUNCTION;
+    // }
     if (this.hasParamInputUnattached_()) {
       return TestResults.PARAM_INPUT_UNATTACHED;
     }
