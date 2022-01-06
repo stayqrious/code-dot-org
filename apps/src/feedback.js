@@ -1711,18 +1711,18 @@ FeedbackUtils.prototype.getTestResults = function(
     return TestResults.NESTED_FOR_SAME_VARIABLE;
   }
   if (Blockly.useContractEditor || Blockly.useModalFunctionEditor) {
-    if (this.hasUnusedParam_()) {
-      return TestResults.UNUSED_PARAM;
-    }
+    // if (this.hasUnusedParam_()) {
+    //   return TestResults.UNUSED_PARAM;
+    // }
     // if (this.hasUnusedFunction_()) {
     //   return TestResults.UNUSED_FUNCTION;
     // }
-    if (this.hasParamInputUnattached_()) {
-      return TestResults.PARAM_INPUT_UNATTACHED;
-    }
-    if (this.hasIncompleteBlockInFunction_()) {
-      return TestResults.INCOMPLETE_BLOCK_IN_FUNCTION;
-    }
+    // if (this.hasParamInputUnattached_()) {
+    //   return TestResults.PARAM_INPUT_UNATTACHED;
+    // }
+    // if (this.hasIncompleteBlockInFunction_()) {
+    //   return TestResults.INCOMPLETE_BLOCK_IN_FUNCTION;
+    // }
   }
   if (this.hasQuestionMarksInNumberField()) {
     return TestResults.QUESTION_MARKS_IN_NUMBER_FIELD;
