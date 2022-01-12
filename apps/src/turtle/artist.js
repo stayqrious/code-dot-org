@@ -921,7 +921,9 @@ Artist.prototype.execute = function(executionInfo) {
     this.reset();
   }
 
-  if (this.shouldAnimate_) {
+  var shouldBoost = document.getElementById("boost").checked;
+
+  if (this.shouldAnimate_ && !shouldBoost) {
     this.studioApp_.playAudio('start', {loop: true, volume: 0.25});
     // animate the transcript.
     this.pid = window.setTimeout(_.bind(this.animate, this), 100);
