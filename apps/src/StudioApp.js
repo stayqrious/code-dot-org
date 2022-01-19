@@ -59,7 +59,7 @@ import {getValidatedResult, initializeContainedLevel} from './containedLevels';
 import {lockContainedLevelAnswers} from './code-studio/levels/codeStudioLevels';
 import {parseElement as parseXmlElement} from './xml';
 import {resetAniGif} from '@cdo/apps/utils';
-import {setIsRunning, setIsEditWhileRun, setStepSpeed} from './redux/runState';
+import {setIsRunning, setIsEditWhileRun, setStepSpeed, setIsPreviewDisabled} from './redux/runState';
 import {isEditWhileRun} from './lib/tools/jsdebugger/redux';
 import {setPageConstants} from './redux/pageConstants';
 import {setVisualizationScale} from './redux/layout';
@@ -262,6 +262,7 @@ StudioApp.prototype.configure = function(options) {
   // Set default speed
   if (options.level) {
     getStore().dispatch(setStepSpeed(options.level.sliderSpeed));
+    getStore().dispatch(setIsPreviewDisabled(options.level.isPreviewDisabled));
   }
 };
 

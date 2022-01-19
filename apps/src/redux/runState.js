@@ -10,6 +10,7 @@ const SET_STEP_SPEED = 'runState/SET_STEP_SPEED';
 const SET_AWAITING_CONTAINED_RESPONSE =
   'runState/SET_AWAITING_CONTAINED_RESPONSE';
 const SET_IS_DEBUGGING_SPRITES = 'runState/SET_IS_DEBUGGING_SPRITES';
+const SET_IS_PREVIEW_DISABLED = 'runState/SET_IS_PREVIEW_DISABLED';
 
 const initialState = {
   isRunning: false,
@@ -19,7 +20,8 @@ const initialState = {
   stepSpeed: 1,
   isDebuggingSprites: false,
   // true when waiting for user to provide an answer to a contained level
-  awaitingContainedResponse: false
+  awaitingContainedResponse: false,
+  isPreviewDisabled: false
 };
 
 /**
@@ -76,6 +78,13 @@ export default function reducer(state, action) {
     };
   }
 
+  if (action.type === SET_IS_PREVIEW_DISABLED) {
+    return {
+      ...state,
+      isPreviewDisabled: action.isPreviewDisabled
+    };
+  }
+
   return state;
 }
 
@@ -127,4 +136,13 @@ export const setAwaitingContainedResponse = awaitingContainedResponse => ({
 export const setIsDebuggingSprites = isDebuggingSprites => ({
   type: SET_IS_DEBUGGING_SPRITES,
   isDebuggingSprites: isDebuggingSprites
+});
+
+/**
+ * @param {boolean} isDebuggingSprites - Whether the app is currently debugging
+ *        sprites or not.
+ */
+export const setIsPreviewDisabled = isPreviewDisabled => ({
+  type: SET_IS_PREVIEW_DISABLED,
+  isPreviewDisabled: isPreviewDisabled
 });
