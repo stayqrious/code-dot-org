@@ -68,7 +68,7 @@ export default class ArtistVisualizationColumn extends React.Component {
               </button>
             )}
           </div>
-          <label for="boost"><input type="checkbox" id="boost"/>{' '}Cheetah mode</label>
+          <label for="boost"><input type="checkbox" id="boost"/>{' '}Skip animation (Cheetah mode)</label>
         </GameButtons>
         <BelowVisualization />
       </span>
