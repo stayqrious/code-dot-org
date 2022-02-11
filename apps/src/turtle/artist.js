@@ -886,13 +886,17 @@ Artist.prototype.execute = function(executionInfo) {
   }
 
   var shouldBoost = document.getElementById("boost").checked;
-
-  if (this.shouldAnimate_ && !shouldBoost) {
+  if (shouldBoost) {
+    this.shouldAnimate_ = false
+    this.instant_ = true;
+  }
+  if (this.shouldAnimate_) {
     this.studioApp_.playAudio('start', {loop: true, volume: 0.25});
     // animate the transcript.
     this.pid = window.setTimeout(_.bind(this.animate, this), 100);
   } else {
     while (this.animate()) {}
+    if (shouldBoost) { this.instant_ = false }
   }
 };
 

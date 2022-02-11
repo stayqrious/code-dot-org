@@ -87,10 +87,10 @@ class ErrorDialogStack extends React.Component {
         {error.error_type === 'anim_load' && (
           <div>
             <p>
-              {labMsg.errorLoadingAnimation({animationName: animationName})}
+              {labMsg.errorLoadingAnimation ? labMsg.errorLoadingAnimation({animationName: animationName}): `Error loading animation ${animationName}`}
             </p>
             <p>
-              {msg.contactWithoutEmail()}{' '}
+              {/*msg.contactWithoutEmail()}{' '}
               <a
                 href={pegasus('/contact')}
                 target="_blank"
@@ -98,7 +98,8 @@ class ErrorDialogStack extends React.Component {
               >
                 https://code.org/contact
               </a>
-              .
+              .*/}
+              Please contact your coach or delete the animation
             </p>
             <DialogFooter>
               {error.error_cause && (
