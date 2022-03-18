@@ -1859,7 +1859,41 @@ var projects = (module.exports = {
       sourcesApi = useSourcesPublic ? sourcesPublic : sources;
     }
     return sourcesApi;
+  },
+
+  ///  ARUN ADDED FOR Tagging versions to name
+  tagCurrentVersion(name) {
+    return new Promise((resolve, reject) => {
+      const versionId = this.getCurrentSourceVersionId();
+      const handler = function(event) {
+        const data = event.originalEvent.data || {};
+        if (data.event === 'versionTagged') {
+          resolve();
+          $(window).off("message", handler);
+        }
+      }.bind(this);
+
+      $(window).on("message", handler);
+      window.parent.postMessage({event: "tagVersion", versionId, versionTag: name }, '*');
+    })
+  },
+
+  getVersionTagMap() {
+    return new Promise((resolve, reject) => {
+      const handler = function(event) {
+        const data = event.originalEvent.data || {};
+        if (data.event === 'versionTags') {
+          resolve(data.tagMap);
+          $(window).off("message", handler);
+        }
+      }.bind(this);
+
+      $(window).on("message", handler);
+      window.parent.postMessage({ event: "loadVersionTags" }, '*');
+    });
+    
   }
+  /// END
 });
 
 function fetchAbuseScore(resolve) {

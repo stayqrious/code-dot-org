@@ -10,7 +10,8 @@ export default class VersionRow extends React.Component {
     versionId: PropTypes.string.isRequired,
     lastModified: PropTypes.instanceOf(Date).isRequired,
     isLatest: PropTypes.bool,
-    onChoose: PropTypes.func
+    onChoose: PropTypes.func,
+    versionTag: PropTypes.string,
   };
 
   getLastModifiedTimestamp() {
@@ -62,6 +63,7 @@ export default class VersionRow extends React.Component {
 
     return (
       <tr className="versionRow">
+        <td>{ this.props.versionTag || ""}</td>
         <td>
           <p>
             {msg.versionHistory_versionLabel({

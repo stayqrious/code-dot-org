@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import VersionRow from './VersionRow';
+import VersionSave from './VersionSave';
 import {sources as sourcesApi, files as filesApi} from '../clientApi';
 import project from '@cdo/apps/code-studio/initApp/project';
 import firehoseClient from '@cdo/apps/lib/util/firehose';
@@ -37,6 +38,10 @@ export default class VersionHistory extends React.Component {
   };
 
   componentWillMount() {
+    this.refreshVersions();
+  }
+
+  refreshVersions = () => {
     if (this.props.useFilesApi) {
       filesApi.getVersionHistory(
         this.onVersionListReceived,
@@ -59,8 +64,18 @@ export default class VersionHistory extends React.Component {
    * @param xhr
    */
   onVersionListReceived = xhr => {
-    this.setState({versions: JSON.parse(xhr.responseText), showSpinner: false});
+    this.setState({versions: JSON.parse(xhr.responseText), showSpinner: false}, this.patchInVersionTags);
   };
+
+  patchInVersionTags = () => {
+    project.getVersionTagMap().then(tags => {
+      const patchedVersions = this.state.versions.map(version => ({
+        ...version,
+        tag: tags[version.versionId]
+      }));
+      this.setState({ versions: patchedVersions });
+    })
+  }
 
   /**
    * Called if the server responds with an error when loading an API request.
@@ -184,6 +199,7 @@ export default class VersionHistory extends React.Component {
               lastModified={new Date(version.lastModified)}
               isLatest={version.isLatest}
               onChoose={this.onChooseVersion.bind(this, version.versionId)}
+              versionTag={version.tag}
             />
           );
         }.bind(this)
@@ -196,6 +212,7 @@ export default class VersionHistory extends React.Component {
               <tbody>
                 {rows}
                 <tr>
+                  <td></td>
                   <td>
                     <p>{i18n.versionHistory_initialVersion_label()}</p>
                   </td>
@@ -220,6 +237,8 @@ export default class VersionHistory extends React.Component {
     return (
       <div className="modal-content" style={{margin: 0}}>
         <h1 className="dialog-title">{title}</h1>
+        <VersionSave onSave={this.refreshVersions}/>
+        <hr/>
         {body}
         {this.state.statusMessage}
       </div>
