@@ -438,7 +438,7 @@ Applab.init = function(config) {
   // inlcude channel id in any new relic actions we generate
   logToCloud.setCustomAttribute('channelId', Applab.channelId);
 
-  config.useFilesApi = true;
+  config.usesAssets = true;
 
   Applab.clearEventHandlersKillTickLoop();
   skin = config.skin;
