@@ -28,7 +28,6 @@ import * as imageUtils from '@cdo/apps/imageUtils';
 import trackEvent from '../../util/trackEvent';
 import msg from '@cdo/locale';
 import {queryParams} from '@cdo/apps/code-studio/utils';
-import './sentry';
 import './sq';
 
 // Max milliseconds to wait for last attempt data from the server
@@ -404,6 +403,12 @@ async function loadAppAsync(appOptions) {
       appOptions.scriptName,
       appOptions.serverProjectLevelId || appOptions.serverLevelId
     );
+  }
+
+  if (appOptions.channel_backed) {
+    return loadTokenFromParent(appOptions).then((appOptions) => {
+      return loadProjectAndCheckAbuse(appOptions);
+    })
   }
 
   // If this is not a cached page, all appOptions (including user-specific values)
