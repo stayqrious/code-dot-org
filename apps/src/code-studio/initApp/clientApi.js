@@ -137,7 +137,7 @@ var base = {
     $.ajax({
       url: this.api_base_url + '/' + childPath,
       type: 'get',
-      dataType: dataType
+      dataType: dataType,
       headers: {
         'X-Token': window.SQ_TOKEN
       }

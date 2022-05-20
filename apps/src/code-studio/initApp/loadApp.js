@@ -27,12 +27,9 @@ import queryString from 'query-string';
 import * as imageUtils from '@cdo/apps/imageUtils';
 import trackEvent from '../../util/trackEvent';
 import msg from '@cdo/locale';
-<<<<<<< HEAD
 import {queryParams} from '@cdo/apps/code-studio/utils';
 import './sentry';
-=======
 import './sq';
->>>>>>> move loadApp to sq, patch more canvas methods for CSI
 
 // Max milliseconds to wait for last attempt data from the server
 var LAST_ATTEMPT_TIMEOUT = 5000;
