@@ -432,8 +432,8 @@
       "name": "black car",
       "sourceUrl": "/api/v1/animation-library/spritelab/Rp6THHQrxrOunFea3Fdsh17xusgIft_8/category_vehicles/car_black.png",
       "frameSize": {
-        "x": 131,
-        "y": 71
+        "x": 71,
+        "y": 131
       },
       "frameCount": 1,
       "looping": true,
@@ -447,8 +447,8 @@
       "name": "blue car",
       "sourceUrl": "/api/v1/animation-library/spritelab/H7wwrUYxb5VmZbeB1W1ICYbN8SVukjE6/category_vehicles/car_blue.png",
       "frameSize": {
-        "x": 131,
-        "y": 71
+        "x": 71,
+        "y": 131
       },
       "frameCount": 1,
       "looping": true,
@@ -462,8 +462,8 @@
       "name": "green car",
       "sourceUrl": "/api/v1/animation-library/spritelab/SfTWB9DNpPBcVqxLQvvtV7Ljpmn.eety/category_vehicles/car_green.png",
       "frameSize": {
-        "x": 131,
-        "y": 71
+        "x": 71,
+        "y": 131
       },
       "frameCount": 1,
       "looping": true,
@@ -477,8 +477,8 @@
       "name": "red car",
       "sourceUrl": "/api/v1/animation-library/spritelab/hd6CnZltKxmlWtdq.QnW0GOuCYG55Cxt/category_vehicles/car_red.png",
       "frameSize": {
-        "x": 131,
-        "y": 71
+        "x": 71,
+        "y": 131
       },
       "frameCount": 1,
       "looping": true,
@@ -492,8 +492,8 @@
       "name": "yellow car",
       "sourceUrl": "/api/v1/animation-library/spritelab/frAazTPJmgN_WH7tCmOlWHtblpx51ovD/category_vehicles/car_yellow.png",
       "frameSize": {
-        "x": 131,
-        "y": 71
+        "x": 71,
+        "y": 131
       },
       "frameCount": 1,
       "looping": true,
@@ -625,7 +625,7 @@
     },
     "eb9172fa-2a3b-432e-a793-eed54b7c28b0": {
       "name": "cave",
-      "sourceUrl": "/api/v1/animation-library/spritelab/Jew1r0diJWbWB4kbAZ7.NJ2AUYEGe6gf/category_backgrounds/background_cave.png",
+      "sourceUrl": "/blockly/media/spritelab/backgrounds/background_cave.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -640,7 +640,7 @@
     },
     "1e1cf026-e590-42c2-b048-77a5238fefa8": {
       "name": "court",
-      "sourceUrl": "/api/v1/animation-library/spritelab/adiEJboYctqvH_6oWQsa2pntrWoKSWCe/category_backgrounds/background_court.png",
+      "sourceUrl": "/blockly/media/spritelab/backgrounds/background_court.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -655,7 +655,7 @@
     },
     "5489da83-9fa7-43f1-880a-b61fff984881": {
       "name": "desert",
-      "sourceUrl": "/api/v1/animation-library/spritelab/jk3M8I5meW0fLpyM6u.r8uxw48VmFI8m/category_backgrounds/background_desert.png",
+      "sourceUrl": "/blockly/media/spritelab/backgrounds/background_desert.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -670,7 +670,7 @@
     },
     "a0313c31-5c27-46c8-8092-9aa10f594f0a": {
       "name": "grid",
-      "sourceUrl": "/api/v1/animation-library/spritelab/MPnxVQ7JpSjqVU9B_AEEdlI8RukDG6Np/category_backgrounds/background_grid.png",
+      "sourceUrl": "/blockly/media/spritelab/backgrounds/background_grid.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -685,7 +685,7 @@
     },
     "a8dbff6c-ece5-4882-94c8-36be4b402718": {
       "name": "rainbow",
-      "sourceUrl": "/api/v1/animation-library/spritelab/.NEByTTdvGYBmHbCgC31lkLP3r54MrUr/category_backgrounds/background_rainbow.png",
+      "sourceUrl": "/blockly/media/spritelab/backgrounds/background_rainbow.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -700,7 +700,7 @@
     },
     "06579a8b-dc52-47b5-959e-664b86350691": {
       "name": "sci_fi",
-      "sourceUrl": "/api/v1/animation-library/spritelab/7WGrtxRF0xE9GxyvmkSCB03aEmSnP1BJ/category_backgrounds/background_scifi.png",
+      "sourceUrl": "/blockly/media/spritelab/backgrounds/background_scifi.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -715,7 +715,7 @@
     },
     "cf184a02-f17a-413b-be21-a3786ec679d0": {
       "name": "space",
-      "sourceUrl": "/api/v1/animation-library/spritelab/GkTl8wY.EIs7j.aQ0guul9MkQurV2nXb/category_backgrounds/background_space.png",
+      "sourceUrl": "/blockly/media/spritelab/backgrounds/background_space.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -730,7 +730,7 @@
     },
     "bc9c0031-2b74-41d9-b15c-8f53f8ec7140": {
       "name": "underwater",
-      "sourceUrl": "/api/v1/animation-library/spritelab/xIYCzHqWYaGTKTc.iqy0NAcVSuVT6u58/category_backgrounds/background_underwater.png",
+      "sourceUrl": "/blockly/media/spritelab/backgrounds/background_underwater.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -745,7 +745,7 @@
     },
     "cb412eec-b7e3-48e1-bae3-bc0c20b9a71b": {
       "name": "city",
-      "sourceUrl": "/api/v1/animation-library/spritelab/B8kY3B8zXRk.dGgTTFgZKNS35c9N.DZg/category_backgrounds/city.png",
+      "sourceUrl": "/blockly/media/spritelab/backgrounds/city.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -760,7 +760,7 @@
     },
     "0cadc513-77d1-4581-99c7-bf1c8afe77ea": {
       "name": "floating_grass",
-      "sourceUrl": "/api/v1/animation-library/spritelab/yV.ZCUM_7X6N4iRY_acYSNmPK3p7xPtN/category_backgrounds/floating_grass.png",
+      "sourceUrl": "/blockly/media/spritelab/backgrounds/floating_grass.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -775,7 +775,7 @@
     },
     "3655a37a-b4fe-4386-babc-cbc44937c7e1": {
       "name": "living_room",
-      "sourceUrl": "/api/v1/animation-library/spritelab/4x6Z5zcMM25uAXN7ZxEmznHxW7DLOJYU/category_backgrounds/living_room.png",
+      "sourceUrl": "/blockly/media/spritelab/backgrounds/living_room.png",
       "frameSize": {
         "x": 400,
         "y": 400
@@ -790,7 +790,7 @@
     },
     "88aa300e-a523-4cdd-b1a5-eece16469978": {
       "name": "stage",
-      "sourceUrl": "/api/v1/animation-library/spritelab/mpyZAmKXL98z2CXGq2mNtPiB5h95V9Dq/category_backgrounds/stage.png",
+      "sourceUrl": "/blockly/media/spritelab/backgrounds/stage.png",
       "frameSize": {
         "x": 400,
         "y": 400
