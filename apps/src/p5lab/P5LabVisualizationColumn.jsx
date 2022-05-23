@@ -55,9 +55,7 @@ class P5LabVisualizationColumn extends React.Component {
     selectPicker: PropTypes.func.isRequired,
     updatePicker: PropTypes.func.isRequired,
     consoleMessages: PropTypes.array.isRequired,
-    isRtl: PropTypes.bool,
-    pauseHandler: PropTypes.func.isRequired,
-    hideCoordinates: PropTypes.bool.isRequired
+    isRtl: PropTypes.bool
   };
 
   // Cache app-space mouse coordinates, which we get from the
