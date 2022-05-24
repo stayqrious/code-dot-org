@@ -44,7 +44,14 @@ const SOUND_CATEGORIES = {
   tap: 'Tap',
   transition: 'Transition',
   whoosh: 'Whoosh',
-  all: 'All'
+  all: 'All',
+  sq_neoschoolers_music: 'SQ Neoschoolers Music',
+  action_and_adventure_music: 'Action and Adventure Music',
+  arcade_music: 'Arcade Music',
+  cartoon_music: 'Cartoon Music',
+  fairytale_and_feelgood_music: 'Fairytale and Feelgood Music',
+  world_of_magic_music: 'World of Magic Music',
+  game_sound_effects_extrapack: 'Game Sound Effects Extra Pack',
 };
 
 /**
