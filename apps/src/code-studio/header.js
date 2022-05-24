@@ -207,7 +207,7 @@ function setUpGlobalData(store) {
       console.log(err);
     });
 }
-setUpGlobalData(getStore());
+// setUpGlobalData(getStore());
 
 header.showMinimalProjectHeader = function() {
   getStore().dispatch(refreshProjectName());
