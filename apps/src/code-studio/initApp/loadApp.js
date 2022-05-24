@@ -411,6 +411,10 @@ async function loadAppAsync(appOptions) {
     })
   }
 
+  if (appOptions.level.projectTemplateLevelName && !appOptions.readonlyWorkspace) {	
+    return loadTemplateFromParent(appOptions);	
+  }
+
   // If this is not a cached page, all appOptions (including user-specific values)
   // are returned in the page and we can finish loading the app.
   if (!appOptions.publicCaching) {
@@ -425,89 +429,171 @@ async function loadAppAsync(appOptions) {
   // If the level requires a channel but no channel was passed from the server through app_options,
   // that indicates that the level was cached and the channel id needs to be loaded client-side
   // through the user_progress request
-  const shouldGetChannelId =
-    !!appOptions.levelRequiresChannel && !appOptions.channel;
+  // const shouldGetChannelId =
+  //   !!appOptions.levelRequiresChannel && !appOptions.channel;
 
-  const sectionId = clientState.queryParams('section_id') || '';
-  const exampleSolutionsRequest = $.ajax(
-    `/api/example_solutions/${appOptions.serverScriptLevelId}/${
-      appOptions.serverLevelId
-    }?section_id=${sectionId}`
-  );
+  // const sectionId = clientState.queryParams('section_id') || '';
+  // const exampleSolutionsRequest = $.ajax(
+  //   `/api/example_solutions/${appOptions.serverScriptLevelId}/${
+  //     appOptions.serverLevelId
+  //   }?section_id=${sectionId}`
+  // );
+
+  await loadProgramFromParentFrame();
 
   // Kick off userAppOptionsRequest before awaiting exampleSolutionsRequest to ensure requests
   // are made in parallel
-  const userAppOptionsRequest = $.ajax({
-    url:
-      `/api/user_app_options` +
-      `/${appOptions.scriptName}` +
-      `/${appOptions.lessonPosition}` +
-      `/${appOptions.levelPosition}` +
-      `/${appOptions.serverLevelId}`,
-    data: {
-      user_id: clientState.queryParams('user_id'),
-      get_channel_id: shouldGetChannelId
-    }
-  });
+  // const userAppOptionsRequest = $.ajax({
+  //   url:
+  //     `/api/user_app_options` +
+  //     `/${appOptions.scriptName}` +
+  //     `/${appOptions.lessonPosition}` +
+  //     `/${appOptions.levelPosition}` +
+  //     `/${appOptions.serverLevelId}`,
+  //   data: {
+  //     user_id: clientState.queryParams('user_id'),
+  //     get_channel_id: shouldGetChannelId
+  //   }
+  // });
 
-  try {
-    const exampleSolutions = await exampleSolutionsRequest;
+  // try {
+  //   const exampleSolutions = await exampleSolutionsRequest;
 
-    if (exampleSolutions) {
-      appOptions.exampleSolutions = exampleSolutions;
-    }
-  } catch (err) {
-    console.error('Could not load example solutions');
-  }
+  //   if (exampleSolutions) {
+  //     appOptions.exampleSolutions = exampleSolutions;
+  //   }
+  // } catch (err) {
+  //   console.error('Could not load example solutions');
+  // }
 
-  try {
-    const data = await userAppOptionsRequest;
+  // try {
+  //   const data = await userAppOptionsRequest;
 
-    appOptions.disableSocialShare = data.disableSocialShare;
+  //   appOptions.disableSocialShare = data.disableSocialShare;
 
-    if (data.isStarted) {
-      appOptions.level.isStarted = data.isStarted;
-    }
-    if (data.skipInstructionsPopup) {
-      appOptions.level.skipInstructionsPopup = data.skipInstructionsPopup;
-    }
-    if (data.readonlyWorkspace) {
-      appOptions.readonlyWorkspace = data.readonlyWorkspace;
-    }
-    if (data.callouts) {
-      appOptions.callouts = data.callouts;
-    }
+  //   if (data.isStarted) {
+  //     appOptions.level.isStarted = data.isStarted;
+  //   }
+  //   if (data.skipInstructionsPopup) {
+  //     appOptions.level.skipInstructionsPopup = data.skipInstructionsPopup;
+  //   }
+  //   if (data.readonlyWorkspace) {
+  //     appOptions.readonlyWorkspace = data.readonlyWorkspace;
+  //   }
+  //   if (data.callouts) {
+  //     appOptions.callouts = data.callouts;
+  //   }
 
-    if (data.lastAttempt) {
-      appOptions.level.lastAttempt = data.lastAttempt.source;
-    } else if (!data.signedIn) {
-      // User is not signed in, load last attempt from session storage.
+  //   if (data.lastAttempt) {
+  //     appOptions.level.lastAttempt = data.lastAttempt.source;
+  //   } else if (!data.signedIn) {
+  //     // User is not signed in, load last attempt from session storage.
+  //     appOptions.level.lastAttempt = clientState.sourceForLevel(
+  //       appOptions.scriptName,
+  //       appOptions.serverProjectLevelId || appOptions.serverLevelId
+  //     );
+  //   }
+
+  //   appOptions.level.isNavigator = data.isNavigator;
+  //   if (data.pairingDriver) {
+  //     appOptions.level.pairingDriver = data.pairingDriver;
+  //     appOptions.level.pairingAttempt = data.pairingAttempt;
+  //     appOptions.level.pairingChannelId = data.pairingChannelId;
+  //   }
+
+  //   if (data.channel) {
+  //     appOptions.channel = data.channel;
+  //     appOptions.reduceChannelUpdates = data.reduceChannelUpdates;
+  //     return await loadProjectAndCheckAbuse(appOptions);
+  //   } else {
+  //     return appOptions;
+  //   }
+  // } catch (err) {
+  //   // TODO: Show an error to the user here? (LP-1815)
+  //   console.error('Could not load app options');
+  //   return appOptions;
+  // }
+}
+
+async function loadProgramFromParentFrame() {
+  var lastAttemptLoaded = false;
+    function loadLastAttemptFromSessionStorage() {
       appOptions.level.lastAttempt = clientState.sourceForLevel(
         appOptions.scriptName,
         appOptions.serverProjectLevelId || appOptions.serverLevelId
       );
+      lastAttemptLoaded = true;
+      resolve(appOptions);
     }
 
-    appOptions.level.isNavigator = data.isNavigator;
-    if (data.pairingDriver) {
-      appOptions.level.pairingDriver = data.pairingDriver;
-      appOptions.level.pairingAttempt = data.pairingAttempt;
-      appOptions.level.pairingChannelId = data.pairingChannelId;
+
+    function onMsg(event) {
+      const payload = event.data;
+      if(payload.event === 'sourceResponse') {
+        window.removeEventListener("message", onMsg);
+        if (lastAttemptLoaded) return;
+
+        const source = payload.source;
+        const timestamp = payload.timestamp;
+
+        if (source && source.length) {
+          var cachedProgram = clientState.sourceForLevel(
+            appOptions.scriptName,
+            appOptions.serverLevelId,
+            timestamp
+          );
+
+          if (cachedProgram !== undefined) {
+            // Client version is newer
+            appOptions.level.lastAttempt = cachedProgram;
+          } else {
+            // Sever version is newer
+            appOptions.level.lastAttempt = source;
+
+            // Write down the lastAttempt from server in sessionStorage
+            clientState.writeSourceForLevel(
+              appOptions.scriptName,
+              appOptions.serverLevelId,
+              timestamp,
+              source
+            );
+          }
+        } else { // Load the cached version
+          var cachedProgram = clientState.sourceForLevel(
+            appOptions.scriptName,
+            appOptions.serverLevelId
+          );
+
+          if (cachedProgram !== undefined) {
+            // Client version is newer
+            appOptions.level.lastAttempt = cachedProgram;
+          }
+        }
+
+        /// FOR NOW adding here
+        if (payload.username) {
+          Sentry.configureScope(function(scope) {
+            scope.setUser({id: payload.username});
+          });
+        }
+        resolve(appOptions);
+      }
+
+      if (payload.event === 'loadSource') { // means we got our own message :|
+        resolve(appOptions);
+      }
     }
 
-    if (data.channel) {
-      appOptions.channel = data.channel;
-      appOptions.reduceChannelUpdates = data.reduceChannelUpdates;
-      return await loadProjectAndCheckAbuse(appOptions);
+    if(window.parent) {
+      window.addEventListener("message", onMsg);
+      window.parent.postMessage({"event": "loadSource"}, '*')
     } else {
-      return appOptions;
+      resolve(appOptions);
     }
-  } catch (err) {
-    // TODO: Show an error to the user here? (LP-1815)
-    console.error('Could not load app options');
-    return appOptions;
-  }
+
+    setTimeout(loadLastAttemptFromSessionStorage, LAST_ATTEMPT_TIMEOUT);
 }
+
 
 window.dashboard = window.dashboard || {};
 
