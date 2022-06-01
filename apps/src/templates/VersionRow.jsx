@@ -15,7 +15,8 @@ export default class VersionRow extends React.Component {
     isLatest: PropTypes.bool.isRequired,
     isSelectedVersion: PropTypes.bool.isRequired,
     isReadOnly: PropTypes.bool.isRequired,
-    onChoose: PropTypes.func
+    onChoose: PropTypes.func,
+    versionTag: PropTypes.string
   };
 
   getLastModifiedTimestamp() {
@@ -76,34 +77,34 @@ export default class VersionRow extends React.Component {
       );
     }
 
-    if (!this.props.isSelectedVersion) {
-      buttons.push(
-        <a
-          key={'not-selected-version-button'}
-          href={
-            location.origin + location.pathname + '?' + this.getQueryParams()
-          }
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <button type="button" className="btn-info">
-            {msg.view()}
-          </button>
-        </a>
-      );
-    } else {
-      buttons.push(
-        <button
-          key={'disabled-view-button'}
-          type="button"
-          className="btn-default"
-          disabled="disabled"
-          style={{cursor: 'default', color: 'white'}}
-        >
-          {msg.view()}
-        </button>
-      );
-    }
+    // if (!this.props.isSelectedVersion) {
+    //   buttons.push(
+    //     <a
+    //       key={'not-selected-version-button'}
+    //       href={
+    //         location.origin + location.pathname + '?' + this.getQueryParams()
+    //       }
+    //       target="_blank"
+    //       rel="noopener noreferrer"
+    //     >
+    //       <button type="button" className="btn-info">
+    //         {msg.view()}
+    //       </button>
+    //     </a>
+    //   );
+    // } else {
+    //   buttons.push(
+    //     <button
+    //       key={'disabled-view-button'}
+    //       type="button"
+    //       className="btn-default"
+    //       disabled="disabled"
+    //       style={{cursor: 'default', color: 'white'}}
+    //     >
+    //       {msg.view()}
+    //     </button>
+    //   );
+    // }
 
     return (
       <tr
@@ -112,6 +113,7 @@ export default class VersionRow extends React.Component {
           highlight: this.props.isSelectedVersion
         })}
       >
+        <td>{ this.props.versionTag || ""}</td>
         <td>
           <p>
             {msg.versionHistory_versionLabel({

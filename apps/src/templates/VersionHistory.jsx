@@ -40,6 +40,10 @@ export default class VersionHistory extends React.Component {
   };
 
   UNSAFE_componentWillMount() {
+    this.refreshVersions();
+  }
+
+  refreshVersions = () => {
     if (this.props.useFilesApi) {
       filesApi.getVersionHistory(
         this.onVersionListReceived,
@@ -55,6 +59,7 @@ export default class VersionHistory extends React.Component {
       );
     }
   }
+  
 
   /**
    * Called after the component mounts, when the server responds with the
@@ -217,6 +222,8 @@ export default class VersionHistory extends React.Component {
                 {rows}
                 {!this.props.isReadOnly && (
                   <tr>
+                    <td>
+                    </td>
                     <td>
                       <p>{i18n.versionHistory_initialVersion_label()}</p>
                     </td>
