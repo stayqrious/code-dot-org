@@ -9,6 +9,13 @@ import firehoseClient from '@cdo/apps/lib/util/firehose';
 import i18n from '@cdo/locale';
 
 const SOUND_CATEGORIES = {
+  sq_neoschoolers_music: 'SQ Neoschoolers Music',
+  action_and_adventure_music: 'Action and Adventure Music',
+  arcade_music: 'Arcade Music',
+  cartoon_music: 'Cartoon Music',
+  fairytale_and_feelgood_music: 'Fairytale and Feelgood Music',
+  world_of_magic_music: 'World of Magic Music',
+  game_sound_effects_extrapack: 'Game Sound Effects Extra Pack',
   accent: 'Accent',
   achievements: 'Achievements',
   alerts: 'Alerts',
