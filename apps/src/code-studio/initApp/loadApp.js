@@ -439,7 +439,7 @@ async function loadAppAsync(appOptions) {
   //   }?section_id=${sectionId}`
   // );
 
-  await loadProgramFromParentFrame();
+  return loadProgramFromParentFrame(appOptions);
 
   // Kick off userAppOptionsRequest before awaiting exampleSolutionsRequest to ensure requests
   // are made in parallel
@@ -515,8 +515,9 @@ async function loadAppAsync(appOptions) {
   // }
 }
 
-async function loadProgramFromParentFrame() {
-  var lastAttemptLoaded = false;
+function loadProgramFromParentFrame(appOptions) {
+  return new Promise((resolve, reject) => {
+    var lastAttemptLoaded = false;
     function loadLastAttemptFromSessionStorage() {
       appOptions.level.lastAttempt = clientState.sourceForLevel(
         appOptions.scriptName,
@@ -592,6 +593,7 @@ async function loadProgramFromParentFrame() {
     }
 
     setTimeout(loadLastAttemptFromSessionStorage, LAST_ATTEMPT_TIMEOUT);
+  });
 }
 
 
