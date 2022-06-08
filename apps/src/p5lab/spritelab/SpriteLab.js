@@ -50,6 +50,9 @@ export default class SpriteLab extends P5Lab {
     if (getStore().getState().runState.isRunning) {
       return;
     }
+    if (getStore().getState().runState.isPreviewDisabled) {
+      return;
+    }
     if (this.p5Wrapper.p5decrementPreload) {
       // preload is still in progress. This happens sometimes on initial page load because both the Gamelab reset
       // handler and the Blockly change handler call preview. The first call goes to the else case below and calls
