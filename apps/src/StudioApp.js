@@ -1767,7 +1767,9 @@ StudioApp.prototype.report = function(options) {
   // they cannot have modified. In that case, don't report it to the service
   // or call the onComplete() callback expected. The app will just sit
   // there with the Reset button as the only option.
-  if (!(this.hideSource && this.share) && !readOnly) {
+
+  // SQ: && !readOnly removed to fix non-responsive Finish button in readonly workspace
+  if (!(this.hideSource && this.share)) {
     this.onAttempt(report);
   }
 };
