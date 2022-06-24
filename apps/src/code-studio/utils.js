@@ -24,7 +24,8 @@ export function hasQueryParam(name) {
  * @return {object|string} Hash of params, or param string if `name` is specified.
  */
 export function queryParams(name) {
-  const parsed = queryString.parse(windowLocation.search);
+  // SQ: window.parent location for getting parameters from url
+  const parsed = queryString.parse(window.parent.location.search);
   if (name) {
     return parsed[name];
   }

@@ -77,34 +77,35 @@ export default class VersionRow extends React.Component {
       );
     }
 
-    // if (!this.props.isSelectedVersion) {
-    //   buttons.push(
-    //     <a
-    //       key={'not-selected-version-button'}
-    //       href={
-    //         location.origin + location.pathname + '?' + this.getQueryParams()
-    //       }
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       <button type="button" className="btn-info">
-    //         {msg.view()}
-    //       </button>
-    //     </a>
-    //   );
-    // } else {
-    //   buttons.push(
-    //     <button
-    //       key={'disabled-view-button'}
-    //       type="button"
-    //       className="btn-default"
-    //       disabled="disabled"
-    //       style={{cursor: 'default', color: 'white'}}
-    //     >
-    //       {msg.view()}
-    //     </button>
-    //   );
-    // }
+    // SQ: Use window.parent location for getting url of selected version
+    if (!this.props.isSelectedVersion) {
+      buttons.push(
+        <a
+          key={'not-selected-version-button'}
+          href={
+            window.parent.location.origin + window.parent.location.pathname + '?' + this.getQueryParams()
+          }
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button type="button" className="btn-info">
+            {msg.view()}
+          </button>
+        </a>
+      );
+    } else {
+      buttons.push(
+        <button
+          key={'disabled-view-button'}
+          type="button"
+          className="btn-default"
+          disabled="disabled"
+          style={{cursor: 'default', color: 'white'}}
+        >
+          {msg.view()}
+        </button>
+      );
+    }
 
     return (
       <tr
