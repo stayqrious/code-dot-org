@@ -713,7 +713,8 @@ StudioApp.prototype.getVersionHistoryHandler = function(config) {
         isProjectTemplateLevel: !!config.level.projectTemplateLevelName,
         useFilesApi: !!config.useFilesApi,
         selectedVersion: queryParams('version'),
-        isReadOnly: !!config.readonlyWorkspace
+        isReadOnly: !!config.readonlyWorkspace,
+        activityId: config.activityId
       }),
       contentDiv
     );
@@ -3279,6 +3280,7 @@ StudioApp.prototype.hasDuplicateVariablesInForLoops = function() {
   if (this.editCode) {
     return false;
   }
+  //--------------------
   return Blockly.mainBlockSpace
     .getAllUsedBlocks()
     .some(this.forLoopHasDuplicatedNestedVariables_);

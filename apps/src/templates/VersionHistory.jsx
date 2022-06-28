@@ -17,7 +17,8 @@ export default class VersionHistory extends React.Component {
     isProjectTemplateLevel: PropTypes.bool.isRequired,
     useFilesApi: PropTypes.bool.isRequired,
     selectedVersion: PropTypes.string,
-    isReadOnly: PropTypes.bool.isRequired
+    isReadOnly: PropTypes.bool.isRequired,
+    activityId: PropTypes.string,
   };
 
   /**
@@ -192,7 +193,7 @@ export default class VersionHistory extends React.Component {
       );
     } else {
       title = i18n.versionHistory_header();
-
+      // SQ: added activityId for version history url
       const rows = this.state.versions.map(
         function(version) {
           return (
@@ -209,6 +210,7 @@ export default class VersionHistory extends React.Component {
               isReadOnly={this.props.isReadOnly}
               onChoose={this.onChooseVersion.bind(this, version.versionId)}
               versionTag={version.tag}
+              activityId={this.props.activityId}
             />
           );
         }.bind(this)

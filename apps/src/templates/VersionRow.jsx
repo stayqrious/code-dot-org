@@ -16,7 +16,8 @@ export default class VersionRow extends React.Component {
     isSelectedVersion: PropTypes.bool.isRequired,
     isReadOnly: PropTypes.bool.isRequired,
     onChoose: PropTypes.func,
-    versionTag: PropTypes.string
+    versionTag: PropTypes.string,
+    activityId: PropTypes.string,
   };
 
   getLastModifiedTimestamp() {
@@ -83,7 +84,7 @@ export default class VersionRow extends React.Component {
         <a
           key={'not-selected-version-button'}
           href={
-            window.parent.location.origin + window.parent.location.pathname + '?' + this.getQueryParams()
+            window.parent.location.origin + '/activity/' + this.props.activityId + '?' + this.getQueryParams()
           }
           target="_blank"
           rel="noopener noreferrer"
