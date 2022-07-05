@@ -60,6 +60,19 @@ export default class SpriteLab extends P5Lab {
       // and, not knowing that preload is still in progress, would attempt to call p5.redraw(), and mess up the preview
       return;
     }
+
+    // SQ: Check to avoid crashing in preview
+    if (
+      this.isBlockly &&
+      (this.studioApp_.hasUnwantedExtraTopBlocks() ||
+        this.studioApp_.hasDuplicateVariablesInForLoops())
+    ) {
+      if (document.getElementsByClassName("errorMessage").length === 0) {
+        this.reactToExecutionError("Unable to generate preview. Check for unwanted top blocks or duplicate variables in loops.");
+      }
+      return;
+    }
+
     getStore().dispatch(clearConsole());
     Sounds.getSingleton().muteURLs();
     if (this.p5Wrapper.p5 && this.JSInterpreter) {
@@ -97,6 +110,7 @@ export default class SpriteLab extends P5Lab {
   /**
    * If there is an executionError, create a WorkspaceAlert.
    * We do this because Sprite Lab has no user-facing console.
+   * SQ: errorMessage added to avoid displaying multiple error messages overlapping each other.
    */
   reactToExecutionError(msg) {
     if (!msg) {
@@ -106,7 +120,7 @@ export default class SpriteLab extends P5Lab {
       'error',
       React.createElement(
         'div',
-        {},
+        {className: 'errorMessage'},
         this.getMsg().workspaceAlertError({
           error: msg || ''
         })
