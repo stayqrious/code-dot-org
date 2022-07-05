@@ -3280,10 +3280,78 @@ StudioApp.prototype.hasDuplicateVariablesInForLoops = function() {
   if (this.editCode) {
     return false;
   }
-  //--------------------
+
   return Blockly.mainBlockSpace
     .getAllUsedBlocks()
     .some(this.forLoopHasDuplicatedNestedVariables_);
+};
+
+
+/**
+ * SQ: Look for large loops
+ * @returns {number} Count
+ */
+StudioApp.prototype.largeLoopDetected_ = function() {
+  const getInterationsCountForLoop = (block) => {
+    let arr = [];
+    block.childBlocks_.map((item) => {
+      if (item.type == "math_number") {
+        arr.push(item.inputList[0].titleRow[0].text_);
+      }
+    });
+    if (arr.length == 3) {
+      return parseInt(Math.abs(arr[1] - arr[0]) / arr[2])
+    }
+    return 0;
+  }
+
+  let blockIds = [];
+
+  return Blockly.mainBlockSpace.getAllUsedBlocks().some((block) => {
+    if (
+      !block ||
+      (block.type !== 'controls_for' && block.type !== 'controls_for_counter')
+    ) {
+      return;
+    }
+
+    if (blockIds.indexOf(block.id) !== -1) {
+      return;
+    }
+
+    let loopInterationsCount = getInterationsCountForLoop(block);
+    if (loopInterationsCount === 0) {
+      return;
+    }
+    blockIds.push(block.id);
+
+    let innerBlock = block.getInput('DO').connection.targetBlock();
+    if (innerBlock) {
+      Blockly.Variables.allVariablesFromBlock(block).some(function(varName) {
+        innerBlock.getDescendants().some(function(descendant) {
+          if (
+            descendant.type !== 'controls_for' &&
+            descendant.type !== 'controls_for_counter'
+          ) {
+            return;
+          }
+          blockIds.push(descendant.id);
+
+          let descendantInterationsCount = getInterationsCountForLoop(descendant);
+          if (descendantInterationsCount == 0) {
+            return;
+          }
+
+          loopInterationsCount *= descendantInterationsCount;
+        })
+      })
+    }
+
+    if (loopInterationsCount > 2000) {
+      return true;
+    }
+    return false;
+  });
 };
 
 /**

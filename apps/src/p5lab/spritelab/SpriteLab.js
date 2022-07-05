@@ -73,6 +73,13 @@ export default class SpriteLab extends P5Lab {
       return;
     }
 
+    if (this.studioApp_.largeLoopDetected_()) {
+      if (document.getElementsByClassName("errorMessage").length === 0) {
+        this.reactToExecutionError("Unable to generate preview. Check for large loops.");
+      }
+      return;
+    }
+
     getStore().dispatch(clearConsole());
     Sounds.getSingleton().muteURLs();
     if (this.p5Wrapper.p5 && this.JSInterpreter) {
