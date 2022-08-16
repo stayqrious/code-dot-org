@@ -15,6 +15,7 @@ import {connect} from 'react-redux';
 import classNames from 'classnames';
 import i18n from '@cdo/locale';
 import * as dom from '../dom';
+import ProjectUpdatedAt from '../code-studio/components/header/ProjectUpdatedAt';
 
 class ApplabVisualizationColumn extends React.Component {
   static propTypes = {
@@ -145,6 +146,8 @@ class ApplabVisualizationColumn extends React.Component {
           </div>
         )}
         <BelowVisualization />
+        {/* SQ: ProjectUpdatedAt is added to show messages at bottom left */}
+        <ProjectUpdatedAt />
       </div>
     );
   }

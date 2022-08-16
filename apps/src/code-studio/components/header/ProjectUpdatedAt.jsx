@@ -68,10 +68,17 @@ class ProjectUpdatedAt extends React.Component {
   }
 }
 
+// SQ: css below textAlign is added to show msg at bottom left
 const styles = {
   container: {
     display: 'block',
-    textAlign: 'left'
+    textAlign: 'left',
+    border: '1px solid lightgrey',
+    borderRadius: '5px',
+    margin: '10px',
+    padding: '0 5px',
+    position: 'absolute',
+    bottom: 0
   }
 };
 

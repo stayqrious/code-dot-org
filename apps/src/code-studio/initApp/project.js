@@ -1159,8 +1159,6 @@ var projects = (module.exports = {
                 err.message
               ).finally(() => utils.reload());
             } else if (err.message.includes('httpStatusCode: 409')) {
-              // SQ: Alert user to refresh page in case of latest version conflict
-              alert("Unable to save. Please refresh the page. If it's your latest code then copy the code before refreshing.");
               this.showSaveError_();
               this.logError_(
                 'conflict-save-sources-reload',
