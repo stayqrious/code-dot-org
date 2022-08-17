@@ -7,6 +7,7 @@ import BelowVisualization from '../templates/BelowVisualization';
 import ProtectedVisualizationDiv from '../templates/ProtectedVisualizationDiv';
 import SaveImageButton from './SaveImageButton';
 import msg from '@cdo/locale';
+import ProjectUpdatedAt from '../code-studio/components/header/ProjectUpdatedAt';
 
 export default class ArtistVisualizationColumn extends React.Component {
   static propTypes = {
@@ -71,6 +72,9 @@ export default class ArtistVisualizationColumn extends React.Component {
           <label for="boost"><input type="checkbox" id="boost"/>{' '}Skip animation (Cheetah mode)</label>
         </GameButtons>
         <BelowVisualization />
+        {/* SQ: ProjectUpdatedAt is added to show messages at bottom left */}
+        <ProjectUpdatedAt />
+        
       </span>
     );
   }

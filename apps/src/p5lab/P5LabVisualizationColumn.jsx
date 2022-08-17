@@ -30,6 +30,7 @@ import {
 } from './redux/locationPicker';
 import {calculateOffsetCoordinates} from '@cdo/apps/utils';
 import {isMobileDevice} from '@cdo/apps/util/browser-detector';
+import ProjectUpdatedAt from '../code-studio/components/header/ProjectUpdatedAt';
 
 const MODAL_Z_INDEX = 1050;
 const LOCATION_PICKER_CANCEL_THRESHOLD_MS = 250;
@@ -234,6 +235,8 @@ class P5LabVisualizationColumn extends React.Component {
             }}
           />
         )}
+        {/* SQ: ProjectUpdatedAt is added to show messages at bottom left */}
+        <ProjectUpdatedAt />
       </div>
     );
   }
