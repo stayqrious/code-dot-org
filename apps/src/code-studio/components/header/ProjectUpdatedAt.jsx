@@ -33,6 +33,7 @@ class ProjectUpdatedAt extends React.Component {
         <span
           className="project-save-error"
           title={msg.projectSaveErrorTooltip()}
+          style={styles.error}
         >
           <i className="fa fa-exclamation-triangle" />
           {msg.projectSaveError()}
@@ -79,6 +80,10 @@ const styles = {
     padding: '0 5px',
     position: 'absolute',
     bottom: 0
+  },
+  error: {
+    color: 'red',
+    fontWeight: 600
   }
 };
 
