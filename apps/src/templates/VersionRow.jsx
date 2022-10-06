@@ -23,7 +23,8 @@ export default class VersionRow extends React.Component {
   getLastModifiedTimestamp() {
     const timestamp = this.props.lastModified;
     if (timestamp.toLocaleString) {
-      return timestamp.toLocaleString();
+      // SQ: date format changed to D/M/Y
+      return timestamp.toLocaleString('en-GB', { hour12: true }).toUpperCase();
     }
     return timestamp.toString();
   }
