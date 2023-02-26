@@ -474,6 +474,7 @@ export default class P5Lab {
     // levels.
     const useConfig =
       config.initialAnimationList &&
+      Object.keys(config.initialAnimationList).length > 0 &&
       !config.embed &&
       !config.hasContainedLevels;
     let initialAnimationList = useConfig
